@@ -1,0 +1,43 @@
+{
+  "db_path": "data/tracker.db",
+  "cache_dir": "data/cache",
+  "http": {
+    "timeout": 30,
+    "max_retries": 3,
+    "backoff_sec": 20,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+  },
+  "search": {
+    "max_price": 300000,
+    "results_per_page": 24,
+    "max_pages_per_query": 42,
+    "cap": 1000,
+    "price_bands": [0, 75000, 150000, 225000, 300000],
+    "delay_sec": 2.0,
+    "detail_ttl_days": 30,
+    "full_cycle_days": 7,
+    "new_pages_per_region": 6,
+    "new_stop_pages": 2,
+    "cache_ttl_days": 7
+  },
+  "regions": {
+    "file": "data/regions.json",
+    "enabled": []
+  },
+  "sources": {
+    "rightmove": { "enabled": true, "interval_min": 720 }
+  },
+  "alerts": {
+    "desktop_toast": true,
+    "console_banner": true,
+    "webhook_url": null,
+    "min_acres": 0.5,
+    "top_n": 10
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8138
+  },
+  "snapshots_dir": "snapshots",
+  "site_dir": "docs"
+}

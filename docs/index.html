@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>acres-per-pound — UK property ranked by land value</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>acres<span>-per-pound</span></h1>
+    <p class="sub">UK property for sale, ranked by pounds per acre. Updated automatically.</p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-view="all" class="active">All with land</button>
+    <button data-view="houses">Houses with land</button>
+    <button data-view="land">Bare land</button>
+  </nav>
+
+  <section class="controls">
+    <label>Region
+      <select id="region"><option value="">All regions</option></select>
+    </label>
+    <label>Min acres
+      <input type="number" id="minAcres" step="0.1" min="0" value="0">
+    </label>
+    <label>Max price
+      <input type="number" id="maxPrice" step="10000" min="0" value="300000">
+    </label>
+    <label class="check"><input type="checkbox" id="onlyNew"> New / reduced only</label>
+  </section>
+
+  <main>
+    <table id="rank">
+      <thead>
+        <tr>
+          <th data-sort="rank">#</th>
+          <th data-sort="gbp_per_acre" class="sort-asc">£ / acre</th>
+          <th data-sort="acres_mid">Acres</th>
+          <th data-sort="price">Price</th>
+          <th data-sort="address">Address</th>
+          <th data-sort="region_name">Region</th>
+          <th data-sort="confidence">Source</th>
+          <th data-sort="listing_status">Status</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="count" id="count"></p>
+  </main>
+
+  <section class="changes">
+    <h2>Latest changes</h2>
+    <ul id="events"></ul>
+  </section>
+
+  <footer>
+    <p>Data: Rightmove public listings, personal research use. Acreage parsed from listing text —
+      always verify with the agent. Source: <a href="https://github.com/CHANGEME/acres-per-pound">acres-per-pound</a>.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
