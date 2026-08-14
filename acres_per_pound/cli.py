@@ -49,8 +49,10 @@ def cmd_run_once(args):
     if state["stats"]["truncated_regions"]:
         print(f"WARNING truncated regions: {state['stats']['truncated_regions']}")
     print(f"events: {len(state['events'])} (new/reduced/increased/removed)")
+    excl = set(cfg.get("search", {}).get("exclude_subtypes") or [])
     rows = [r for r in state["listings"].values()
-            if r.get("active") is not False and r.get("gbp_per_acre") is not None]
+            if r.get("active") is not False and r.get("gbp_per_acre") is not None
+            and (r.get("subtype") or "") not in excl]
     rows.sort(key=lambda r: r["gbp_per_acre"])
     print("\n=== TOP 25 GBP PER ACRE ===")
     for r in rows[:25]:

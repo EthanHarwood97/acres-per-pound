@@ -34,15 +34,22 @@ def _state_row(row):
     return {k: v for k in keep if (v := row.get(k)) is not None}
 
 
-def ranking(listings):
+def excluded_subtypes(cfg):
+    return set(cfg.get("search", {}).get("exclude_subtypes") or [])
+
+
+def ranking(listings, cfg=None):
+    excl = excluded_subtypes(cfg or load_config()) if cfg else set()
     rows = [r for r in listings.values()
-            if r.get("active") is not False and r.get("gbp_per_acre") is not None]
+            if r.get("active") is not False
+            and r.get("gbp_per_acre") is not None
+            and (r.get("subtype") or "") not in excl]
     rows.sort(key=lambda r: r["gbp_per_acre"])
     return rows
 
 
-def views(state):
-    rows = ranking(state["listings"])
+def views(state, cfg=None):
+    rows = ranking(state["listings"], cfg)
     land = [r for r in rows if r.get("land_only")]
     houses = [r for r in rows if not r.get("land_only")]
     return {
@@ -78,7 +85,7 @@ def build_site(state, cfg, site_dir="docs", new_events=()):
     if not site.is_absolute():
         site = REPO_DIR / site
     site.mkdir(parents=True, exist_ok=True)
-    payload = views(state)
+    payload = views(state, cfg)
     (site / "data.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
     (site / ".nojekyll").write_text("", encoding="utf-8")
     for name in ("index.html", "app.js", "style.css"):

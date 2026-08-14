@@ -113,8 +113,11 @@ def cycle(fetcher, cfg, regions, prev_state=None, verbose=False, force_full=Fals
 
     # acreage enrichment: only for listings seen this cycle, and only when
     # we don't already have a persisted figure (or a failed detail check)
+    excl = set(cfg.get("search", {}).get("exclude_subtypes") or [])
     for rm_id, row in cur.items():
         if not row.get("last_seen") or row["last_seen"] != ts:
+            continue
+        if (row.get("subtype") or "") in excl:
             continue
         prev_row = prev.get(rm_id) or {}
         if row.get("acres_mid") is None and prev_row.get("detail_checked"):

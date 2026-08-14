@@ -18,7 +18,12 @@
     "full_cycle_days": 7,
     "new_pages_per_region": 6,
     "new_stop_pages": 2,
-    "cache_ttl_days": 7
+    "cache_ttl_days": 7,
+    "exclude_subtypes": [
+      "flat", "apartment", "maisonette", "ground flat", "duplex", "studio",
+      "park home", "mobile home", "lodge", "caravan", "retirement property",
+      "sheltered housing"
+    ]
   },
   "regions": {
     "file": "data/regions.json",

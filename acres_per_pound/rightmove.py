@@ -162,7 +162,7 @@ def scan_region(fetcher, region, cfg, max_pages=42, mode="full", seen_ids=None, 
     try:
         r = fetcher.get(_search_url(region["id"], max_price), ttl=3600, rate_limit=True)
         sr = search_results(r.text)
-        total = int(sr.get("resultCount") or 0)
+        total = int(str(sr.get("resultCount") or "0").replace(",", ""))
     except Exception as e:
         if verbose:
             print(f"  REGION^{region['id']} ({region.get('name')}): probe failed: {e}")
@@ -199,12 +199,15 @@ def _scan_query(fetcher, region, max_price, min_price, max_band, max_pages, seen
         except Exception as e:
             if verbose:
                 print(f"  page {page} failed: {e}")
+            truncated = True
             break
         if r.status_code != 200 or "page-not-found" in str(r.url):
+            truncated = True
             break
         try:
             sr = search_results(r.text)
         except Exception:
+            truncated = True
             break
         props = sr.get("properties") or []
         if not props:

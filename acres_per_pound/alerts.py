@@ -12,12 +12,14 @@ def _top_new(listings, events, cfg, top_n):
     alert_cfg = cfg.get("alerts", {})
     min_acres = alert_cfg.get("min_acres", 0.5)
     top_n = alert_cfg.get("top_n", top_n)
+    excl = set(cfg.get("search", {}).get("exclude_subtypes") or [])
     new_ids = {e["rm_id"] for e in events if e["event"] in ("new", "reduced")}
     rows = [
         r for r in listings.values()
         if r.get("rm_id") in new_ids
         and (r.get("acres_mid") or 0) >= min_acres
         and r.get("gbp_per_acre") is not None
+        and (r.get("subtype") or "") not in excl
     ]
     rows.sort(key=lambda r: r["gbp_per_acre"])
     return rows[:top_n]
