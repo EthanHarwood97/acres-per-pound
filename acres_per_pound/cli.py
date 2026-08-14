@@ -38,8 +38,12 @@ def cmd_run_once(args):
     cfg = load_config()
     fetcher = Fetcher(cfg)
     regs = _enabled_regions(cfg, args)
+    snaps = pathlib.Path(cfg["snapshots_dir"])
+    if not snaps.is_absolute():
+        snaps = REPO_DIR / snaps
+    prev = load_state(snaps / "state.json")
     print(f"scanning {len(regs)} regions (max price {cfg['search']['max_price']})")
-    state = cycle(fetcher, cfg, regs, verbose=True, force_full=True)
+    state = cycle(fetcher, cfg, regs, prev_state=prev, verbose=True, force_full=True)
     print(f"listings: {state['stats']['listings']}, with land: {state['stats']['with_land']}, "
           f"land-only: {state['stats']['land_only']}")
     if state["stats"]["truncated_regions"]:
@@ -54,9 +58,6 @@ def cmd_run_once(args):
         print(f"  {r['gbp_per_acre']:>11,.0f} GBP/ac  {r['acres_mid']:>7} ac  "
               f"{r['price_text']:>15}  [{tag}] {r['address'][:50]}")
         print(f"             {r['url']}")
-    snaps = pathlib.Path(cfg["snapshots_dir"])
-    if not snaps.is_absolute():
-        snaps = REPO_DIR / snaps
     write_state(state, snaps, snaps / "events.jsonl", state["events"])
 
 

@@ -5,7 +5,7 @@ UK-wide, parses stated land size from listing text, and ranks every
 listing by **pounds per acre** — with a toggle between bare land and
 houses with land.
 
-Inspired by the architecture of [ai-model-tracker](https://github.com/CHANGEME/ai-model-tracker):
+Inspired by the architecture of [ai-model-tracker](https://github.com/EthanHarwood97/ai-model-tracker):
 run for free on GitHub Actions, published as a static site on GitHub Pages.
 
 ## How it works
