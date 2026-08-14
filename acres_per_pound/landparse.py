@@ -153,6 +153,13 @@ def _candidates(text):
         if a is None or b is None:
             continue
         lo, hi = min(a, b), max(a, b)
+        # reject joined-up ranges of unrelated numbers, e.g.
+        # "7,351 sq ft - 0.96 acres" or "10 to 500 acres" (scale mismatch)
+        mtext = m.group(0)
+        between = mtext[mtext.find(nums[0]) + len(nums[0]):mtext.find(nums[1])]
+        if re.search(r"\b(?:sq|ft|m\b|metres?|meters?|ha)\b", between) or hi / max(lo, 1e-9) > 50 \
+                or hi > 5000:
+            continue
         out.append(_annotate(t, _Cand((lo + hi) / 2.0, "acre", m.start(), m.end(),
                                       qualifier="range", stms=_stms_after(t, m.end()))))
 

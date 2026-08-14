@@ -27,6 +27,8 @@ CASES = [
     ("Equestrian facilities with 3 acres of grazing.", (3.0, 3.0, 3.0, "acre", "exact")),
     ("Approx 0.2 ha plot.", (0.494, 0.494, 0.494, "hectare", "approx")),
     ("Land in all measuring about 2.5 acres.", (2.5, 2.5, 2.5, "acre", "approx")),
+    ("Offered with a total floor area of 7,351 sq ft - 0.96 acres of gardens.", (0.96, 0.96, 0.96, "acre", "exact")),
+    ("1.77 Acres in 2 Lots, Long Street, Newport.", (1.77, 1.77, 1.77, "acre", "exact")),
 ]
 
 fail = 0
