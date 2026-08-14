@@ -35,7 +35,7 @@
   "alerts": {
     "desktop_toast": true,
     "console_banner": true,
-    "webhook_url": null,
+    "webhook_url": "https://ntfy.sh/acres-per-pound-c08f1ff397",
     "min_acres": 0.5,
     "top_n": 10
   },
