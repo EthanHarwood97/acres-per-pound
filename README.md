@@ -48,6 +48,25 @@ python -m acres_per_pound.cli serve              # dashboard on http://127.0.0.1
 python tests\test_landparse.py                   # parser unit tests
 ```
 
+## Plot-boundary enrichment (INSPIRE)
+
+Houses whose ads never mention land (the "semi with a huge garden" case)
+can be measured against HM Land Registry's free **INSPIRE Index Polygons**
+(registered freehold plot boundaries, England & Wales):
+
+```powershell
+pip install -r requirements-enrich.txt
+python -m acres_per_pound.cli enrich --all   # download+parse all E&W LAs (~4GB, one-off)
+# or a subset:
+python -m acres_per_pound.cli enrich --las Cornwall_Council.zip,Devon.zip
+```
+
+Matched listings get `est_acres` / `est_plot_m2` / `inspire_id` and join
+the ranking with `confidence=est`. Matches over the house-size threshold
+or with vague pins are flagged `est_shared` and excluded from the ranking.
+Run it monthly to catch new listings. Scotland/NI have no equivalent
+free dataset - those listings are skipped.
+
 ## Config knobs (`config.json`)
 
 - `search.max_price` — price ceiling (default £300k)
@@ -59,13 +78,11 @@ python tests\test_landparse.py                   # parser unit tests
 ## Caveats
 
 - Rightmove's ToS prohibit scraping — low rate, personal research use.
-- Acreage is parsed from free text; `confidence` and `matched` fields
-  show what it came from. Always confirm with the agent.
+- Acreage is parsed from free text (`confidence` + `matched` show what it
+  came from) or estimated from registered plot boundaries (`confidence=est`).
+  Always confirm with the agent.
 - The site publishes derived data only (price, acreage, link) — not
   listing descriptions.
-- "Houses with unstated land" (huge gardens with no acreage in the ad)
-  is not measurable from listing text alone; see the INSPIRE polygon
-  idea in the repo history for a future local-enrichment phase.
 
 ## Layout
 
@@ -76,10 +93,11 @@ acres_per_pound/
   regions.py    sitemap -> region id discovery
   rightmove.py  search scan + detail enrichment + normalization
   landparse.py  free-text acreage parser (unit-tested)
+  inspire.py    INSPIRE polygon download/parse/match (local enrich)
   engine.py     cycle: scan -> diff -> parse -> score -> events
   publish.py    state.json + events.jsonl + docs/ site builder
   alerts.py     console + ntfy push
-  cli.py        regions / run-once / publish / scrape-region / serve
+  cli.py        regions / run-once / publish / scrape-region / enrich / serve
 static/         dashboard (vanilla JS)
 snapshots/      state.json + events.jsonl (committed; git history = time machine)
 docs/           GitHub Pages site (generated)
