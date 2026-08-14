@@ -39,6 +39,9 @@
     "min_acres": 0.5,
     "top_n": 10
   },
+  "enrich": {
+    "house_max_est_acres": 2.0
+  },
   "server": {
     "host": "127.0.0.1",
     "port": 8138

@@ -132,6 +132,109 @@ def cmd_serve(args):
     uvicorn.run(app, host=host, port=port, log_level="warning")
 
 
+def cmd_enrich(args):
+    """Match listings to registered plot boundaries (INSPIRE, E&W only).
+
+    Downloads and parses HM Land Registry INSPIRE polygon zips, then
+    point-matches every listing's coordinates to its plot. Plot area is
+    permanent, so each LA only needs downloading once; results persist
+    in state.json (est_acres / est_plot_m2 / inspire_id).
+
+    --all  : download + parse every E&W local authority (~4GB, one-off)
+    --las  : comma-separated LA zip names (e.g. Cornwall_Council.zip)
+    """
+    from . import inspire
+
+    cfg = load_config()
+    snaps = pathlib.Path(cfg["snapshots_dir"])
+    if not snaps.is_absolute():
+        snaps = REPO_DIR / snaps
+    state = load_state(snaps / "state.json")
+    listings = state.get("listings") or {}
+
+    if args.las:
+        names = [n.strip() for n in args.las.split(",") if n.strip()]
+        if names and not names[0].endswith(".zip"):
+            names = [n if n.endswith(".zip") else n + ".zip" for n in names]
+    elif args.all:
+        names = inspire.list_las()
+        print(f"{len(names)} local authorities in E&W dataset")
+    else:
+        print("use --all (full E&W, ~4GB download) or --las A.zip,B.zip")
+        return
+
+    LANDISH_SUBTYPES = {"land", "plot", "farm", "farm land", "smallholding",
+                        "equestrian", "equestrian facility", "development land",
+                        "building plot"}
+
+    by_id = {k: v for k, v in listings.items() if v.get("lat") and v.get("lng")}
+    print(f"{len(by_id)} listings with coordinates")
+
+    bb = inspire.bboxes_map([n for n in names])
+    matched_total = 0
+    attempted_total = 0
+    for name in names:
+        pkl = inspire.build_index(name, verbose=True)
+        if pkl is None:
+            print(f"  {name}: no polygons (skipped)")
+            continue
+        bbox = bb.get(name) or inspire.bbox_of(pkl)
+        pts = []
+        for rid, row in by_id.items():
+            if row.get("est_checked"):
+                continue
+            e, n = inspire.wgs84_to_bng(row["lat"], row["lng"])
+            if bbox[0] <= e <= bbox[2] and bbox[1] <= n <= bbox[3]:
+                pts.append((rid, e, n))
+        if not pts:
+            continue
+        hits = inspire.match_points(pts, bbox, pkl)
+        hit_ids = set(hits)
+        for rid, (area, gid) in hits.items():
+            row = by_id[rid]
+            row["est_plot_m2"] = round(area, 1)
+            row["est_acres"] = round(area / 4046.86, 3)
+            row["inspire_id"] = gid
+            row["est_checked"] = True
+            # pin inside a large registered title that isn't a land-type
+            # listing is usually a farm/estate/site, not the house plot
+            if row["est_acres"] > 20 and (row.get("subtype") or "") not in LANDISH_SUBTYPES:
+                row["est_shared"] = True
+        for rid, _, _ in pts:
+            if rid not in hit_ids:
+                by_id[rid]["est_checked"] = True
+        matched_total += len(hits)
+        attempted_total += len(pts)
+        print(f"  {name}: {len(hits)}/{len(pts)} matched")
+    print(f"total: {matched_total}/{attempted_total} matched to registered plots")
+
+    # recompute the shared-site flag on every est row (rule may change between runs)
+    import re as _re
+
+    house_max = float(cfg.get("enrich", {}).get("house_max_est_acres", 2.0))
+    street_ev = _re.compile(r"\d|"
+                            r"\b(road|street|lane|close|drive|avenue|way|crescent|terrace|"
+                            r"mews|court|gardens|hill|park|place|approach|walk|row|square|"
+                            r"villas|view|rise|fields|lawns|green|estate|quay|promenade)\b",
+                            _re.I)
+    shared_n = 0
+    for row in listings.values():
+        if row.get("est_acres"):
+            is_landish = (row.get("subtype") or "") in LANDISH_SUBTYPES
+            bad_pin = not street_ev.search(row.get("address") or "")
+            row["est_shared"] = bool(
+                (not is_landish and (row["est_acres"] > house_max or bad_pin))
+                or row["est_acres"] > 20)
+            if row.get("est_shared"):
+                shared_n += 1
+    print(f"{shared_n} est rows flagged as large/vague shared titles (excluded from ranking)")
+
+    state["listings"] = listings
+    write_state(state, snaps, snaps / "events.jsonl", [])
+    build_site(state, cfg, site_dir=cfg["site_dir"], new_events=[])
+    print("state + site updated")
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
     p = argparse.ArgumentParser(prog="acres")
@@ -155,6 +258,11 @@ def main():
     sp = sub.add_parser("scrape-region", help="debug: scan one REGION^ id")
     sp.add_argument("id")
     sp.set_defaults(func=cmd_scrape_region)
+
+    sp = sub.add_parser("enrich", help="match listings to registered plot boundaries (INSPIRE)")
+    sp.add_argument("--all", action="store_true", help="download+parse every E&W local authority (~4GB)")
+    sp.add_argument("--las", default="", help="comma-separated LA zip names")
+    sp.set_defaults(func=cmd_enrich)
 
     sp = sub.add_parser("serve", help="scan once then serve the dashboard locally")
     sp.add_argument("--regions", default="")

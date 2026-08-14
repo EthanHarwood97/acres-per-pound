@@ -15,6 +15,7 @@ _PUB_FIELDS = (
     "acres_mid", "acre_unit", "confidence", "matched", "listing_status",
     "first_published", "first_seen", "last_seen", "gbp_per_acre", "acres_per_100k",
     "region_id", "region_name", "region_median", "value_ratio",
+    "est_acres", "est_plot_m2", "inspire_id", "est_shared",
 )
 
 
@@ -29,7 +30,8 @@ def _state_row(row):
         "beds", "subtype", "land_only", "acres_min", "acres_max", "acres_mid",
         "acre_unit", "confidence", "matched", "first_seen", "last_seen",
         "listing_status", "first_published", "active", "detail_checked",
-        "region_id", "region_name",
+        "region_id", "region_name", "est_acres", "est_plot_m2", "inspire_id",
+        "est_shared", "est_checked",
     )
     return {k: v for k in keep if (v := row.get(k)) is not None}
 
@@ -40,17 +42,25 @@ def excluded_subtypes(cfg):
 
 def ranking(listings, cfg=None):
     excl = excluded_subtypes(cfg or load_config()) if cfg else set()
+    out = []
     for r in listings.values():
-        if r.get("gbp_per_acre") is None and (r.get("price") or 0) >= 1000 and r.get("acres_mid"):
-            r["gbp_per_acre"] = round(r["price"] / r["acres_mid"], 2)
-        if r.get("acres_per_100k") is None and (r.get("price") or 0) >= 1000 and r.get("acres_mid"):
-            r["acres_per_100k"] = round(r["acres_mid"] / (r["price"] / 100000), 3)
-    rows = [r for r in listings.values()
-            if r.get("active") is not False
-            and r.get("gbp_per_acre") is not None
-            and (r.get("subtype") or "") not in excl]
-    rows.sort(key=lambda r: r["gbp_per_acre"])
-    return rows
+        row = r
+        if r.get("acres_mid") is None and r.get("est_acres"):
+            row = dict(r)
+            row["acres_min"] = row["acres_max"] = row["acres_mid"] = row["est_acres"]
+            row["confidence"] = "est"
+            row["matched"] = "registered plot boundary" + (" (shared site)" if r.get("est_shared") else "")
+        if row.get("gbp_per_acre") is None and (row.get("price") or 0) >= 1000 and row.get("acres_mid"):
+            row["gbp_per_acre"] = round(row["price"] / row["acres_mid"], 2)
+        if row.get("acres_per_100k") is None and (row.get("price") or 0) >= 1000 and row.get("acres_mid"):
+            row["acres_per_100k"] = round(row["acres_mid"] / (row["price"] / 100000), 3)
+        if (row.get("active") is not False
+                and row.get("gbp_per_acre") is not None
+                and (row.get("subtype") or "") not in excl
+                and not row.get("est_shared")):
+            out.append(row)
+    out.sort(key=lambda r: r["gbp_per_acre"])
+    return out
 
 
 def _median(vals):
