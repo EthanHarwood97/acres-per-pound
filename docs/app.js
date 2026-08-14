@@ -8,17 +8,46 @@ let favs = new Set();
 
 const FAV_KEY = "apf_favs";
 
+const F = {
+  search: "", region: "", onlyNew: false, onlyFavs: false,
+  minPrice: null, maxPrice: null, minAcres: null, maxAcres: null,
+  minBeds: null, maxBeds: null, minGbp: null, maxGbp: null,
+  hideEst: false, types: null,
+};
+
+const NUM_FIELDS = ["minPrice", "maxPrice", "minAcres", "maxAcres",
+                    "minBeds", "maxBeds", "minGbp", "maxGbp"];
+
 function loadFavs() {
-  try {
-    favs = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]"));
-  } catch (e) {
-    favs = new Set();
-  }
+  try { favs = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); }
+  catch (e) { favs = new Set(); }
+}
+function saveFavs() {
+  try { localStorage.setItem(FAV_KEY, JSON.stringify([...favs])); } catch (e) {}
 }
 
-function saveFavs() {
+// ---- filter persistence in the URL hash ----
+function saveHash() {
+  const out = {};
+  for (const k of Object.keys(F)) {
+    if (k === "types") {
+      if (F.types) out.types = [...F.types];
+      continue;
+    }
+    if (F[k] !== null && F[k] !== "" && F[k] !== false) out[k] = F[k];
+  }
+  const h = Object.keys(out).length ? "f=" + encodeURIComponent(JSON.stringify(out)) : "";
+  try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
+}
+function loadHash() {
+  const m = location.hash.match(/f=([^&]+)/);
+  if (!m) return;
   try {
-    localStorage.setItem(FAV_KEY, JSON.stringify([...favs]));
+    const o = JSON.parse(decodeURIComponent(m[1]));
+    for (const k of Object.keys(o)) {
+      if (k === "types") F.types = new Set(o[k]);
+      else F[k] = o[k];
+    }
   } catch (e) {}
 }
 
@@ -44,20 +73,29 @@ const fmt = {
 function rowsFor() {
   if (!DATA) return [];
   let rows = DATA[view] || [];
-  const minA = parseFloat(document.getElementById("minAcres").value) || 0;
-  const maxP = parseFloat(document.getElementById("maxPrice").value) || Infinity;
-  const reg = document.getElementById("region").value;
-  const onlyNew = document.getElementById("onlyNew").checked;
-  const onlyFavs = document.getElementById("onlyFavs").checked;
-  rows = rows.filter((r) =>
-    (r.acres_mid || 0) >= minA &&
-    (r.price || 0) <= maxP &&
-    (!reg || r.region_name === reg) &&
-    (!onlyFavs || favs.has(String(r.rm_id))) &&
-    (!onlyNew || ["Added today", "Reduced today", "Added yesterday", "Reduced yesterday"]
-      .some((s) => (r.listing_status || "").includes(s.replace(" today", "").replace(" yesterday", ""))) ||
-      (r.first_seen && (Date.now() - new Date(r.first_seen)) / 86400000 < 2))
-  );
+  const s = (F.search || "").toLowerCase();
+  rows = rows.filter((r) => {
+    if (s && !(r.address || "").toLowerCase().includes(s) && !(r.region_name || "").toLowerCase().includes(s)) return false;
+    if (F.region && r.region_name !== F.region) return false;
+    if (F.onlyFavs && !favs.has(String(r.rm_id))) return false;
+    if (F.types && !F.types.has(r.subtype)) return false;
+    if (F.hideEst && r.confidence === "est") return false;
+    if (F.minPrice != null && (r.price || 0) < F.minPrice) return false;
+    if (F.maxPrice != null && (r.price || 0) > F.maxPrice) return false;
+    const a = r.acres_mid || 0;
+    if (F.minAcres != null && a < F.minAcres) return false;
+    if (F.maxAcres != null && a > F.maxAcres) return false;
+    if (F.minBeds != null && (r.beds || 0) < F.minBeds) return false;
+    if (F.maxBeds != null && (r.beds || 0) > F.maxBeds) return false;
+    const g = r.gbp_per_acre;
+    if (F.minGbp != null && g < F.minGbp) return false;
+    if (F.maxGbp != null && g > F.maxGbp) return false;
+    if (F.onlyNew &&
+        !["Added today", "Reduced today", "Added yesterday", "Reduced yesterday"]
+          .some((x) => (r.listing_status || "").includes(x.replace(" today", "").replace(" yesterday", ""))) &&
+        !(r.first_seen && (Date.now() - new Date(r.first_seen)) / 86400000 < 2)) return false;
+    return true;
+  });
   rows.sort((a, b) => {
     const av = a[sortKey], bv = b[sortKey];
     if (av == null && bv == null) return 0;
@@ -154,6 +192,56 @@ function renderRegions() {
     names.map((n) => `<option>${escapeHtml(n)}</option>`).join("");
 }
 
+function renderTypes() {
+  if (!DATA) return;
+  const meta = DATA.meta || {};
+  const subs = (meta.subtypes && meta.subtypes.length)
+    ? meta.subtypes
+    : [...new Set((DATA.all || []).map((r) => r.subtype).filter(Boolean))].sort();
+  const excluded = new Set(meta.excluded_subtypes || []);
+  if (F.types === null) F.types = new Set(subs.filter((s) => !excluded.has(s)));
+  const box = document.getElementById("typeChips");
+  box.innerHTML = subs.map((s) =>
+    `<button class="chip ${F.types.has(s) ? "on" : ""}" data-type="${escapeHtml(s)}">${escapeHtml(s)}</button>`
+  ).join("");
+}
+
+function applyInputsToF() {
+  F.search = document.getElementById("search").value;
+  F.region = document.getElementById("region").value;
+  F.onlyNew = document.getElementById("onlyNew").checked;
+  F.onlyFavs = document.getElementById("onlyFavs").checked;
+  F.hideEst = document.getElementById("hideEst").checked;
+  for (const k of NUM_FIELDS) {
+    const v = parseFloat(document.getElementById(k).value);
+    F[k] = Number.isFinite(v) ? v : null;
+  }
+}
+
+function applyFToInputs() {
+  document.getElementById("search").value = F.search || "";
+  document.getElementById("region").value = F.region || "";
+  document.getElementById("onlyNew").checked = !!F.onlyNew;
+  document.getElementById("onlyFavs").checked = !!F.onlyFavs;
+  document.getElementById("hideEst").checked = !!F.hideEst;
+  for (const k of NUM_FIELDS) {
+    document.getElementById(k).value = F[k] != null ? F[k] : "";
+  }
+}
+
+function refresh() { saveHash(); render(); }
+
+function resetFilters() {
+  for (const k of Object.keys(F)) {
+    if (k === "types") F.types = null;
+    else F[k] = null;
+  }
+  F.search = ""; F.region = ""; F.onlyNew = false; F.onlyFavs = false; F.hideEst = false;
+  applyFToInputs();
+  renderTypes();
+  refresh();
+}
+
 function bindEvents() {
   document.getElementById("tabs").addEventListener("click", (e) => {
     const b = e.target.closest("button");
@@ -162,11 +250,40 @@ function bindEvents() {
     document.querySelectorAll("#tabs button").forEach((x) => x.classList.toggle("active", x === b));
     render();
   });
-  for (const id of ["minAcres", "maxPrice", "region"]) {
-    document.getElementById(id).addEventListener("input", render);
+  document.getElementById("filterToggle").addEventListener("click", () => {
+    const f = document.getElementById("filters");
+    f.hidden = !f.hidden;
+  });
+  document.getElementById("resetFilters").addEventListener("click", resetFilters);
+  document.getElementById("search").addEventListener("input", () => { applyInputsToF(); refresh(); });
+  document.getElementById("region").addEventListener("input", () => { applyInputsToF(); refresh(); });
+  document.getElementById("onlyNew").addEventListener("change", () => { applyInputsToF(); refresh(); });
+  document.getElementById("onlyFavs").addEventListener("change", () => { applyInputsToF(); refresh(); });
+  document.getElementById("hideEst").addEventListener("change", () => { applyInputsToF(); refresh(); });
+  for (const k of NUM_FIELDS) {
+    document.getElementById(k).addEventListener("input", () => { applyInputsToF(); refresh(); });
   }
-  document.getElementById("onlyNew").addEventListener("change", render);
-  document.getElementById("onlyFavs").addEventListener("change", render);
+  document.getElementById("typeChips").addEventListener("click", (e) => {
+    const c = e.target.closest(".chip");
+    if (!c) return;
+    const t = c.dataset.type;
+    if (!F.types) F.types = new Set(DATA.meta.subtypes);
+    if (F.types.has(t)) F.types.delete(t); else F.types.add(t);
+    c.classList.toggle("on");
+    refresh();
+  });
+  document.getElementById("typesAll").addEventListener("click", (e) => {
+    e.preventDefault();
+    F.types = null;
+    renderTypes();
+    refresh();
+  });
+  document.getElementById("typesNone").addEventListener("click", (e) => {
+    e.preventDefault();
+    F.types = new Set();
+    renderTypes();
+    refresh();
+  });
   document.getElementById("rows").addEventListener("click", (e) => {
     const b = e.target.closest(".star");
     if (!b) return;
@@ -189,12 +306,15 @@ function bindEvents() {
 }
 
 loadFavs();
+loadHash();
 fetch("data.json")
   .then((r) => r.json())
   .then((d) => {
     DATA = d;
     renderStats();
     renderRegions();
+    renderTypes();
+    applyFToInputs();
     renderNewStrip();
     renderEvents();
     render();

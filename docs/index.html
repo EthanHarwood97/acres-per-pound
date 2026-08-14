@@ -20,17 +20,51 @@
   </nav>
 
   <section class="controls">
+    <label>Search
+      <input type="text" id="search" placeholder="address, town, postcode...">
+    </label>
     <label>Region
       <select id="region"><option value="">All regions</option></select>
     </label>
-    <label>Min acres
-      <input type="number" id="minAcres" step="0.1" min="0" value="0">
-    </label>
-    <label>Max price
-      <input type="number" id="maxPrice" step="10000" min="0" value="300000">
-    </label>
     <label class="check"><input type="checkbox" id="onlyNew"> New / reduced only</label>
     <label class="check"><input type="checkbox" id="onlyFavs"> ★ Favourites only</label>
+    <button id="filterToggle" class="filter-btn">More filters ▾</button>
+  </section>
+
+  <section class="filters" id="filters" hidden>
+    <div class="fgroup">
+      <h3>Price</h3>
+      <label>Min <input type="number" id="minPrice" step="5000" min="0" placeholder="0"></label>
+      <label>Max <input type="number" id="maxPrice" step="5000" min="0" placeholder="300000"></label>
+    </div>
+    <div class="fgroup">
+      <h3>Acres</h3>
+      <label>Min <input type="number" id="minAcres" step="0.1" min="0" placeholder="0"></label>
+      <label>Max <input type="number" id="maxAcres" step="0.5" min="0" placeholder="any"></label>
+    </div>
+    <div class="fgroup">
+      <h3>Beds</h3>
+      <label>Min <input type="number" id="minBeds" step="1" min="0" placeholder="0"></label>
+      <label>Max <input type="number" id="maxBeds" step="1" min="0" placeholder="any"></label>
+    </div>
+    <div class="fgroup">
+      <h3>£ / acre</h3>
+      <label>Min <input type="number" id="minGbp" step="1000" min="0" placeholder="0"></label>
+      <label>Max <input type="number" id="maxGbp" step="5000" min="0" placeholder="any"></label>
+    </div>
+    <div class="fgroup">
+      <h3>Confidence</h3>
+      <label class="check"><input type="checkbox" id="hideEst"> Hide estimated plots</label>
+    </div>
+    <div class="fgroup wide">
+      <h3>Property types
+        <span class="mini"><a href="#" id="typesAll">all</a> · <a href="#" id="typesNone">none</a></span>
+      </h3>
+      <div id="typeChips" class="chips"></div>
+    </div>
+    <div class="fgroup wide">
+      <button id="resetFilters" class="filter-btn">Reset all filters</button>
+    </div>
   </section>
 
   <section class="newstrip" id="newstrip" hidden>

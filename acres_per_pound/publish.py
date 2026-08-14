@@ -5,6 +5,7 @@ import pathlib
 import shutil
 
 from . import alerts
+from .http import load_config
 
 STATIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "static"
 REPO_DIR = pathlib.Path(__file__).resolve().parent.parent
@@ -41,7 +42,6 @@ def excluded_subtypes(cfg):
 
 
 def ranking(listings, cfg=None):
-    excl = excluded_subtypes(cfg or load_config()) if cfg else set()
     out = []
     for r in listings.values():
         row = r
@@ -56,7 +56,6 @@ def ranking(listings, cfg=None):
             row["acres_per_100k"] = round(row["acres_mid"] / (row["price"] / 100000), 3)
         if (row.get("active") is not False
                 and row.get("gbp_per_acre") is not None
-                and (row.get("subtype") or "") not in excl
                 and not row.get("est_shared")):
             out.append(row)
     out.sort(key=lambda r: r["gbp_per_acre"])
@@ -87,9 +86,15 @@ def views(state, cfg=None):
     rows = ranking(state["listings"], cfg)
     land = _annotate([r for r in rows if r.get("land_only")])
     houses = _annotate([r for r in rows if not r.get("land_only")])
+    subtypes = sorted({(r.get("subtype") or "") for r in rows if r.get("subtype")})
     return {
         "ts": state["ts"],
         "stats": state["stats"],
+        "meta": {
+            "excluded_subtypes": sorted(excluded_subtypes(cfg or load_config())),
+            "subtypes": subtypes,
+            "max_price": (cfg or {}).get("search", {}).get("max_price", 300000),
+        },
         "land": [_pub(r) for r in land],
         "houses": [_pub(r) for r in houses],
         "all": [_pub(r) for r in rows],
