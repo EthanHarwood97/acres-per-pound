@@ -40,6 +40,11 @@ def excluded_subtypes(cfg):
 
 def ranking(listings, cfg=None):
     excl = excluded_subtypes(cfg or load_config()) if cfg else set()
+    for r in listings.values():
+        if r.get("gbp_per_acre") is None and (r.get("price") or 0) >= 1000 and r.get("acres_mid"):
+            r["gbp_per_acre"] = round(r["price"] / r["acres_mid"], 2)
+        if r.get("acres_per_100k") is None and (r.get("price") or 0) >= 1000 and r.get("acres_mid"):
+            r["acres_per_100k"] = round(r["acres_mid"] / (r["price"] / 100000), 3)
     rows = [r for r in listings.values()
             if r.get("active") is not False
             and r.get("gbp_per_acre") is not None
@@ -58,7 +63,7 @@ def views(state, cfg=None):
         "land": [_pub(r) for r in land],
         "houses": [_pub(r) for r in houses],
         "all": [_pub(r) for r in rows],
-        "events": state["events"][-200:],
+        "events": state.get("events")[-200:] if state.get("events") else [],
     }
 
 

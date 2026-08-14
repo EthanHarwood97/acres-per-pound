@@ -61,6 +61,7 @@ a { color: #7db8f0; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .conf { color: var(--accent2); font-size: 12px; }
 .status { color: var(--danger); font-size: 12px; }
+.dim { color: var(--dim); font-size: 12px; }
 
 .count { color: var(--dim); font-size: 12px; margin: 8px 2px; }
 

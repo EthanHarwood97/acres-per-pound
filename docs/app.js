@@ -61,6 +61,7 @@ function render() {
       <td class="num">${fmt.acres(r)}</td>
       <td class="num">${fmt.gbp(r.price)}</td>
       <td><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.address || "")}</a></td>
+      <td class="dim">${escapeHtml(r.subtype || "")}</td>
       <td>${escapeHtml(r.region_name || "")}</td>
       <td class="conf" title="${escapeHtml(r.matched || "")}">${escapeHtml(conf)}</td>
       <td class="status">${escapeHtml(status)}</td>
@@ -138,7 +139,7 @@ fetch("data.json")
     render();
   })
   .catch((e) => {
-    document.getElementById("rows").innerHTML = `<tr><td colspan="8">failed to load data.json: ${e}</td></tr>`;
+    document.getElementById("rows").innerHTML = `<tr><td colspan="9">failed to load data.json: ${e}</td></tr>`;
   });
 
 bindEvents();
