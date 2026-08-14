@@ -30,6 +30,12 @@
       <input type="number" id="maxPrice" step="10000" min="0" value="300000">
     </label>
     <label class="check"><input type="checkbox" id="onlyNew"> New / reduced only</label>
+    <label class="check"><input type="checkbox" id="onlyFavs"> ★ Favourites only</label>
+  </section>
+
+  <section class="newstrip" id="newstrip" hidden>
+    <h2>New &amp; reduced this cycle</h2>
+    <ul id="newlist"></ul>
   </section>
 
   <main>
@@ -37,14 +43,17 @@
       <thead>
         <tr>
           <th data-sort="rank">#</th>
+          <th class="fav-col"></th>
           <th data-sort="gbp_per_acre" class="sort-asc">£ / acre</th>
           <th data-sort="acres_mid">Acres</th>
+          <th data-sort="acres_per_100k">Ac / £100k</th>
           <th data-sort="price">Price</th>
           <th data-sort="address">Address</th>
           <th data-sort="subtype">Type</th>
           <th data-sort="region_name">Region</th>
+          <th data-sort="value_ratio">vs region</th>
+          <th data-sort="first_published">Days</th>
           <th data-sort="confidence">Source</th>
-          <th data-sort="listing_status">Status</th>
         </tr>
       </thead>
       <tbody id="rows"></tbody>

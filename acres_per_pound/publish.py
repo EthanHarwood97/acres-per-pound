@@ -14,7 +14,7 @@ _PUB_FIELDS = (
     "beds", "subtype", "type_full", "land_only", "acres_min", "acres_max",
     "acres_mid", "acre_unit", "confidence", "matched", "listing_status",
     "first_published", "first_seen", "last_seen", "gbp_per_acre", "acres_per_100k",
-    "region_id", "region_name",
+    "region_id", "region_name", "region_median", "value_ratio",
 )
 
 
@@ -53,10 +53,30 @@ def ranking(listings, cfg=None):
     return rows
 
 
+def _median(vals):
+    if not vals:
+        return None
+    s = sorted(vals)
+    n = len(s)
+    return s[n // 2] if n % 2 else (s[n // 2 - 1] + s[n // 2]) / 2
+
+
+def _annotate(rows):
+    by_reg = {}
+    for r in rows:
+        by_reg.setdefault(r.get("region_name") or "", []).append(r["gbp_per_acre"])
+    for r in rows:
+        med = _median(by_reg.get(r.get("region_name") or ""))
+        if med:
+            r["region_median"] = round(med, 2)
+            r["value_ratio"] = round(med / r["gbp_per_acre"], 2) if r["gbp_per_acre"] else None
+    return rows
+
+
 def views(state, cfg=None):
     rows = ranking(state["listings"], cfg)
-    land = [r for r in rows if r.get("land_only")]
-    houses = [r for r in rows if not r.get("land_only")]
+    land = _annotate([r for r in rows if r.get("land_only")])
+    houses = _annotate([r for r in rows if not r.get("land_only")])
     return {
         "ts": state["ts"],
         "stats": state["stats"],
