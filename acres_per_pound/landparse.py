@@ -44,6 +44,15 @@ LAND_CONTEXT = (
     r"equestrian|surrounding)"
 )
 
+# Phrases where the measured land is NOT owned by the buyer: communal
+# grounds, estate parkland, access rights.
+_COMMUNAL = re.compile(
+    r"\b(?:communal|shared)\s+(?:grounds|gardens|land|amenity|parkland)\b|"
+    r"\bin\s+the\s+grounds\s+of\b|"
+    r"\b(?:access|use|rights?)\s+(?:to|of|over)\s+(?:the\s+)?\d+(?:\.\d+)?\s*acres?\b|"
+    r"\boverlooking\s+\d+(?:\.\d+)?\s*acres?\b",
+    re.I)
+
 
 def has_land_keyword(text):
     """True if the text hints at land, used to decide detail-page fetches."""
@@ -206,9 +215,10 @@ def _score(c):
 
 
 def parse_acres(text):
-    """Return (acres_min, acres_max, acres_mid, unit, confidence, matched, candidates).
+    """Return (acres_min, acres_max, acres_mid, unit, confidence, matched, candidates, communal).
 
-    None when no land size can be extracted.
+    None when no land size can be extracted. `communal` is True when the
+    text suggests the measured land is shared/communal rather than owned.
     """
     t = _normalize(text)
     cands = _candidates(text)
@@ -216,27 +226,29 @@ def parse_acres(text):
         return None
     best = max(cands, key=_score)
     matched = t[best.start:best.end].strip()
+    communal = bool(_COMMUNAL.search(t))
 
     if best.qualifier == "range":
         m = re.search(rf"{_NUM}(?:{_RANGE_SEP}|\s+and\s+){_NUM}", matched)
         lo = hi = best.value
         if m:
-            lo, hi = _num(m.group(1)), _num(m.group(2))
-            lo, hi = min(lo, hi), max(lo, hi)
+            lo_v, hi_v = _num(m.group(1)), _num(m.group(2))
+            if lo_v is not None and hi_v is not None:
+                lo, hi = min(lo_v, hi_v), max(lo_v, hi_v)
         return (round(lo, 3), round(hi, 3), round(best.value, 3), best.unit,
-                "range", matched, _cand_info(cands))
+                "range", matched, _cand_info(cands), communal)
     if best.qualifier == "min":
         return (round(best.value, 3), None, round(best.value, 3), best.unit,
-                "partial", matched, _cand_info(cands))
+                "partial", matched, _cand_info(cands), communal)
     if best.qualifier == "max":
         return (0.0, round(best.value, 3), round(best.value * 0.9, 3), best.unit,
-                "partial", matched, _cand_info(cands))
+                "partial", matched, _cand_info(cands), communal)
     if best.qualifier == "converted":
         v = round(best.value, 3)
-        return (v, v, v, best.unit, "converted", matched, _cand_info(cands))
+        return (v, v, v, best.unit, "converted", matched, _cand_info(cands), communal)
     conf = "exact" if (best.qualifier == "" and not best.stms) else "approx"
     v = round(best.value, 3)
-    return (v, v, v, best.unit, conf, matched, _cand_info(cands))
+    return (v, v, v, best.unit, conf, matched, _cand_info(cands), communal)
 
 
 def _cand_info(cands):

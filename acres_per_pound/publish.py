@@ -17,6 +17,7 @@ _PUB_FIELDS = (
     "first_published", "first_seen", "last_seen", "gbp_per_acre", "acres_per_100k",
     "region_id", "region_name", "region_median", "value_ratio",
     "est_acres", "est_plot_m2", "inspire_id", "est_shared",
+    "communal", "verified", "flag",
 )
 
 
@@ -32,7 +33,7 @@ def _state_row(row):
         "acre_unit", "confidence", "matched", "first_seen", "last_seen",
         "listing_status", "first_published", "active", "detail_checked",
         "region_id", "region_name", "est_acres", "est_plot_m2", "inspire_id",
-        "est_shared", "est_checked",
+        "est_shared", "est_checked", "communal",
     )
     return {k: v for k in keep if (v := row.get(k)) is not None}
 
@@ -41,15 +42,47 @@ def excluded_subtypes(cfg):
     return set(cfg.get("search", {}).get("exclude_subtypes") or [])
 
 
+def _load_corrections():
+    """Site-wide manual acreage overrides from corrections.json (committed)."""
+    p = REPO_DIR / "corrections.json"
+    if not p.exists():
+        return {}
+    try:
+        raw = json.loads(p.read_text(encoding="utf-8")) or {}
+    except Exception:
+        return {}
+    return {str(k): float(v) for k, v in raw.items() if v is not None}
+
+
 def ranking(listings, cfg=None):
+    corrections = _load_corrections()
     out = []
     for r in listings.values():
         row = r
-        if r.get("acres_mid") is None and r.get("est_acres"):
+        corr = corrections.get(str(r.get("rm_id")))
+        if corr is not None:
             row = dict(r)
+            row["acres_min"] = row["acres_max"] = row["acres_mid"] = corr
+            row["confidence"] = "manual"
+            row["matched"] = "user-corrected"
+            row["communal"] = False
+            row.pop("gbp_per_acre", None)
+        if row.get("communal"):
+            continue  # measured land is shared/communal, not owned
+        if row.get("acres_mid") is None and row.get("est_acres"):
+            row = dict(row)
             row["acres_min"] = row["acres_max"] = row["acres_mid"] = row["est_acres"]
             row["confidence"] = "est"
-            row["matched"] = "registered plot boundary" + (" (shared site)" if r.get("est_shared") else "")
+            row["matched"] = "registered plot boundary" + (" (shared site)" if row.get("est_shared") else "")
+        # cross-check: stated acreage vs registered plot boundary
+        if row.get("confidence") != "est" and row.get("acres_mid") and row.get("est_acres"):
+            ratio = row["acres_mid"] / max(row["est_acres"], 1e-9)
+            if 0.5 <= ratio <= 2.0:
+                row["verified"] = True
+            else:
+                row["flag"] = "stated-vs-plot"
+        elif row.get("confidence") in ("partial", "converted"):
+            row["flag"] = "low-confidence"
         if row.get("gbp_per_acre") is None and (row.get("price") or 0) >= 1000 and row.get("acres_mid"):
             row["gbp_per_acre"] = round(row["price"] / row["acres_mid"], 2)
         if row.get("acres_per_100k") is None and (row.get("price") or 0) >= 1000 and row.get("acres_mid"):

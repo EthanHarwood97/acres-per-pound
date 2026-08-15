@@ -14,7 +14,7 @@ log = logging.getLogger("acres")
 SLUG_RE = re.compile(r"[^a-z0-9-]+")
 
 _ACRE_FIELDS = ("acres_min", "acres_max", "acres_mid", "acre_unit", "confidence",
-                "matched", "candidates", "detail_checked")
+                "matched", "candidates", "detail_checked", "communal")
 
 
 def load_state(path):

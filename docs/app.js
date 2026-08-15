@@ -7,6 +7,16 @@ let sortAsc = true;
 let favs = new Set();
 
 const FAV_KEY = "apf_favs";
+const CORR_KEY = "apf_corrections";
+
+let corrections = {};
+function loadCorrections() {
+  try { corrections = JSON.parse(localStorage.getItem(CORR_KEY) || "{}"); }
+  catch (e) { corrections = {}; }
+}
+function saveCorrections() {
+  try { localStorage.setItem(CORR_KEY, JSON.stringify(corrections)); } catch (e) {}
+}
 
 const F = {
   search: "", region: "", onlyNew: false, onlyFavs: false,
@@ -74,6 +84,16 @@ function rowsFor() {
   if (!DATA) return [];
   let rows = DATA[view] || [];
   const s = (F.search || "").toLowerCase();
+  rows = rows.map((r) => {
+    const corr = corrections[String(r.rm_id)];
+    if (corr == null) return r;
+    const c = Object.assign({}, r);
+    c.acres_min = c.acres_max = c.acres_mid = corr;
+    c.confidence = "manual";
+    c.gbp_per_acre = c.price >= 1000 ? Math.round((c.price / corr) * 100) / 100 : null;
+    c.acres_per_100k = c.price >= 1000 ? Math.round((corr / (c.price / 100000)) * 1000) / 1000 : null;
+    return c;
+  });
   rows = rows.filter((r) => {
     if (s && !(r.address || "").toLowerCase().includes(s) && !(r.region_name || "").toLowerCase().includes(s)) return false;
     if (F.region && r.region_name !== F.region) return false;
@@ -120,6 +140,15 @@ function starCell(r) {
   return `<td class="fav-col"><button class="star ${on ? "on" : ""}" data-id="${r.rm_id}">${on ? "★" : "☆"}</button></td>`;
 }
 
+function badgeCell(r) {
+  let badge = "";
+  if (r.verified) badge = `<span class="badge okb" title="stated acreage agrees with the registered plot boundary">✓</span>`;
+  if (r.flag === "stated-vs-plot") badge += `<span class="badge warnb" title="stated acreage disagrees with registered plot boundary - verify with agent">⚠</span>`;
+  if (r.flag === "low-confidence") badge += `<span class="badge warnb" title="low-confidence parse">⚠</span>`;
+  if (corrections[String(r.rm_id)] != null) badge += `<span class="badge okb" title="manually corrected">✎</span>`;
+  return `<td class="badge-td">${badge}</td>`;
+}
+
 function render() {
   if (!DATA) return;
   const rows = rowsFor();
@@ -129,11 +158,14 @@ function render() {
     return `<tr>
       <td class="num">${i + 1}</td>
       ${starCell(r)}
+      ${badgeCell(r)}
       <td class="num strong">${fmt.gbpAcre(r.gbp_per_acre)}</td>
       <td class="num">${fmt.acres(r)}</td>
       <td class="num dim">${fmt.ac100k(r.acres_per_100k)}</td>
       <td class="num">${fmt.gbp(r.price)}</td>
-      <td><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.address || "")}</a></td>
+      <td><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.address || "")}</a>
+        <button class="edit-acres" data-id="${r.rm_id}" data-acres="${r.acres_mid ?? ""}" title="correct the acreage">✎</button>
+      </td>
       <td class="dim">${escapeHtml(r.subtype || "")}</td>
       <td>${escapeHtml(r.region_name || "")}</td>
       ${vsRegion(r)}
@@ -292,6 +324,23 @@ function bindEvents() {
     saveFavs();
     render();
   });
+  document.getElementById("rows").addEventListener("click", (e) => {
+    const b = e.target.closest(".edit-acres");
+    if (!b) return;
+    const id = b.dataset.id;
+    const cur = corrections[id] != null ? corrections[id] : b.dataset.acres;
+    const val = prompt("Correct acreage for this listing (blank removes correction):", cur);
+    if (val === null) return;
+    if (val.trim() === "") {
+      delete corrections[id];
+    } else {
+      const n = parseFloat(val.replace(",", "."));
+      if (!Number.isFinite(n) || n <= 0) return alert("Enter a positive number of acres");
+      corrections[id] = n;
+    }
+    saveCorrections();
+    render();
+  });
   document.querySelectorAll("#rank th[data-sort]").forEach((th) => {
     th.addEventListener("click", () => {
       const k = th.dataset.sort;
@@ -306,6 +355,7 @@ function bindEvents() {
 }
 
 loadFavs();
+loadCorrections();
 loadHash();
 fetch("data.json")
   .then((r) => r.json())
@@ -320,7 +370,7 @@ fetch("data.json")
     render();
   })
   .catch((e) => {
-    document.getElementById("rows").innerHTML = `<tr><td colspan="12">failed to load data.json: ${e}</td></tr>`;
+    document.getElementById("rows").innerHTML = `<tr><td colspan="13">failed to load data.json: ${e}</td></tr>`;
   });
 
 bindEvents();

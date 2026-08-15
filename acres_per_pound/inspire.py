@@ -147,61 +147,105 @@ def download_la(name, force=False, verbose=False):
 
 # --- GML parsing ----------------------------------------------------------
 
+def _members(stream):
+    """Yield GML <wfs:member> chunks from a binary stream, buffered."""
+    buf = b""
+    while True:
+        block = stream.read(8 * 1024 * 1024)
+        if not block:
+            break
+        buf += block
+        while True:
+            end = buf.find(b"</wfs:member>")
+            if end < 0:
+                break
+            start = buf.find(b"<wfs:member>")
+            if start < 0 or start > end:
+                buf = buf[end + len(b"</wfs:member>"):]
+                break
+            yield buf[start:end + len(b"</wfs:member>")]
+            buf = buf[end + len(b"</wfs:member>"):]
+    if b"<wfs:member>" in buf:
+        yield buf
+
+
 def parse_zip(zip_path, verbose=False):
-    """Parse an LA zip into (gml_ids, shapely polygons). Returns ([], []) on failure."""
+    """Parse an LA zip into (gml_ids, polygons). Returns ([], []) on failure.
+
+    Streams the GML member-by-member so peak memory stays bounded even
+    for multi-GB county files.
+    """
     from shapely.geometry import Polygon
 
     ids, polys = [], []
     try:
         zf = zipfile.ZipFile(zip_path)
         gml_name = next(n for n in zf.namelist() if n.lower().endswith(".gml"))
-        with zf.open(gml_name) as f:
-            blob = f.read()
     except Exception as e:
         if verbose:
             print(f"  {zip_path.name}: unzip failed: {e}")
         return [], []
-    for member in _MEMBER_RE.finditer(blob):
-        chunk = member.group(1)
-        mid = _ID_RE.search(chunk)
-        if not mid:
-            continue
-        rings = []
-        for pos in _POS_RE.finditer(chunk):
-            nums = [float(x) for x in pos.group(1).split()]
-            if len(nums) < 6:
+    with zf.open(gml_name) as f:
+        for chunk in _members(f):
+            mid = _ID_RE.search(chunk)
+            if not mid:
                 continue
-            coords = list(zip(nums[0::2], nums[1::2]))
-            rings.append(coords)
-        if not rings:
-            continue
-        try:
-            poly = Polygon(rings[0], rings[1:])
-        except Exception:
-            continue
-        if not poly.is_valid or poly.is_empty:
-            continue
-        ids.append(mid.group(1).decode("ascii", "replace"))
-        polys.append(poly)
+            rings = []
+            for pos in _POS_RE.finditer(chunk):
+                nums = [float(x) for x in pos.group(1).split()]
+                if len(nums) < 6:
+                    continue
+                rings.append(list(zip(nums[0::2], nums[1::2])))
+            if not rings:
+                continue
+            try:
+                poly = Polygon(rings[0], rings[1:])
+            except Exception:
+                continue
+            if not poly.is_valid or poly.is_empty:
+                continue
+            ids.append(mid.group(1).decode("ascii", "replace"))
+            polys.append(poly)
     return ids, polys
 
 
 def build_index(name, verbose=False):
-    """Download + parse an LA, cache polygons to <name>.pkl. Returns pickle path."""
+    """Download + parse an LA, cache polygons (WKB) to <name>.pkl.
+
+    Deletes the zip after parsing (pkl is what subsequent runs use).
+    """
+    import pickle
+
     zip_path = download_la(name, verbose=verbose)
     pkl = INSPIRE_DIR / (name[:-4] + ".pkl")
     if pkl.exists():
-        return pkl
-    import pickle
-
+        try:
+            with open(pkl, "rb") as f:
+                head = pickle.load(f)
+            if head.get("v") == 2:
+                return pkl
+        except Exception:
+            pass
     if verbose:
         print(f"  parsing {name} ...")
     ids, polys = parse_zip(zip_path, verbose=verbose)
     if not polys:
         return None
+    bbox = None
+    wkb = []
+    for p in polys:
+        wkb.append(p.wkb)
+        b = p.bounds
+        bbox = (min(bbox[0], b[0]), min(bbox[1], b[1]), max(bbox[2], b[2]), max(bbox[3], b[3])) \
+            if bbox else b
+    del polys
+    payload = {"v": 2, "ids": ids, "wkb": wkb, "bbox": bbox}
     with open(pkl.with_suffix(".tmp"), "wb") as f:
-        pickle.dump({"ids": ids, "polys": polys}, f, protocol=5)
+        pickle.dump(payload, f, protocol=5)
     pkl.with_suffix(".tmp").replace(pkl)
+    zip_path.unlink(missing_ok=True)
+    if verbose:
+        print(f"  {name}: {len(ids)} polygons cached")
     return pkl
 
 
@@ -210,6 +254,8 @@ def bbox_of(pkl_path):
 
     with open(pkl_path, "rb") as f:
         data = pickle.load(f)
+    if data.get("v") == 2 and data.get("bbox"):
+        return tuple(data["bbox"])
     minx = miny = float("inf")
     maxx = maxy = float("-inf")
     for p in data["polys"]:
@@ -252,20 +298,26 @@ def match_points(points, bbox, pkl_path):
     import pickle
 
     import numpy as np
+    from shapely import wkb as _wkb
     from shapely.geometry import Point
     from shapely.strtree import STRtree
 
     with open(pkl_path, "rb") as f:
         data = pickle.load(f)
-    tree = STRtree(data["polys"])
+    if data.get("v") == 2:
+        polys = [_wkb.loads(w) for w in data["wkb"]]
+    else:
+        polys = data["polys"]
+    tree = STRtree(polys)
     pts = np.array([Point(x, y) for _, x, y in points], dtype=object)
     hits = tree.query(pts, predicate="intersects")
     result = {}
     if hits is not None and len(hits):
         for pi, gi in zip(hits[0], hits[1]):
             rid = points[int(pi)][0]
-            area = data["polys"][int(gi)].area
+            area = polys[int(gi)].area
             cur = result.get(rid)
             if cur is None or area < cur[0]:  # smallest containing plot wins
                 result[rid] = (area, data["ids"][int(gi)])
+    del polys, tree
     return result

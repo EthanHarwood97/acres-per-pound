@@ -32,6 +32,18 @@ CASES = [
 ]
 
 fail = 0
+for text, expected, communal in [
+    ("Set within 2 acres of communal grounds.", (2.0, 2.0, 2.0, "acre", "exact"), True),
+    ("The apartment enjoys access to 5 acres of parkland.", (5.0, 5.0, 5.0, "acre", "exact"), True),
+    ("A private plot of 2 acres.", (2.0, 2.0, 2.0, "acre", "exact"), False),
+]:
+    got = parse_acres(text)
+    ok = got is not None and abs(got[0] - expected[0]) < 0.01 and got[4] == expected[4] and got[7] == communal
+    status = "PASS" if ok else "FAIL"
+    if not ok:
+        fail += 1
+    print(f"{status} | {text[:70]:70} | communal={got[7] if got else None}")
+
 for text, expected in CASES:
     got = parse_acres(text)
     if expected is None:

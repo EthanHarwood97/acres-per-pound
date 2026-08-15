@@ -240,33 +240,31 @@ def enrich(fetcher, listing, cfg, prev_acres=None, verbose=False):
     """Attach parsed acreage. Fetches the detail page when needed.
 
     Returns the listing row (mutated in place) with acres_* fields set.
+    Non-exact parses get a one-time verification against the full
+    description (which carries more context than the search summary).
     """
     texts = [listing.get("summary") or ""] + (listing.get("features") or [])
     blob = "\n".join(texts)
     parsed = parse_acres(blob)
 
     if parsed is None and prev_acres is None and has_land_keyword(blob):
-        # search text hints at land but no parseable figure -> full description
-        try:
-            r = fetcher.get(listing["url"], ttl=86400 * 30, rate_limit=True)
-            pd = page_model(r.text)
-            desc = ((pd.get("text") or {}).get("description") or "")
-            extra = [desc]
-            for item in pd.get("keyFeatures") or []:
-                if isinstance(item, dict):
-                    extra.append(item.get("description") or item.get("htmlDescription") or "")
-                else:
-                    extra.append(str(item))
-            listing["description"] = desc
-            parsed = parse_acres("\n".join(extra))
-        except Exception as e:
-            if verbose:
-                print(f"  detail {listing['rm_id']} failed: {e}")
+        parsed = _fetch_and_parse(fetcher, listing, verbose)
         if parsed is None:
             listing["detail_checked"] = True
 
+    if parsed is not None and parsed[4] != "exact" and not listing.get("detail_checked"):
+        # approximate/range/converted/partial from truncated summary text:
+        # the full description usually contains the precise sentence
+        detail_parsed = _fetch_and_parse(fetcher, listing, verbose)
+        if detail_parsed is not None:
+            # prefer the detail parse when it is at least as confident
+            rank = {"exact": 4, "approx": 3, "range": 3, "partial": 2, "converted": 1}
+            if rank.get(detail_parsed[4], 0) >= rank.get(parsed[4], 0):
+                parsed = detail_parsed
+        listing["detail_checked"] = True
+
     if parsed:
-        a_min, a_max, a_mid, unit, conf, matched, cands = parsed
+        a_min, a_max, a_mid, unit, conf, matched, cands, communal = parsed
         listing["acres_min"] = a_min
         listing["acres_max"] = a_max
         listing["acres_mid"] = a_mid
@@ -274,6 +272,7 @@ def enrich(fetcher, listing, cfg, prev_acres=None, verbose=False):
         listing["confidence"] = conf
         listing["matched"] = matched
         listing["candidates"] = cands
+        listing["communal"] = communal
         if a_mid is not None and is_land_only(
                 {"propertySubType": listing.get("subtype") or "",
                  "propertyTypeFullDescription": listing.get("type_full") or "",
@@ -281,3 +280,23 @@ def enrich(fetcher, listing, cfg, prev_acres=None, verbose=False):
                 listing, a_mid):
             listing["land_only"] = True
     return listing
+
+
+def _fetch_and_parse(fetcher, listing, verbose):
+    """Fetch the detail page and parse its full description."""
+    try:
+        r = fetcher.get(listing["url"], ttl=86400 * 30, rate_limit=True)
+        pd = page_model(r.text)
+        desc = ((pd.get("text") or {}).get("description") or "")
+        extra = [desc]
+        for item in pd.get("keyFeatures") or []:
+            if isinstance(item, dict):
+                extra.append(item.get("description") or item.get("htmlDescription") or "")
+            else:
+                extra.append(str(item))
+        listing["description"] = desc
+        return parse_acres("\n".join(extra))
+    except Exception as e:
+        if verbose:
+            print(f"  detail {listing['rm_id']} failed: {e}")
+        return None

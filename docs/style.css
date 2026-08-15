@@ -103,6 +103,17 @@ a:hover { text-decoration: underline; }
 .star.on { color: var(--accent2); }
 .star:hover { color: var(--accent2); }
 
+.badge-th { width: 30px; }
+.badge-td { padding-right: 2px; }
+.badge { font-size: 12px; padding: 0 2px; }
+.okb { color: var(--accent); }
+.warnb { color: var(--accent2); }
+.edit-acres {
+  background: none; border: none; cursor: pointer; color: var(--dim);
+  font-size: 11px; padding: 0 3px; opacity: 0.6;
+}
+.edit-acres:hover { color: var(--accent2); opacity: 1; }
+
 .num.great { color: var(--accent); font-weight: 700; }
 .num.good { color: #a3e635; }
 .num.ok { color: var(--text); }
