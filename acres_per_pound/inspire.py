@@ -23,6 +23,7 @@ import json
 import math
 import pathlib
 import re
+import time
 import zipfile
 
 import httpx
@@ -135,14 +136,23 @@ def download_la(name, force=False, verbose=False):
     url = f"{BASE}/datasets/inspire/download/{name}"
     if verbose:
         print(f"  downloading {name} ...")
-    with httpx.stream("GET", url, headers={"User-Agent": load_config()["http"]["user_agent"]},
-                      timeout=300, follow_redirects=True) as r:
-        r.raise_for_status()
-        with open(out.with_suffix(".part"), "wb") as f:
-            for chunk in r.iter_bytes(1024 * 256):
-                f.write(chunk)
-    out.with_suffix(".part").replace(out)
-    return out
+    last_err = None
+    for attempt in range(4):
+        try:
+            with httpx.stream("GET", url,
+                              headers={"User-Agent": load_config()["http"]["user_agent"]},
+                              timeout=300, follow_redirects=True) as r:
+                r.raise_for_status()
+                with open(out.with_suffix(".part"), "wb") as f:
+                    for chunk in r.iter_bytes(1024 * 256):
+                        f.write(chunk)
+            out.with_suffix(".part").replace(out)
+            return out
+        except Exception as e:
+            last_err = e
+            time.sleep(15 * (2 ** attempt))
+    out.with_suffix(".part").unlink(missing_ok=True)
+    raise RuntimeError(f"download failed for {name}: {last_err}")
 
 
 # --- GML parsing ----------------------------------------------------------

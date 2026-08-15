@@ -167,48 +167,6 @@ def cmd_enrich(args):
                         "equestrian", "equestrian facility", "development land",
                         "building plot"}
 
-    by_id = {k: v for k, v in listings.items() if v.get("lat") and v.get("lng")}
-    print(f"{len(by_id)} listings with coordinates")
-
-    bb = inspire.bboxes_map([n for n in names])
-    matched_total = 0
-    attempted_total = 0
-    for name in names:
-        pkl = inspire.build_index(name, verbose=True)
-        if pkl is None:
-            print(f"  {name}: no polygons (skipped)")
-            continue
-        bbox = bb.get(name) or inspire.bbox_of(pkl)
-        pts = []
-        for rid, row in by_id.items():
-            if row.get("est_checked"):
-                continue
-            e, n = inspire.wgs84_to_bng(row["lat"], row["lng"])
-            if bbox[0] <= e <= bbox[2] and bbox[1] <= n <= bbox[3]:
-                pts.append((rid, e, n))
-        if not pts:
-            continue
-        hits = inspire.match_points(pts, bbox, pkl)
-        hit_ids = set(hits)
-        for rid, (area, gid) in hits.items():
-            row = by_id[rid]
-            row["est_plot_m2"] = round(area, 1)
-            row["est_acres"] = round(area / 4046.86, 3)
-            row["inspire_id"] = gid
-            row["est_checked"] = True
-            # pin inside a large registered title that isn't a land-type
-            # listing is usually a farm/estate/site, not the house plot
-            if row["est_acres"] > 20 and (row.get("subtype") or "") not in LANDISH_SUBTYPES:
-                row["est_shared"] = True
-        for rid, _, _ in pts:
-            if rid not in hit_ids:
-                by_id[rid]["est_checked"] = True
-        matched_total += len(hits)
-        attempted_total += len(pts)
-        print(f"  {name}: {len(hits)}/{len(pts)} matched")
-    print(f"total: {matched_total}/{attempted_total} matched to registered plots")
-
-    # recompute the shared-site flag on every est row (rule may change between runs)
     import re as _re
 
     house_max = float(cfg.get("enrich", {}).get("house_max_est_acres", 2.0))
@@ -217,16 +175,76 @@ def cmd_enrich(args):
                             r"mews|court|gardens|hill|park|place|approach|walk|row|square|"
                             r"villas|view|rise|fields|lawns|green|estate|quay|promenade)\b",
                             _re.I)
-    shared_n = 0
-    for row in listings.values():
-        if row.get("est_acres"):
-            is_landish = (row.get("subtype") or "") in LANDISH_SUBTYPES
-            bad_pin = not street_ev.search(row.get("address") or "")
-            row["est_shared"] = bool(
-                (not is_landish and (row["est_acres"] > house_max or bad_pin))
-                or row["est_acres"] > 20)
-            if row.get("est_shared"):
-                shared_n += 1
+
+    def flag_est_rows():
+        """Recompute the shared-site flag on every est row (rule may change)."""
+        shared_n = 0
+        for row in listings.values():
+            if row.get("est_acres"):
+                is_landish = (row.get("subtype") or "") in LANDISH_SUBTYPES
+                bad_pin = not street_ev.search(row.get("address") or "")
+                row["est_shared"] = bool(
+                    (not is_landish and (row["est_acres"] > house_max or bad_pin))
+                    or row["est_acres"] > 20)
+                if row.get("est_shared"):
+                    shared_n += 1
+        return shared_n
+
+    by_id = {k: v for k, v in listings.items() if v.get("lat") and v.get("lng")}
+    print(f"{len(by_id)} listings with coordinates")
+
+    bb = inspire.bboxes_map([n for n in names])
+    matched_total = 0
+    attempted_total = 0
+    for name in names:
+        try:
+            pkl = inspire.build_index(name, verbose=True)
+        except Exception as e:
+            print(f"  {name}: download/parse failed: {e}")
+            continue
+        if pkl is None:
+            print(f"  {name}: no polygons (skipped)")
+            continue
+        try:
+            bbox = bb.get(name) or inspire.bbox_of(pkl)
+            pts = []
+            for rid, row in by_id.items():
+                if row.get("est_checked"):
+                    continue
+                e, n = inspire.wgs84_to_bng(row["lat"], row["lng"])
+                if bbox[0] <= e <= bbox[2] and bbox[1] <= n <= bbox[3]:
+                    pts.append((rid, e, n))
+            if not pts:
+                continue
+            hits = inspire.match_points(pts, bbox, pkl)
+            hit_ids = set(hits)
+            for rid, (area, gid) in hits.items():
+                row = by_id[rid]
+                row["est_plot_m2"] = round(area, 1)
+                row["est_acres"] = round(area / 4046.86, 3)
+                row["inspire_id"] = gid
+                row["est_checked"] = True
+                # pin inside a large registered title that isn't a land-type
+                # listing is usually a farm/estate/site, not the house plot
+                if row["est_acres"] > 20 and (row.get("subtype") or "") not in LANDISH_SUBTYPES:
+                    row["est_shared"] = True
+            for rid, _, _ in pts:
+                if rid not in hit_ids:
+                    by_id[rid]["est_checked"] = True
+            matched_total += len(hits)
+            attempted_total += len(pts)
+            print(f"  {name}: {len(hits)}/{len(pts)} matched")
+        except Exception as e:
+            print(f"  {name}: matching failed: {e}")
+            continue
+        # persist after every LA so a crash never loses accumulated matches
+        shared_n = flag_est_rows()
+        state["listings"] = listings
+        write_state(state, snaps, snaps / "events.jsonl", [])
+        print(f"  ({shared_n} est rows flagged shared; state saved)")
+    print(f"total: {matched_total}/{attempted_total} matched to registered plots")
+
+    shared_n = flag_est_rows()
     print(f"{shared_n} est rows flagged as large/vague shared titles (excluded from ranking)")
 
     state["listings"] = listings
