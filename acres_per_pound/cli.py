@@ -253,6 +253,27 @@ def cmd_enrich(args):
     print("state + site updated")
 
 
+def cmd_sold(args):
+    """Match removed listings against Land Registry Price Paid data."""
+    from . import sold as sold_mod
+
+    cfg = load_config()
+    snaps = pathlib.Path(cfg["snapshots_dir"])
+    if not snaps.is_absolute():
+        snaps = REPO_DIR / snaps
+    state = load_state(snaps / "state.json")
+    listings = state.get("listings") or {}
+    years = tuple(int(y) for y in (args.years or "2026,2025").split(","))
+    ppd = sold_mod.fetch_ppd(years=years, verbose=True)
+    print(f"{len(ppd)} PPD records loaded")
+    matched, attempted = sold_mod.match_removed(listings, ppd, verbose=True)
+    print(f"matched {matched}/{attempted} removed listings to sold prices")
+    state["listings"] = listings
+    write_state(state, snaps, snaps / "events.jsonl", [])
+    build_site(state, cfg, site_dir=cfg["site_dir"], new_events=[])
+    print("state + site updated")
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
     p = argparse.ArgumentParser(prog="acres")
@@ -281,6 +302,10 @@ def main():
     sp.add_argument("--all", action="store_true", help="download+parse every E&W local authority (~4GB)")
     sp.add_argument("--las", default="", help="comma-separated LA zip names")
     sp.set_defaults(func=cmd_enrich)
+
+    sp = sub.add_parser("sold", help="match removed listings to Land Registry sold prices")
+    sp.add_argument("--years", default="2026,2025", help="comma-separated PPD years")
+    sp.set_defaults(func=cmd_sold)
 
     sp = sub.add_parser("serve", help="scan once then serve the dashboard locally")
     sp.add_argument("--regions", default="")

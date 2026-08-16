@@ -16,6 +16,7 @@ _PUB_FIELDS = (
     "matched", "listing_status", "first_published", "first_seen",
     "gbp_per_acre", "acres_per_100k", "region_id", "region_name",
     "region_median", "value_ratio", "communal", "verified", "flag",
+    "sold_price", "sold_date", "sold_gbp_per_acre", "sold_confidence",
 )
 
 
@@ -32,6 +33,7 @@ def _state_row(row):
         "listing_status", "first_published", "active", "detail_checked",
         "region_id", "region_name", "est_acres", "est_plot_m2", "inspire_id",
         "est_shared", "est_checked", "communal",
+        "sold_price", "sold_date", "sold_gbp_per_acre", "sold_confidence",
     )
     return {k: v for k in keep if (v := row.get(k)) is not None}
 
@@ -140,6 +142,31 @@ def _region_stats(rows):
     return out
 
 
+def _sold_view(listings, cfg):
+    est_floor = float((cfg or load_config()).get("enrich", {}).get("est_min_acres", 0.15))
+    sold = []
+    for r in listings.values():
+        if not r.get("sold_price"):
+            continue
+        acres = r.get("acres_mid")
+        if acres is None and r.get("est_acres"):
+            if r["est_acres"] < est_floor:
+                continue
+            acres = r["est_acres"]
+        if not acres:
+            continue
+        entry = _pub(r)
+        entry["acres_mid"] = acres
+        entry["acres_min"] = entry["acres_max"] = acres
+        if entry.get("sold_gbp_per_acre") is None:
+            entry["sold_gbp_per_acre"] = round(r["sold_price"] / acres, 2)
+        if r.get("price"):
+            entry["discount_pct"] = round((r["sold_price"] / r["price"] - 1) * 100, 1)
+        sold.append(entry)
+    sold.sort(key=lambda x: x.get("sold_gbp_per_acre") or 1e12)
+    return sold
+
+
 def views(state, cfg=None):
     rows = ranking(state["listings"], cfg)
     land = _annotate([r for r in rows if r.get("land_only")])
@@ -157,6 +184,7 @@ def views(state, cfg=None):
         "houses": [_pub(r) for r in houses],
         "all": [_pub(r) for r in rows],
         "regions": _region_stats(rows),
+        "sold": _sold_view(state["listings"], cfg),
         "events": state.get("events")[-200:] if state.get("events") else [],
     }
 

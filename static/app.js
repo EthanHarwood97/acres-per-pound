@@ -301,6 +301,31 @@ function renderRegions() {
     names.map((n) => `<option>${escapeHtml(n)}</option>`).join("");
 }
 
+function renderSold() {
+  if (!DATA) return;
+  const sold = DATA.sold || [];
+  const sec = document.getElementById("soldsec");
+  if (!sold.length) { sec.hidden = true; return; }
+  sec.hidden = false;
+  document.getElementById("soldBody").innerHTML = sold.slice(0, 60).map((r) => {
+    const disc = r.discount_pct != null
+      ? `<td class="num ${r.discount_pct <= -5 ? "good" : r.discount_pct >= 5 ? "weak" : "dim"}">${r.discount_pct > 0 ? "+" : ""}${r.discount_pct}%</td>`
+      : `<td class="num dim">—</td>`;
+    const conf = r.sold_confidence === "strong"
+      ? `<td class="conf" title="full postcode match">✓ strong</td>`
+      : `<td class="dim" title="outcode-level match, verify">~ weak</td>`;
+    return `<tr>
+      <td><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.address || "")}</a></td>
+      <td class="num">${fmt.acres(r)}</td>
+      <td class="num dim">${fmt.gbp(r.price)}</td>
+      <td class="num strong">${fmt.gbp(r.sold_price)}</td>
+      <td class="num strong">${fmt.gbpAcre(r.sold_gbp_per_acre)}</td>
+      ${disc}
+      ${conf}
+    </tr>`;
+  }).join("");
+}
+
 function renderRegionSummary() {
   if (!DATA || !DATA.regions || !DATA.regions.length) return;
   const tb = document.getElementById("regsumBody");
@@ -489,6 +514,7 @@ fetch("data.json")
     renderRegions();
     renderTypes();
     renderRegionSummary();
+    renderSold();
     applyFToInputs();
     renderNewStrip();
     renderEvents();
