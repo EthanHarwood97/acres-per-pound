@@ -40,7 +40,8 @@
     "top_n": 10
   },
   "enrich": {
-    "house_max_est_acres": 2.0
+    "house_max_est_acres": 2.0,
+    "est_min_acres": 0.15
   },
   "server": {
     "host": "127.0.0.1",

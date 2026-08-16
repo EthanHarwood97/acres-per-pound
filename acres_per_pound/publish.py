@@ -11,13 +11,11 @@ STATIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "static"
 REPO_DIR = pathlib.Path(__file__).resolve().parent.parent
 
 _PUB_FIELDS = (
-    "rm_id", "url", "address", "postcode", "lat", "lng", "price", "price_text",
-    "beds", "subtype", "type_full", "land_only", "acres_min", "acres_max",
-    "acres_mid", "acre_unit", "confidence", "matched", "listing_status",
-    "first_published", "first_seen", "last_seen", "gbp_per_acre", "acres_per_100k",
-    "region_id", "region_name", "region_median", "value_ratio",
-    "est_acres", "est_plot_m2", "inspire_id", "est_shared",
-    "communal", "verified", "flag",
+    "rm_id", "url", "address", "postcode", "price", "beds", "subtype",
+    "land_only", "acres_min", "acres_max", "acres_mid", "confidence",
+    "matched", "listing_status", "first_published", "first_seen",
+    "gbp_per_acre", "acres_per_100k", "region_id", "region_name",
+    "region_median", "value_ratio", "communal", "verified", "flag",
 )
 
 
@@ -70,6 +68,9 @@ def ranking(listings, cfg=None):
         if row.get("communal"):
             continue  # measured land is shared/communal, not owned
         if row.get("acres_mid") is None and row.get("est_acres"):
+            est_floor = float((cfg or load_config()).get("enrich", {}).get("est_min_acres", 0.15))
+            if row["est_acres"] < est_floor:
+                continue  # tiny registered plots are noise (flats etc.)
             row = dict(row)
             row["acres_min"] = row["acres_max"] = row["acres_mid"] = row["est_acres"]
             row["confidence"] = "est"
