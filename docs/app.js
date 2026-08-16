@@ -200,6 +200,42 @@ function escapeHtml(s) {
 let mapView = false;
 let mapObj = null;
 let mapLayer = null;
+let LAYERS = null;
+let airportLayer = null;
+let crimeLayer = null;
+
+function loadLayers() {
+  if (LAYERS) return Promise.resolve(LAYERS);
+  return fetch("layers.json")
+    .then((r) => r.json())
+    .then((d) => { LAYERS = d; return d; })
+    .catch(() => { LAYERS = null; return null; });
+}
+
+function renderAirportLayer() {
+  if (!mapObj || !LAYERS || !LAYERS.airports) return;
+  if (airportLayer) airportLayer.remove();
+  if (!document.getElementById("layerAirports").checked) return;
+  airportLayer = L.layerGroup().addTo(mapObj);
+  for (const a of LAYERS.airports) {
+    L.circleMarker([a.lat, a.lng], { radius: 4, color: "#38bdf8", weight: 1, fillOpacity: 0.9 })
+      .bindPopup(`<b>${escapeHtml(a.name)}</b>${a.iata ? " (" + escapeHtml(a.iata) + ")" : ""}`)
+      .addTo(airportLayer);
+    L.circle([a.lat, a.lng], { radius: 15000, color: "#38bdf8", weight: 1, opacity: 0.25, fillOpacity: 0.05 })
+      .addTo(airportLayer);
+  }
+}
+
+function renderCrimeLayer() {
+  if (!mapObj || !LAYERS || !LAYERS.crimes || !window.L || !L.heatLayer) return;
+  if (crimeLayer) crimeLayer.remove();
+  document.getElementById("layerNote").textContent = "";
+  if (!document.getElementById("layerCrime").checked) return;
+  const pts = LAYERS.crimes.map((c) => [c[0], c[1], Math.min(1, c[2] / 40)]);
+  crimeLayer = L.heatLayer(pts, { radius: 22, blur: 16, maxZoom: 12, minOpacity: 0.15 }).addTo(mapObj);
+  document.getElementById("layerNote").textContent =
+    LAYERS.crime_note ? "(" + LAYERS.crime_note + ")" : "";
+}
 
 function mapColor(r) {
   const v = r.value_ratio;
@@ -254,6 +290,10 @@ function toggleMap() {
   btn.classList.toggle("active", mapView);
   if (mapView) {
     renderMap();
+    loadLayers().then(() => {
+      renderAirportLayer();
+      renderCrimeLayer();
+    });
     setTimeout(() => { if (mapObj) mapObj.invalidateSize(); }, 50);
   }
 }
@@ -420,6 +460,8 @@ function bindEvents() {
     f.hidden = !f.hidden;
   });
   document.getElementById("mapToggle").addEventListener("click", toggleMap);
+  document.getElementById("layerAirports").addEventListener("change", renderAirportLayer);
+  document.getElementById("layerCrime").addEventListener("change", renderCrimeLayer);
   document.getElementById("resetFilters").addEventListener("click", resetFilters);
   document.getElementById("search").addEventListener("input", () => { applyInputsToF(); refresh(); });
   document.getElementById("region").addEventListener("input", () => { applyInputsToF(); refresh(); });

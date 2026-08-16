@@ -274,6 +274,21 @@ def cmd_sold(args):
     print("state + site updated")
 
 
+def cmd_layers(args):
+    """Build family-suitability map layers (airports + crime heatmap).
+
+    Downloads OurAirports (UK scheduled airports) and the latest
+    data.police.uk street-level crime archive (~1.7GB, one-time, then
+    cached). Aggregates crime to a compact grid in docs/layers.json.
+    Run monthly.
+    """
+    from . import layers as layers_mod
+
+    payload = layers_mod.build_layers(verbose=True)
+    print(f"layers.json: {len(payload['airports'])} airports, "
+          f"{len(payload['crimes'])} crime cells ({payload['updated']})")
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
     p = argparse.ArgumentParser(prog="acres")
@@ -306,6 +321,9 @@ def main():
     sp = sub.add_parser("sold", help="match removed listings to Land Registry sold prices")
     sp.add_argument("--years", default="2026,2025", help="comma-separated PPD years")
     sp.set_defaults(func=cmd_sold)
+
+    sp = sub.add_parser("layers", help="build map layers (airports, crime heatmap)")
+    sp.set_defaults(func=cmd_layers)
 
     sp = sub.add_parser("serve", help="scan once then serve the dashboard locally")
     sp.add_argument("--regions", default="")
