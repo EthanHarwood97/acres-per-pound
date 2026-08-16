@@ -116,6 +116,30 @@ def _annotate(rows):
     return rows
 
 
+def _region_stats(rows):
+    by = {}
+    for r in rows:
+        by.setdefault(r.get("region_name") or "", []).append(r)
+    out = []
+    for name, rs in by.items():
+        med = _median([r["gbp_per_acre"] for r in rs])
+        med_a = _median([r["acres_mid"] for r in rs])
+        best = min(rs, key=lambda r: r["gbp_per_acre"])
+        out.append({
+            "region": name,
+            "n": len(rs),
+            "land": sum(1 for r in rs if r.get("land_only")),
+            "median_gbp": round(med, 0) if med else None,
+            "median_acres": round(med_a, 2) if med_a else None,
+            "cheapest_gbp": round(best["gbp_per_acre"], 0),
+            "cheapest_acres": best["acres_mid"],
+            "cheapest_address": best["address"],
+            "cheapest_url": best["url"],
+        })
+    out.sort(key=lambda x: x["median_gbp"] if x["median_gbp"] is not None else 1e12)
+    return out
+
+
 def views(state, cfg=None):
     rows = ranking(state["listings"], cfg)
     land = _annotate([r for r in rows if r.get("land_only")])
@@ -132,6 +156,7 @@ def views(state, cfg=None):
         "land": [_pub(r) for r in land],
         "houses": [_pub(r) for r in houses],
         "all": [_pub(r) for r in rows],
+        "regions": _region_stats(rows),
         "events": state.get("events")[-200:] if state.get("events") else [],
     }
 

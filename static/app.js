@@ -240,6 +240,31 @@ function renderRegions() {
     names.map((n) => `<option>${escapeHtml(n)}</option>`).join("");
 }
 
+function renderRegionSummary() {
+  if (!DATA || !DATA.regions || !DATA.regions.length) return;
+  const tb = document.getElementById("regsumBody");
+  tb.innerHTML = DATA.regions.slice(0, 80).map((r) => {
+    const cheapest = r.cheapest_url
+      ? `<a href="${r.cheapest_url}" target="_blank" rel="noopener" title="${escapeHtml(r.cheapest_address || "")}">${fmt.gbpAcre(r.cheapest_gbp)}/ac · ${fmt.ac100k(r.cheapest_acres)}ac</a>`
+      : "—";
+    return `<tr class="clickable" data-reg="${escapeHtml(r.region)}">
+      <td>${escapeHtml(r.region)}</td>
+      <td class="num">${r.n} <span class="dim">(${r.land} land)</span></td>
+      <td class="num strong">${fmt.gbpAcre(r.median_gbp)}</td>
+      <td class="num">${fmt.ac100k(r.median_acres)}</td>
+      <td class="dim">${cheapest}</td>
+    </tr>`;
+  }).join("");
+  tb.onclick = (e) => {
+    if (e.target.closest("a")) return;
+    const tr = e.target.closest("tr[data-reg]");
+    if (!tr) return;
+    F.region = tr.dataset.reg;
+    document.getElementById("region").value = F.region;
+    refresh();
+  };
+}
+
 function renderTypes() {
   if (!DATA) return;
   const meta = DATA.meta || {};
@@ -397,6 +422,7 @@ fetch("data.json")
     renderStats();
     renderRegions();
     renderTypes();
+    renderRegionSummary();
     applyFToInputs();
     renderNewStrip();
     renderEvents();
