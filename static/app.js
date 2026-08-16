@@ -8,6 +8,7 @@ let favs = new Set();
 
 const FAV_KEY = "apf_favs";
 const CORR_KEY = "apf_corrections";
+const VIS_KEY = "apf_visited";
 
 let corrections = {};
 function loadCorrections() {
@@ -18,8 +19,21 @@ function saveCorrections() {
   try { localStorage.setItem(CORR_KEY, JSON.stringify(corrections)); } catch (e) {}
 }
 
+let visited = new Set();
+function loadVisited() {
+  try { visited = new Set(JSON.parse(localStorage.getItem(VIS_KEY) || "[]")); }
+  catch (e) { visited = new Set(); }
+}
+function saveVisited() {
+  if (visited.size > 5000) {
+    const keep = [...visited].slice(-5000);
+    visited = new Set(keep);
+  }
+  try { localStorage.setItem(VIS_KEY, JSON.stringify([...visited])); } catch (e) {}
+}
+
 const F = {
-  search: "", region: "", onlyNew: false, onlyFavs: false,
+  search: "", region: "", onlyNew: false, onlyFavs: false, hideSeen: false,
   minPrice: null, maxPrice: null, minAcres: null, maxAcres: null,
   minBeds: null, maxBeds: null, minGbp: null, maxGbp: null,
   hideEst: false, types: null,
@@ -98,6 +112,7 @@ function rowsFor() {
     if (s && !(r.address || "").toLowerCase().includes(s) && !(r.region_name || "").toLowerCase().includes(s)) return false;
     if (F.region && r.region_name !== F.region) return false;
     if (F.onlyFavs && !favs.has(String(r.rm_id))) return false;
+    if (F.hideSeen && visited.has(String(r.rm_id))) return false;
     if (F.types && !F.types.has(r.subtype)) return false;
     if (F.hideEst && r.confidence === "est") return false;
     if (F.minPrice != null && (r.price || 0) < F.minPrice) return false;
@@ -155,7 +170,8 @@ function render() {
   const tb = document.getElementById("rows");
   tb.innerHTML = rows.slice(0, 500).map((r, i) => {
     const conf = r.confidence || "";
-    return `<tr>
+    const seen = visited.has(String(r.rm_id));
+    return `<tr class="${seen ? "seen" : ""}">
       <td class="num">${i + 1}</td>
       ${starCell(r)}
       ${badgeCell(r)}
@@ -163,7 +179,7 @@ function render() {
       <td class="num">${fmt.acres(r)}</td>
       <td class="num dim">${fmt.ac100k(r.acres_per_100k)}</td>
       <td class="num">${fmt.gbp(r.price)}</td>
-      <td><a href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.address || "")}</a>
+      <td><a href="${r.url}" target="_blank" rel="noopener" data-vid="${r.rm_id}">${escapeHtml(r.address || "")}</a>
         <button class="edit-acres" data-id="${r.rm_id}" data-acres="${r.acres_mid ?? ""}" title="correct the acreage">✎</button>
       </td>
       <td class="dim">${escapeHtml(r.subtype || "")}</td>
@@ -244,6 +260,7 @@ function applyInputsToF() {
   F.onlyNew = document.getElementById("onlyNew").checked;
   F.onlyFavs = document.getElementById("onlyFavs").checked;
   F.hideEst = document.getElementById("hideEst").checked;
+  F.hideSeen = document.getElementById("hideSeen").checked;
   for (const k of NUM_FIELDS) {
     const v = parseFloat(document.getElementById(k).value);
     F[k] = Number.isFinite(v) ? v : null;
@@ -256,6 +273,7 @@ function applyFToInputs() {
   document.getElementById("onlyNew").checked = !!F.onlyNew;
   document.getElementById("onlyFavs").checked = !!F.onlyFavs;
   document.getElementById("hideEst").checked = !!F.hideEst;
+  document.getElementById("hideSeen").checked = !!F.hideSeen;
   for (const k of NUM_FIELDS) {
     document.getElementById(k).value = F[k] != null ? F[k] : "";
   }
@@ -268,7 +286,7 @@ function resetFilters() {
     if (k === "types") F.types = null;
     else F[k] = null;
   }
-  F.search = ""; F.region = ""; F.onlyNew = false; F.onlyFavs = false; F.hideEst = false;
+  F.search = ""; F.region = ""; F.onlyNew = false; F.onlyFavs = false; F.hideEst = false; F.hideSeen = false;
   applyFToInputs();
   renderTypes();
   refresh();
@@ -292,6 +310,7 @@ function bindEvents() {
   document.getElementById("onlyNew").addEventListener("change", () => { applyInputsToF(); refresh(); });
   document.getElementById("onlyFavs").addEventListener("change", () => { applyInputsToF(); refresh(); });
   document.getElementById("hideEst").addEventListener("change", () => { applyInputsToF(); refresh(); });
+  document.getElementById("hideSeen").addEventListener("change", () => { applyInputsToF(); refresh(); });
   for (const k of NUM_FIELDS) {
     document.getElementById(k).addEventListener("input", () => { applyInputsToF(); refresh(); });
   }
@@ -317,6 +336,19 @@ function bindEvents() {
     refresh();
   });
   document.getElementById("rows").addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-vid]");
+    if (a) {
+      const id = a.dataset.vid;
+      visited.add(id);
+      saveVisited();
+      if (F.hideSeen) {
+        render();
+      } else {
+        const tr = a.closest("tr");
+        if (tr) tr.classList.add("seen");
+      }
+      return;
+    }
     const b = e.target.closest(".star");
     if (!b) return;
     const id = b.dataset.id;
@@ -356,6 +388,7 @@ function bindEvents() {
 
 loadFavs();
 loadCorrections();
+loadVisited();
 loadHash();
 fetch("data.json")
   .then((r) => r.json())
