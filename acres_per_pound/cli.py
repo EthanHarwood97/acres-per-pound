@@ -275,18 +275,21 @@ def cmd_sold(args):
 
 
 def cmd_layers(args):
-    """Build family-suitability map layers (airports + crime heatmap).
+    """Build family-suitability map layers.
 
-    Downloads OurAirports (UK scheduled airports) and the latest
-    data.police.uk street-level crime archive (~1.7GB, one-time, then
-    cached). Aggregates crime to a compact grid in docs/layers.json.
-    Run monthly.
+    airports (OurAirports) + crime heatmap (data.police.uk, ~1.7GB
+    one-time) + GP surgeries (CQC directory + postcodes.io) + flood
+    zone 3 (Environment Agency) + parks (OpenStreetMap GB, ~1.4GB
+    one-time) + schools (GIAS CSV if present - see README).
+
+    Run monthly; every source is cached.
     """
     from . import layers as layers_mod
 
-    payload = layers_mod.build_layers(verbose=True)
-    print(f"layers.json: {len(payload['airports'])} airports, "
-          f"{len(payload['crimes'])} crime cells ({payload['updated']})")
+    payload = layers_mod.build_all_layers(verbose=True)
+    print(f"layers.json: airports {len(payload['airports'])} | crime {len(payload['crimes'])} | "
+          f"gps {len(payload['gps'])} | flood {len(payload['flood'])} | parks {len(payload['parks'])} | "
+          f"schools {'n/a (see README)' if payload['schools'] is None else len(payload['schools'])}")
 
 
 def main():

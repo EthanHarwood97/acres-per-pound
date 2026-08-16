@@ -203,13 +203,29 @@ let mapLayer = null;
 let LAYERS = null;
 let airportLayer = null;
 let crimeLayer = null;
+let floodLayer = null;
+let gpLayer = null;
+let parkLayer = null;
+let schoolLayer = null;
 
 function loadLayers() {
   if (LAYERS) return Promise.resolve(LAYERS);
   return fetch("layers.json")
     .then((r) => r.json())
-    .then((d) => { LAYERS = d; return d; })
+    .then((d) => {
+      LAYERS = d;
+      if (d.schools && d.schools.length) {
+        document.getElementById("schoolsToggle").hidden = false;
+      } else if (d.schools_note) {
+        document.getElementById("layerNote").textContent = d.schools_note;
+      }
+      return d;
+    })
     .catch(() => { LAYERS = null; return null; });
+}
+
+function listingPinsVisible() {
+  return document.getElementById("layerListings").checked;
 }
 
 function renderAirportLayer() {
@@ -229,12 +245,81 @@ function renderAirportLayer() {
 function renderCrimeLayer() {
   if (!mapObj || !LAYERS || !LAYERS.crimes || !window.L || !L.heatLayer) return;
   if (crimeLayer) crimeLayer.remove();
-  document.getElementById("layerNote").textContent = "";
   if (!document.getElementById("layerCrime").checked) return;
   const pts = LAYERS.crimes.map((c) => [c[0], c[1], Math.min(1, c[2] / 40)]);
   crimeLayer = L.heatLayer(pts, { radius: 22, blur: 16, maxZoom: 12, minOpacity: 0.15 }).addTo(mapObj);
-  document.getElementById("layerNote").textContent =
-    LAYERS.crime_note ? "(" + LAYERS.crime_note + ")" : "";
+}
+
+function renderFloodLayer() {
+  if (!mapObj || !LAYERS || !LAYERS.flood || !window.L || !L.heatLayer) return;
+  if (floodLayer) floodLayer.remove();
+  if (!document.getElementById("layerFlood").checked) return;
+  const pts = LAYERS.flood.map((c) => [c[0], c[1], 0.6]);
+  floodLayer = L.heatLayer(pts, {
+    radius: 26, blur: 18, maxZoom: 12, minOpacity: 0.4,
+    gradient: { 0.4: "#3b82f6", 0.7: "#2563eb", 1: "#1e40af" },
+  }).addTo(mapObj);
+}
+
+function renderParkLayer() {
+  if (!mapObj || !LAYERS || !LAYERS.parks) return;
+  if (parkLayer) parkLayer.remove();
+  if (!document.getElementById("layerParks").checked) return;
+  parkLayer = L.layerGroup().addTo(mapObj);
+  for (const p of LAYERS.parks) {
+    L.circleMarker([p.lat, p.lng], { radius: 3.5, color: "#22c55e", weight: 1, fillOpacity: 0.7 })
+      .bindPopup(`<b>${escapeHtml(p.name || "unnamed park")}</b><br>${p.area_ha} ha`)
+      .addTo(parkLayer);
+  }
+}
+
+const RATING_COLORS = {
+  "Outstanding": "#4ade80", "Good": "#a3e635",
+  "Requires improvement": "#f59e0b", "Inadequate": "#f87171",
+};
+
+function renderBoundedPoints() {
+  // GPs and schools: only render what's in view (they number in the thousands)
+  if (!mapObj || !LAYERS) return;
+  const bounds = mapObj.getBounds();
+  const zoom = mapObj.getZoom();
+
+  if (gpLayer) gpLayer.remove();
+  if (document.getElementById("layerGps").checked && LAYERS.gps && zoom >= 8) {
+    gpLayer = L.layerGroup().addTo(mapObj);
+    let n = 0;
+    for (const g of LAYERS.gps) {
+      if (n >= 350) break;
+      if (!bounds.contains([g.lat, g.lng])) continue;
+      L.circleMarker([g.lat, g.lng], { radius: 3, color: "#f87171", weight: 1, fillOpacity: 0.85 })
+        .bindPopup(`<b>${escapeHtml(g.name)}</b><br>GP surgery`)
+        .addTo(gpLayer);
+      n++;
+    }
+  }
+
+  if (schoolLayer) schoolLayer.remove();
+  if (document.getElementById("layerSchools").checked && LAYERS.schools && zoom >= 9) {
+    schoolLayer = L.layerGroup().addTo(mapObj);
+    let n = 0;
+    for (const s of LAYERS.schools) {
+      if (n >= 350) break;
+      if (!bounds.contains([s.lat, s.lng])) continue;
+      const col = RATING_COLORS[s.rating] || "#8b96a5";
+      L.circleMarker([s.lat, s.lng], { radius: 4, color: col, weight: 1, fillOpacity: 0.9 })
+        .bindPopup(`<b>${escapeHtml(s.name)}</b><br>Ofsted: ${escapeHtml(s.rating || "n/a")} · ${escapeHtml(s.phase || "")}`)
+        .addTo(schoolLayer);
+      n++;
+    }
+  }
+}
+
+function renderAllLayers() {
+  renderAirportLayer();
+  renderCrimeLayer();
+  renderFloodLayer();
+  renderParkLayer();
+  renderBoundedPoints();
 }
 
 function mapColor(r) {
@@ -255,26 +340,29 @@ function renderMap() {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(mapObj);
+    mapObj.on("moveend zoomend", renderBoundedPoints);
   }
   if (mapLayer) mapLayer.remove();
   mapLayer = L.layerGroup().addTo(mapObj);
-  for (const r of rows) {
-    const pop = `<b>${escapeHtml(r.address || "")}</b><br>` +
-      `${fmt.gbpAcre(r.gbp_per_acre)}/acre · ${fmt.acres(r)} ac · ${fmt.gbp(r.price)}` +
-      (r.verified ? " ✓" : "") +
-      `<br><a href="${r.url}" target="_blank" rel="noopener">view on Rightmove</a>`;
-    L.circleMarker([r.lat, r.lng], {
-      radius: r.land_only ? 7 : 5,
-      color: mapColor(r),
-      weight: 1,
-      fillColor: mapColor(r),
-      fillOpacity: 0.75,
-    }).bindPopup(pop).addTo(mapLayer);
+  if (listingPinsVisible()) {
+    for (const r of rows) {
+      const pop = `<b>${escapeHtml(r.address || "")}</b><br>` +
+        `${fmt.gbpAcre(r.gbp_per_acre)}/acre · ${fmt.acres(r)} ac · ${fmt.gbp(r.price)}` +
+        (r.verified ? " ✓" : "") +
+        `<br><a href="${r.url}" target="_blank" rel="noopener">view on Rightmove</a>`;
+      L.circleMarker([r.lat, r.lng], {
+        radius: r.land_only ? 7 : 5,
+        color: mapColor(r),
+        weight: 1,
+        fillColor: mapColor(r),
+        fillOpacity: 0.75,
+      }).bindPopup(pop).addTo(mapLayer);
+    }
   }
   document.getElementById("mapCount").textContent =
-    `${rows.length} listings on map (top ${Math.min(1200, rows.length)} by current sort)`;
+    `${listingPinsVisible() ? rows.length + " listings on map" : "listing pins hidden"}`;
   const all = rows.filter((r) => r.lat != null);
-  if (all.length) {
+  if (all.length && listingPinsVisible()) {
     const bounds = L.latLngBounds(all.map((r) => [r.lat, r.lng]));
     mapObj.fitBounds(bounds, { padding: [20, 20], maxZoom: 10 });
   }
@@ -290,10 +378,7 @@ function toggleMap() {
   btn.classList.toggle("active", mapView);
   if (mapView) {
     renderMap();
-    loadLayers().then(() => {
-      renderAirportLayer();
-      renderCrimeLayer();
-    });
+    loadLayers().then(renderAllLayers);
     setTimeout(() => { if (mapObj) mapObj.invalidateSize(); }, 50);
   }
 }
@@ -460,8 +545,13 @@ function bindEvents() {
     f.hidden = !f.hidden;
   });
   document.getElementById("mapToggle").addEventListener("click", toggleMap);
+  document.getElementById("layerListings").addEventListener("change", renderMap);
   document.getElementById("layerAirports").addEventListener("change", renderAirportLayer);
   document.getElementById("layerCrime").addEventListener("change", renderCrimeLayer);
+  document.getElementById("layerFlood").addEventListener("change", renderFloodLayer);
+  document.getElementById("layerGps").addEventListener("change", renderBoundedPoints);
+  document.getElementById("layerParks").addEventListener("change", renderParkLayer);
+  document.getElementById("layerSchools").addEventListener("change", renderBoundedPoints);
   document.getElementById("resetFilters").addEventListener("click", resetFilters);
   document.getElementById("search").addEventListener("input", () => { applyInputsToF(); refresh(); });
   document.getElementById("region").addEventListener("input", () => { applyInputsToF(); refresh(); });

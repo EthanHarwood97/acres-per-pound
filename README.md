@@ -48,6 +48,30 @@ python -m acres_per_pound.cli serve              # dashboard on http://127.0.0.1
 python tests\test_landparse.py                   # parser unit tests
 ```
 
+## Map layers (`python -m acres_per_pound.cli layers`)
+
+Family-suitability overlays, all free data, run monthly:
+
+| Layer | Source | Notes |
+|---|---|---|
+| ✈ Airports | OurAirports | 48 UK scheduled airports + 15km noise rings |
+| 🔥 Crime | data.police.uk | street-level, England/Wales/NI only |
+| 🌊 Flood zone 3 | Environment Agency | rivers & sea, England only |
+| 🏥 GP surgeries | CQC directory | geocoded via postcodes.io |
+| 🌳 Parks | OpenStreetMap GB | top 3000 by area (~1.4GB one-time download) |
+| 🏫 Schools + Ofsted | GIAS | needs a one-time manual download (below) |
+
+**Schools setup (the only manual step):** register a free account at
+https://get-information-schools.service.gov.uk → sign in → Downloads →
+download the "Establishments" CSV (all fields) and save it as
+`data/layers/establishments.csv`. The `layers` command picks it up and
+geocodes every school with its Ofsted rating.
+
+```powershell
+pip install -r requirements-enrich.txt
+ python -m acres_per_pound.cli layers
+ ```
+
 ## Plot-boundary enrichment (INSPIRE)
 
 Houses whose ads never mention land (the "semi with a huge garden" case)

@@ -1,3 +1,5 @@
 # Local-only extras for `python -m acres_per_pound.cli enrich`
 shapely>=2.0
 pyproj>=3.6
+# parks layer (OpenStreetMap parsing)
+osmium>=4.0
