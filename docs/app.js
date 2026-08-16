@@ -197,6 +197,67 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+let mapView = false;
+let mapObj = null;
+let mapLayer = null;
+
+function mapColor(r) {
+  const v = r.value_ratio;
+  if (v == null) return "#8b96a5";
+  if (v >= 3) return "#4ade80";
+  if (v >= 1.5) return "#a3e635";
+  if (v >= 1) return "#e2e8f0";
+  return "#64748b";
+}
+
+function renderMap() {
+  if (!DATA || !window.L) return;
+  const rows = rowsFor().filter((r) => r.lat != null && r.lng != null).slice(0, 1200);
+  if (!mapObj) {
+    mapObj = L.map("map").setView([54.5, -2.5], 6);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(mapObj);
+  }
+  if (mapLayer) mapLayer.remove();
+  mapLayer = L.layerGroup().addTo(mapObj);
+  for (const r of rows) {
+    const pop = `<b>${escapeHtml(r.address || "")}</b><br>` +
+      `${fmt.gbpAcre(r.gbp_per_acre)}/acre · ${fmt.acres(r)} ac · ${fmt.gbp(r.price)}` +
+      (r.verified ? " ✓" : "") +
+      `<br><a href="${r.url}" target="_blank" rel="noopener">view on Rightmove</a>`;
+    L.circleMarker([r.lat, r.lng], {
+      radius: r.land_only ? 7 : 5,
+      color: mapColor(r),
+      weight: 1,
+      fillColor: mapColor(r),
+      fillOpacity: 0.75,
+    }).bindPopup(pop).addTo(mapLayer);
+  }
+  document.getElementById("mapCount").textContent =
+    `${rows.length} listings on map (top ${Math.min(1200, rows.length)} by current sort)`;
+  const all = rows.filter((r) => r.lat != null);
+  if (all.length) {
+    const bounds = L.latLngBounds(all.map((r) => [r.lat, r.lng]));
+    mapObj.fitBounds(bounds, { padding: [20, 20], maxZoom: 10 });
+  }
+}
+
+function toggleMap() {
+  mapView = !mapView;
+  const wrap = document.getElementById("mapwrap");
+  const tableMain = document.getElementById("tableMain");
+  const btn = document.getElementById("mapToggle");
+  wrap.hidden = !mapView;
+  tableMain.hidden = mapView;
+  btn.classList.toggle("active", mapView);
+  if (mapView) {
+    renderMap();
+    setTimeout(() => { if (mapObj) mapObj.invalidateSize(); }, 50);
+  }
+}
+
 function renderStats() {
   if (!DATA) return;
   const s = DATA.stats || {};
@@ -304,7 +365,11 @@ function applyFToInputs() {
   }
 }
 
-function refresh() { saveHash(); render(); }
+function refresh() {
+  saveHash();
+  render();
+  if (mapView) renderMap();
+}
 
 function resetFilters() {
   for (const k of Object.keys(F)) {
@@ -329,6 +394,7 @@ function bindEvents() {
     const f = document.getElementById("filters");
     f.hidden = !f.hidden;
   });
+  document.getElementById("mapToggle").addEventListener("click", toggleMap);
   document.getElementById("resetFilters").addEventListener("click", resetFilters);
   document.getElementById("search").addEventListener("input", () => { applyInputsToF(); refresh(); });
   document.getElementById("region").addEventListener("input", () => { applyInputsToF(); refresh(); });

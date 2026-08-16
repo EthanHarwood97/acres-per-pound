@@ -11,7 +11,7 @@ STATIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "static"
 REPO_DIR = pathlib.Path(__file__).resolve().parent.parent
 
 _PUB_FIELDS = (
-    "rm_id", "url", "address", "postcode", "price", "beds", "subtype",
+    "rm_id", "url", "address", "postcode", "lat", "lng", "price", "beds", "subtype",
     "land_only", "acres_min", "acres_max", "acres_mid", "confidence",
     "matched", "listing_status", "first_published", "first_seen",
     "gbp_per_acre", "acres_per_100k", "region_id", "region_name",

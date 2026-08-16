@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>acres-per-pound — UK property ranked by land value</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +18,7 @@
     <button data-view="all" class="active">All with land</button>
     <button data-view="houses">Houses with land</button>
     <button data-view="land">Bare land</button>
+    <button id="mapToggle" class="maptab">🗺 Map</button>
   </nav>
 
   <section class="controls">
@@ -89,7 +91,12 @@
     </table>
   </section>
 
-  <main>
+  <section class="mapwrap" id="mapwrap" hidden>
+    <div id="map"></div>
+    <p class="count" id="mapCount"></p>
+  </section>
+
+  <main id="tableMain">
     <table id="rank">
       <thead>
         <tr>
@@ -123,6 +130,7 @@
       always verify with the agent. Source: <a href="https://github.com/EthanHarwood97/acres-per-pound">acres-per-pound</a>.</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="app.js"></script>
 </body>
 </html>
