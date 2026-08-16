@@ -100945,3 +100945,1301 @@
 {"ts":"2026-08-16T05:48:26+00:00","event":"acre_update","rm_id":"90338004","address":" Plot 20, Sea View, Shapinsay, Balfour, Orkney, KW172DZ","acres_mid":0.482}
 {"ts":"2026-08-16T05:48:26+00:00","event":"acre_update","rm_id":"91046598","address":"Wall Hill Road, Ashurst Wood, East Grinstead, RH19","acres_mid":3.2}
 {"ts":"2026-08-16T05:48:26+00:00","event":"acre_update","rm_id":"91808514","address":"Yanwath Hall Farm, Yanwath, Penrith, CA10","acres_mid":1.6}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"152753858","address":"Henderson Street, Morpeth, NE65","price_old":240000,"price_new":230000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"158354711","address":"Bowes Lyon Place, Poundbury, Dorchester","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"160573400","address":"Porthmadog","price_old":290000,"price_new":265000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"162764933","address":"WOODFIELD LANE, ASHTEAD, KT21","price_old":260000,"price_new":254950,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"164769638","address":"Gregory Boulevard, Nottingham","price_old":300000,"price_new":275000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"165406847","address":"Saunton Road, Bilton, Rugby, CV22","price_old":250000,"price_new":210000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"166907036","address":"Morgan Walk, Nantwich","price_old":290000,"price_new":280000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"166928039","address":"St. Wilfred Drive, EAST COWES, Isle of Wight, PO32","price_old":175000,"price_new":170000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"167236346","address":"Green Meadows, Heath Hayes","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"167432318","address":"Coombe Drive, Cinderford","price_old":260000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"168645452","address":"Llys Tudur Rhyl","price_old":228000,"price_new":225000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"169631690","address":"Abbey View Road, \r\nWhitby,\r\nYO22 4FR","price_old":299995,"price_new":289995,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"169768037","address":"Rhyl Coast Road, Rhyl, LL18","price_old":207000,"price_new":200000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"170212016","address":"The Old Mill, London Road, St Ives","price_old":280000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"171109916","address":"Meadow Close, Gosforth, Seascale, Cumbria, CA20","price_old":260000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"171428795","address":"Runnel Court, Spring Place, Barking, IG11","price_old":200000,"price_new":180000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"172301333","address":"Lingwood Road, Great Sankey, WA5","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"172499690","address":"Charles Marler Way, Blofield, Norwich","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"172888841","address":"Talywern, Machynlleth, Powys, SY20","price_old":255000,"price_new":245000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173405798","address":"Cicero Crescent, Milton Keynes","price_old":240000,"price_new":230000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173424911","address":"Primley Park Drive, Alwoodley, LS17","price_old":275000,"price_new":261250,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173495318","address":"Regis Road, Tettenhall, Wolverhampton","price_old":295000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173503241","address":"Marsham Brook Lane, Pett Level","price_old":300000,"price_new":275000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173671964","address":"Traston Road, Newport, NP19","price_old":299950,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173788292","address":"Mackworth Street, Bridgend, CF31","price_old":142000,"price_new":130000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"173829743","address":"Ampthill Way, Faringdon, SN7","price_old":235000,"price_new":230000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"174028361","address":"Badgers Copse, Orpington","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"174093947","address":"Cenarth, Newcastle Emlyn, Carmarthenshire, SA38","price_old":29950,"price_new":27500,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"174239072","address":"St. Cuthberts Close, Burnfoot, Wigton, Cumbria, CA7","price_old":227500,"price_new":224500,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"174392981","address":"Rayleigh Drive, Wideopen, Newcastle Upon Tyne","price_old":279995,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"174899672","address":"Clog Mill Gardens, Selby","price_old":135000,"price_new":125000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"174928037","address":"Flat 5 Guild Close, Witney","price_old":225000,"price_new":220000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"175023647","address":"High Street, Aylesbury","price_old":230000,"price_new":220000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"175025792","address":"St. Thomas Road, Spalding, Lincolnshire, PE11","price_old":290000,"price_new":280000,"acres_mid":0.21,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"175039616","address":"Russell Rise, Luton, LU1","price_old":240000,"price_new":200000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87626319","address":"Holman Close, Waterlooville, Hampshire, PO8","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87666867","address":"Badgers Walk, Newport, PO30","price_old":230000,"price_new":200000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87814941","address":"Ballantyne Road, Farnborough, Hampshire, GU14","price_old":285000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87848595","address":"Aston Court, ","price_old":180000,"price_new":155000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87853509","address":"Brynteg, Beaumaris","price_old":250000,"price_new":249950,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87930501","address":"Bennett Street, Blaina, Abertillery, Blaenau Gwent, NP13 3HY","price_old":130000,"price_new":100000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"87944817","address":"Victory Belmor (38x12), Resipole Farm Holiday Park, Acharacle, Argyll and Bute, PH36 4HX","price_old":48000,"price_new":45000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88119990","address":"Whinpark Circle, Portlethen, AB12","price_old":210000,"price_new":195000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88196379","address":"Furzecroft, Quedgeley, Gloucester, Gloucestershire, GL2","price_old":275000,"price_new":265000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88245642","address":"Wycliffe Close, Cheshunt","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88323672","address":"Manor Road, Hereford, HR2 6HN","price_old":250000,"price_new":235000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88377405","address":"Girton Close, Bottesford, Scunthorpe","price_old":290000,"price_new":279000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88407309","address":"Holgate Close, Beverley","price_old":205000,"price_new":199950,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88561782","address":"Sherrard Drive, Sileby, Leicestershire,","price_old":270000,"price_new":264500,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88681431","address":"Burbo Bank Road, Liverpool","price_old":295000,"price_new":280000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88744389","address":"Bishops Road, Slough","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88764474","address":"Ranlea Avenue, Morecambe","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88870509","address":"St. Thomas Street, Penryn","price_old":267950,"price_new":245000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88877100","address":"Seymour Close, Rawtenstall, Rossendale, BB4","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88926132","address":"Dorsey Drive, Bedford, MK42","price_old":290000,"price_new":280000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88974606","address":"Llys Nantgarw, Wrexham, LL13","price_old":118500,"price_new":115000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"88976028","address":"Maplehurst Close,, Bexley, DA2","price_old":300000,"price_new":275000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89013030","address":"Harlestone Road, Northampton, NN5 7AP","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89138607","address":"Lein Road, Kingston, Fochabers, Moray, IV32","price_old":195000,"price_new":180000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89238441","address":"Brompton Road, Hamilton, LE5","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89295741","address":"The Oval, Rothwell, Leeds, West Yorkshire","price_old":290000,"price_new":284000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89303604","address":"Talorcan, Alloa","price_old":194995,"price_new":189995,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89428869","address":"Westgate Terrace, Launceston","price_old":269000,"price_new":259950,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89467896","address":"Carpenters Wynd, Alloa","price_old":284995,"price_new":274995,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89468022","address":"Lon Gerddi, Edern, Pwllheli, LL53","price_old":275000,"price_new":265000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89492742","address":"Victory Lakewood Lodge, Mid Wales, Moat Lane, Wales, SY17 5SE, United Kingdom","price_old":109000,"price_new":99950,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89496705","address":"Puxton Drive, Kidderminster","price_old":249500,"price_new":243000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89506683","address":"Reindeer Road, Fazeley, Tamworth, Staffordshire, B78","price_old":299950,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89527929","address":"Foley Way, Haverfordwest, SA61","price_old":195000,"price_new":190000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89575056","address":"Marina Close, Devizes","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89628888","address":"Kissing Batch, Frome","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89766669","address":"Harvey Road, Slough, SL3","price_old":280000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89905521","address":"Hutcheson Street, Glasgow, Glasgow City, G1","price_old":165000,"price_new":155000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89910990","address":"Porter Square, GRANTHAM","price_old":120000,"price_new":115000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89916138","address":"St. Govans Close, Leamington Spa, CV31","price_old":250000,"price_new":245000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89964474","address":"Forest Oak Close, Cardiff, CF23","price_old":190000,"price_new":180000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89984415","address":"Weir Drive, Bathgate","price_old":290000,"price_new":280000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"89991834","address":"Torrington Drive, HARROW","price_old":275000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90060618","address":"St. Bees Close, ST. HELENS, Merseyside, WA10","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"90085710","address":"Peterborough Road, Harrow, HA1","price_old":240000,"price_new":250000}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90180903","address":"St. Wilfred Drive, East Cowes, PO32","price_old":165000,"price_new":160000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90187728","address":"St. Hughs Avenue, High Wycombe, HP13","price_old":250000,"price_new":200000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90206814","address":"Heyville Road, Higher Bebington","price_old":290000,"price_new":280000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90225138","address":"Sussex Road, Southport","price_old":260000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90231597","address":" Edlogan Way, , Croesyceiliog, Cwmbran, NP44","price_old":175000,"price_new":155000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"90305325","address":"Ballantyne Drive, Colchester","price_old":180000,"price_new":190000}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90371568","address":"West Road, Llandaff North, CF14","price_old":279000,"price_new":273000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90380817","address":"Bembrook Road, Hastings","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"90434313","address":"Llys Y Porth, Porthmadog, LL49","price_old":180000,"price_new":185000}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90576291","address":"Sunninghill Rise, Arnold, Nottingham","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90599031","address":"Causey Street, Gosforth, Newcastle, NE3","price_old":225000,"price_new":220000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90655887","address":"St. Marys Gardens, Long Sutton","price_old":275000,"price_new":269500,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90692205","address":"Brompton Grove, Stockton-on-Tees, Durham, TS18","price_old":245000,"price_new":240000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90701139","address":"Cromwell Close, Coventry","price_old":280000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90710349","address":"York Way, \r\nNorthampton, Northamptonshire, \r\nNN5 7PZ","price_old":297000,"price_new":288975,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"90791721","address":"53d Dalrymple Loan, Musselburgh, EH21 7DL","price_old":200000,"price_new":210000}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90862296","address":"Seaton Park, Littlehampton","price_old":260000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90901443","address":"Rose Hill, Braintree, CM7","price_old":295000,"price_new":285000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"90921363","address":"3 Russell Drive, Bathgate, EH48","price_old":295000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91025811","address":"Merthyr Road, Pontypridd","price_old":160000,"price_new":150000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91030428","address":"Greyhound Road, Sutton, SM1","price_old":230000,"price_new":220000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91061514","address":"Bradford Road, Brighouse, HD6 4BT","price_old":280000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91102746","address":"Mayfield, Seahouses, Northumberland, NE68 7SG","price_old":270000,"price_new":250000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91135455","address":"Windsor Place, Leamington Spa","price_old":240000,"price_new":220000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91153005","address":"High Street, Southwell, Portland","price_old":270000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91173453","address":"Constable Court, Andover","price_old":280000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91205397","address":"Tarnwood Park, Eltham SE9","price_old":295000,"price_new":275000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91210545","address":"Brimmond Place, Aberdeen, Aberdeen City","price_old":115000,"price_new":105000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91225008","address":"Lechlade Gardens, Fareham, Hampshire, PO15","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91234221","address":"Jenkin Close, New Rossington, Doncaster","price_old":205000,"price_new":200000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91234602","address":"Plynlimon Avenue, Croespenmaen, Crumlin, Newport, NP11","price_old":230000,"price_new":220000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91239438","address":"Preston Drove, Brighton, East Sussex","price_old":300000,"price_new":280000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91252878","address":"Hamilton Close, Banbury","price_old":250000,"price_new":240000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91262238","address":"Netherhill Road, Moodiesburn, G69","price_old":135000,"price_new":130000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91316643","address":"Sprowston Road, Norwich","price_old":195000,"price_new":190000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91371297","address":"The Whaddons, Huntingdon, PE29","price_old":280000,"price_new":260000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91421712","address":"Lower Thrift Street, Northampton, NN1","price_old":280000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91646097","address":"Ruston Close, Reading, RG2","price_old":280000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91692849","address":"Lister Court, Pasteur Close, NW9","price_old":250000,"price_new":249950,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91794252","address":"43 Appin Drive, Inverness, IV2 7AL","price_old":240000,"price_new":235000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91827231","address":"Godmanston Close, Poole, Dorset, BH17","price_old":280000,"price_new":270000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91865235","address":"Treassowe Rd, Penzance","price_old":300000,"price_new":290000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91875858","address":"Grove Road, Beccles, NR34 9RD","price_old":160000,"price_new":140000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"91978857","address":"Boveridge Gardens, Bournemouth","price_old":145000,"price_new":149500}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"91985664","address":"Orford Drive, Lowestoft","price_old":210000,"price_new":200000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"92005629","address":"Three Starpark, Henlow","price_old":130000,"price_new":125000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"reduced","rm_id":"92025816","address":"Derby Way, Burscough, L40","price_old":250000,"price_new":125000,"acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"92036226","address":"West Street, Kings Cliffe, Peterborough, Northamptonshire, PE8","price_old":235000,"price_new":245000}
+{"ts":"2026-08-16T17:38:44+00:00","event":"increased","rm_id":"92036967","address":"Brunshaw Road, Burnley, BB10","price_old":210000,"price_new":220000}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058717","address":"Grantham Court, Grantham Gardens, Romford, RM6 6HL","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059746","address":"Premier House, Station Road, The Hale, Edgware, Barnet","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172277657","address":"Emmview Close, Wokingham, RG41","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059740","address":"The Quadrangle, Bridgend, CF33","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058021","address":"Clos Tyn Y Coed, Sarn, Bridgend","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059617","address":"Oaks End Close,Gelligaer,Hengoed,CF82 8HZ","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058003","address":"Avon Close,Pontllanfraith,Blackwood,NP12 2GB","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058726","address":"Osborne Road, Wisbech, PE13","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057751","address":"Burghley Road, Peterborough, PE1 2QE","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057643","address":"Rothbart Way, Hampton Hargate, Peterborough, PE7 8DZ","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91676190","address":"Clarence Road, Peterborough, PE1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91872549","address":"Alexandra Road, Millfield, Peterborough, PE1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91454628","address":"Robert Jennings Close, Cambridge, Cambridgeshire, CB4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058024","address":"Mount Stuart Square, Cardiff","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059776","address":"Linacre Close, Ellesmere Port, Cheshire, CH65","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88582026","address":"Manna Drive, Chester, CH2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058933","address":"Grappenhall Road, Ellesmere Port, CH65","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058384","address":"Westholme Close, Congleton, CW12","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91757562","address":"Old Liverpool Road, Warrington, Cheshire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91968180","address":"Brooklyn Street, Crewe","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91811301","address":"Rutland Close, Sandbach, CW11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89552130","address":"Stanley Road, Knutsford, WA16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058993","address":"Abergele Road, Old Colwyn, Colwyn Bay, LL29","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174948383","address":"Maerdy, Corwen","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058654","address":"Tresithney Road, Carharrack, Redruth","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058639","address":"Higher Treyone Barn, Polbathic, Cornwall, PL11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91219074","address":"Alderwood Parc, Penryn, TR10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91978890","address":"Church Street, Hartlepool, County Durham, TS24","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059764","address":"Whitehead Walk, Newton Aycliffe","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058063","address":"Gainsborough Road, Stanley","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91945887","address":"Robert Terrace, Bowburn, Durham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91164702","address":"Blackett street, Bishop Auckland, Durham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90709581","address":"Durham Road,\r\nMiddlestone Moor,\r\nSpennymoor,\r\nDL16 7AS","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90175665","address":"Clarendon Court , Shildon, DL4 1RB","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172005254","address":"Milburn Street, Workington, Cumbria","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89702352","address":"Old Tebay, PENRITH, CA10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"168685196","address":"Clementina Terrace, Carlisle, CA2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91516476","address":"Shadygrove Road, Carlisle, Cumbria, CA2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91875831","address":"Fenton Street, Barrow-in-furness, LA14 1DE","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91831032","address":"Delta  Santana  (28x10) 2018 Black Beck, Black Beck Holiday Park, Bouth, Newby Bridge, Cumbria, LA12 8JN","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91890114","address":"Devonshire Street, Dalton-In-Furness","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172807010","address":"The Gill, Ulverston","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91919487","address":"Bedford Road, Off Wigton Road, Carlisle, CA2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91719318","address":"South Road, Kirkby Stephen, CA17","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91754067","address":"Sandringham Avenue, Whitehaven, Cumbria, CA28","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"164941382","address":"Clarence Road, Barrow-In-Furness","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"171808730","address":"Church Walk, Wirksworth, DE4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172268831","address":"Union Road Swadlincote DE11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059656","address":"Fox Field, Castle Gresley, Swadlincote","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058747","address":"School Close, Westhouses, Alfreton, Derbyshire. DE55 5AT","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058351","address":"Gorse Close, Littleover, DE23 2TG","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91847727","address":"Swarkestone Drive, Littleover","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058750","address":"Meredith Road, Plymouth","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174540857","address":"Yellowmead Road, Plymouth","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057757","address":"Halfmoon Court, Buckfastleigh","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91871772","address":"Lichfield Avenue, Torquay, Devon, TQ2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91883448","address":"Prixford, Barnstaple, Devon, EX31","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91299654","address":"Ridge Park Road, Plymouth","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91242747","address":"Coaker Road, Exeter","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91422213","address":"Exceptional Value, East Cliff, Sea Views, Manor Road, Bournemouth, BH1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92060232","address":"Rodwell Road, Weymouth","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87865527","address":"Addison Close,\r\nGillingham,\r\nSP8","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91935144","address":"Newstead Road, Weymouth","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"164357978","address":"Wellington Court, Bournemouth, Dorset","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058900","address":"Churchill Court, Ashbourne Road, London, W5","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174080969","address":"Oak Road, Ealing, W5","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059872","address":"Fairbairn Way, Dunbar, EH42","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059578","address":"4E Market Place, North Berwick, EH39 4JG","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92060010","address":"8 George House, 75 Hardgate, Haddington, EH41 3JN","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059647","address":"71 Neilston Road, Uplawmoor, Glasgow, G78","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175052471","address":"Rolston Road,\r\nHornsea,\r\nHU18","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"159339428","address":"St. Aidan Crescent, Bridlington","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057895","address":"Kingsway, Goole, DN14","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91897536","address":"Constable Garth, Hedon, Hull","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87911379","address":"New Lydd Road, TN31","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058714","address":"Portman Court, Grange Road, Uckfield","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058321","address":"ANI Oakley Static Caravan, South East England, Winchelsea Sands Holiday Park, Pett Level Road, England, TN36 4NB","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"167736161","address":"Warrior Square, St Leonards, TN37","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91838988","address":"Belmore Road, Eastbourne","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174891827","address":"Harrow Lane,\r\nSt. Leonards-On-Sea,\r\nEast Sussex,\r\nTN377PR","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91534182","address":"Russell Square, Brighton, BN1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059773","address":"Heriot Way, Great Totham, CM9","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173505872","address":"Second Avenue, Frinton-on-Sea","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91832520","address":"2010 Willerby Herald Gold, Seawick Holiday Park, St Osyth, Clacton-on-Sea, Essex, CO16 8SG","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89297550","address":"Garage at Berwood Road, Corringham, Stanford-Le-Hope","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91936098","address":"Pearce Manor, Chelmsford","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91899030","address":"Southchurch Avenue, Southend-on-Sea","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059767","address":"Gordon Place, Camelon, Falkirk, FK1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058234","address":"Goodman Place, Maddiston, Falkirk, FK2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057919","address":"Cairnoch Walk,Denny,FK6 5DD","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90573918","address":"31 Ewing Drive, Falkirk, FK2 7LT","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059539","address":"55 Don Road, Dunfermline, KY11 4NH","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058981","address":"95 High Street, Aberdour, KY3 0SJ","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058327","address":"23 Merchants Way, Inverkeithing, KY11 1PE","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059683","address":"Tai Maes, Mold, CH7","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059914","address":"Priesthill Road, Priesthill, Glasgow, G53 6QJ","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059632","address":"Flat 0/1, 66 Old Castle Road, Glasgow, G44","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058918","address":"328 Kingsacre Road, Rutherglen, Glasgow, South Lanarkshire, G73 2EP","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90661839","address":"Bradley Street, WOTTON-UNDER-EDGE, Gloucestershire, GL12","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90965892","address":"Watersheddings Way, Oldham, OL4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058663","address":"Meadow Brook, Pemberton, WN5 8ED","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91939908","address":"Embankment Exchange – 6% Rental Yields | Lucrative Buy to Let Opportunity","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91817511","address":"The Downs, Alkrington, Middleton, M24","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92006574","address":"Aldwyn Park Road, Audenshaw","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91923729","address":"Isaac Way, Manchester, M4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88852794","address":"Sutherland Close, Romsey","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059680","address":"17 Lea Villa Residential Park, Lea, Ross-on-Wye","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90534717","address":"Pixley End , Trumpet","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059827","address":"Ovaltine Drive, Kings Langley, Hertfordshire, WD4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92048709","address":"Pankhurst Crescent, Stevenage","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057844","address":"Nant Y Felin, Holyhead, Anglesey, LL65","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90643557","address":"New Romney\r\nKent\r\nTN28 8TD","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059629","address":"2 Bedroom End Terrace | Wraparound Garden & Summer House | Allocated Parking | Brand New Boiler","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88879857","address":"Blenheim Drive, Dover, CT16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91295418","address":"Bishop Street, Nelson, Lancashire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173175857","address":"Birkdale Avenue Longton, Preston PR4 5ZH","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059662","address":"Onslow Road, Layton, FY3 7DF","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058105","address":"Town End Way, Halton | Open Views & Parking","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058099","address":"Alston Drive, Morecambe, LA4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059875","address":"Church Hill Road, Mountsorrel","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059833","address":"Colchester Road, Leicester, Leicestershire, LE5","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058240","address":"White Park Avenue, Newbold Verdon, Leicester, Leicestershire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"171106211","address":"Round Meadow Road, Leicester , LE4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88352811","address":"Penzance Avenue, Wigston","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90680250","address":"PATRICK STREET, GRIMSBY","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059488","address":"Sunningdale Drive, Immingham, DN40 2LA","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91388163","address":"Millers Close, Sleaford, NG34 7WG","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058657","address":"4 Lindholme Road, Lincoln, LN6 3RQ","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058531","address":"Sandpiper Way, Barton Upon Humber, North Lincs, DN18","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058432","address":"Springfield Road, Scartho","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172297205","address":"New Park Place Lincoln, LN2 4ZL","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059485","address":"Rockmount Road, London, SE19","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057622","address":"Kennet House, 8 Enterprise Way, London, SW18","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"161814869","address":"Warple Way, London, W3","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90965817","address":"St. Georges Road, Wallington, SM6","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059317","address":"Lindby Road, Liverpool, L32","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"167673242","address":"Hodson Place, Liverpool, Merseyside, L6 2JN","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058306","address":"Shrewsbury Road, Oxton, CH43","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89164986","address":"Altcross Road, Liverpool, Merseyside, L11 4UP","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92002995","address":"Malvern Road, St. Helens, WA9","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91324626","address":"Lydney Road, Liverpool, Merseyside, L36","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059749","address":"2 Mclean Walk, Newtongrange, EH22 4UE","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058774","address":"48 Wishart Avenue, Bonnyrigg, EH19 3QF","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058072","address":"81 James Lean Avenue, Dalkeith, EH22 2AB","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059863","address":"Swansea Road, Trebanos, Swansea","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059674","address":"Hall Lane Corner, Long Stratton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90826899","address":"Laburnum Grove, Reepham, Norwich","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91555914","address":"Gipsy Close, Norwich","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172021814","address":"Solario Road, Queens Hill, Norwich","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058879","address":"Main Road, Fairlie, KA29","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91632276","address":"Woodgate, Scarborough, North Yorkshire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172714490","address":"Sledgate Garth, Rillington, Malton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057934","address":"1 Mount Pleasant, Staithes","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89075538","address":"The Willows, Acaster Malbis, York","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88739205","address":"Constantine Court, Cleveland","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91228866","address":"32 Friars Close, Northallerton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91751808","address":"Cobden Street, Kettering, NN16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059482","address":"Hintons Close, Helmdon, West Northamptonshire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058372","address":"Lamport Lane | Scholars Green | NN2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058360","address":"Ponds Close, Raunds, Northamptonshire, NN9","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058012","address":"Chestnut Street, Ashington, NE63","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87900207","address":"Hawton Lane,\r\nBalderton,\r\nNewark on Trent,\r\nNG24 3BU","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90965565","address":"Weaver Avenue, Newark, NG24","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91221126","address":"Blidworth Lane,\r\nRainworth,\r\nNG21","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058468","address":"Orchard Croft, Llandrinio, Llanymynech, Powys, SY22","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058108","address":"Gwynfi Terrace, Pontyclun","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058555","address":"Purbeck Dale, Dawley, TF4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058888","address":"Bovet Street, Wellington","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91214421","address":"Belle Vue, Somerton, Somerset, TA11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91925361","address":"City Road, Sheffield, S2 1GE","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92060226","address":"Norton Lees Road, Sheffield, S8","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059869","address":"Newlands Road, Sheffield, South Yorkshire, S12","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173955182","address":"St. Marys Road, Sheffield, S2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059512","address":"Axholme Road, Wheatley, Doncaster","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058915","address":"45 Rawmarsh Hill, Parkgate, Rotherham, South Yorkshire S62 6DP","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90270405","address":"Spotswood Drive, Sheffield, S14","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057691","address":"Wisewood Avenue, Sheffield, S6 4WF","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059785","address":"Treetown Crescent, Treeton, Rotherham, South Yorkshire, S60","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173274152","address":"Coppice Lane, Cheslyn Hay","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059671","address":"High Mount Street, Hednesford, Cannock, Staffordshire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059533","address":"Delamere Lane, Stafford, ST17","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"161016215","address":"Harcourt Way, Stafford, ST16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173261516","address":"The Ridgeway, Stafford, ST16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91163523","address":"Winsford Avenue, Weston Coyney, Stoke-on-Trent, ST3 5JF","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057742","address":"The Green, Brocton, Stafford, ST17","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173615033","address":"Tixall Road, Stafford, ST16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92060151","address":"Aragon Road, Haverhill, Suffolk","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88476369","address":"High Road West, Felixstowe, Suffolk, IP11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059635","address":"Winchester Close, Stowmarket","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"165333158","address":"Moormede Crescent, Staines-upon-Thames, TW18","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172905905","address":"Haslemere","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"109000241","address":"Walton On Thames","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058906","address":"Midhope Close, Woking","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91824252","address":"Crownfield Court, Woodlands Lane, Windlesham, GU20 6AS","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91844484","address":"Crownfield Court, Woodlands Lane, Windlesham, GU20 6AS","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"149476106","address":"Hepworth Way, Walton-On-Thames, Surrey, KT12","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"145661879","address":"High Street, Godalming, Surrey, GU7","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88253817","address":"Beech House, Molesey Road, Hersham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87892455","address":"Crawshaw Road, Ottershaw, Chertsey","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87892452","address":"Harrow Close, Addlestone","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89177901","address":"Mead Court, Egham, Surrey, TW20","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87790446","address":"Austin Place, Oatlands Drive, Weybridge, Surrey, KT13","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173771768","address":"Stanley Road, Woking","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173604674","address":"Churchfield Road, Walton-On-Thames, KT12 2FR","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90983406","address":"Sumner Road, Farnham, Surrey, GU9","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173103263","address":"Lumley Road, Horley, Surrey, RH6","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88580184","address":"London Road, Reigate","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172125629","address":"Queens Road, Walton-On-Thames, Surrey, KT12","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"122781308","address":"Wey Court, 32 Claremont Avenue","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91727043","address":"Cleeve Road, Leatherhead","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89884209","address":"Anchor Hill, Knaphill, Woking, Surrey, GU21","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88977702","address":"Lyne, Surrey, KT16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91444539","address":"Unit 4, Six Acre View, Capel Road, Rusper, West Sussex, RH12 4PZ","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92042166","address":"Webber Street, \r\nHorley, \r\nSurrey, \r\nRH6 8SU","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91551414","address":"Lansdown Close, Walton-On-Thames","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92045955","address":"Westacres Avenue, Whickham Central, Whickham, Gateshead","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057649","address":"34 Murton Lane, Easington Lane, Houghton Le Spring, Tyne And Wear, DH5 0NB","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058510","address":"Manor Court Road, Nuneaton, CV11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88165362","address":"St Martin's Place, 169 Broad Street, Birmingham B15","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175039388","address":"Blossomfield Road, Solihull, B91","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91856658","address":"Tame Crossing, Wednesbury, WS10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91818042","address":"Wolverhampton Road, Oldbury, Sandwell, West Midlands, B68","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91847811","address":"Abbotts Street, Bloxwich, Walsall, Staffordshire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175030832","address":"Scott Avenue, Wolverhampton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91914081","address":"Thorneycroft, Wood Road, Tettenhall, Wolverhampton, West Midlands, WV6 8PR","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91517838","address":"Harding Street, Coseley, Bilston","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91007742","address":"Ibberton Road, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91963107","address":"Delius Street, Coventry, CV4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90263154","address":"Barrows Road, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91821693","address":"Farren Road, Birmingham, B31","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89894166","address":"Muchall Road, Upper Penn, Wolverhampton, West Midlands, WV4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92007888","address":"Quarry Road, Dudley Wood, Netherton, Dudley, DY2 0DT","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"144655961","address":"Newhall Street, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91357986","address":"Horsley Road, Streetly, Sutton Coldfield, B74","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"165192641","address":"Kellner Gardens, OLDBURY","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89328717","address":"Bracebridge Court, Metchley Lane, Harborne, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172341149","address":"Jesson Close, Walsall, West Midlands, WS1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91439325","address":"Jasmin Croft, Kings Heath, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173555837","address":"Abberley Street, Dudley","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91856304","address":"Station Close, Bloxwich, WS3","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91153101","address":"Spring Road, Edgbaston, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91968921","address":"Telfer Road, Radford, Coventry","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"170181053","address":"Buy to let investment opportunity","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175004909","address":"Milner Crescent, Potters Green, Coventry, CV2 2FD","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"171513014","address":"Stirling Court, Stirling Road, Birmingham, West Midlands, B16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91479495","address":"Pierce Avenue, SOLIHULL","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"162510785","address":"Fountain Court, Steelhouse Lane, Birmingham, B4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173930660","address":"Lindsworth Road, Birmingham, West Midlands, B30","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174881462","address":"West View Drive, Kingswinford","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"149716856","address":"Holly Grove, Wolverhampton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"162313931","address":"Wheelwright Road, Erdington, Birmingham, B24 8PD","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87853941","address":"Worcester Road, Willenhall","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89282286","address":"Coundon Road, Coventry, CV1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91866114","address":"Oxley Moor Road, Oxley, Wolverhampton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90916260","address":"Marlston Walk, Allesley Park, Coventry","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91856544","address":"Bilston Road, Sandwell, Wednesbury, WS10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91866111","address":"Alexandra Road, Tipton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92003451","address":"Kingston Court, Lichfield Road, Four Oaks, Sutton Coldfield, B74 2RT","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91373835","address":"Coles lane, Sutton Coldfield","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"89345571","address":"Whitmore Place, \r\nHolbrook Lane, \r\nCoventry, \r\nWest Midlands, \r\nCV6 4QY","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91944864","address":"Lincoln Road, WALSALL, West Midlands, WS1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91798434","address":"Lodgefield Road, Halesowen, B62","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91856685","address":"Bromford Lane, West Bromwich, B70","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"171944057","address":"Unitt Drive, Cradley Heath","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91843086","address":"Berryfield Road, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88219752","address":"New John Street, Halesowen","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90208104","address":"Windsor Road, Oldbury","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174326711","address":"Kittermaster Road, Meriden, CV7","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"173083397","address":"Wellfield Road, Aldridge, WS9 8JD","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91980192","address":"Woolmans Lodge, Solihull Road, Shirley","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91677495","address":"Kensington Road, Coventry, West Midlands, CV5","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91821921","address":"HALESOWEN, Park Lane","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90993573","address":"Goosemoor Lane, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91979457","address":"Joseph Hall Drive, Tipton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91826388","address":"Highbrook Close, WOLVERHAMPTON, West Midlands, WV9","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90442560","address":"Whitnash Grove, Coventry, CV2","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91989327","address":"Hargreave Close, Sutton Coldfield","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91856370","address":"Grantown Grove, Turnberry Estate, Walsall, WS3","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88923456","address":"Gorsy Road, Quinton, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91575618","address":"Redholme Court, Stourbridge","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91996416","address":"Mears Drive, BIRMINGHAM, West Midlands, B33","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90684840","address":"Firedrake Croft, Coventry, CV1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91968117","address":"Wilkinson Avenue, Bilston","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"174408956","address":"Highfield Road, Rowley Regis","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"169444778","address":"Chelmscote Road, Solihull","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90738579","address":"Whitecroft Road, Sheldon, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87872250","address":"Marlbank Road, Stourbridge","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91842747","address":"Cashs Lane, Coventry, CV1","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90841311","address":"Cornel Close, BIRMINGHAM","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90369507","address":"Walsall Road, Aldridge, West Midlands, WS9","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88060131","address":"Gwendolyn Drive, Coventry","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91191198","address":"Evenlode Crescent, Coventry, CV6","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90590130","address":"Ansty Road, Coventry","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91990248","address":"26 Langley Gardens, Wolverhampton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91931262","address":"Ashton Road, Birmingham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91449834","address":"Lime Tree Avenue, Tile hill, Coventy, West Midlands, CV4","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91885635","address":"Wolverhampton Road, Oldbury, B68 0TF","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91015521","address":"Castle Road, Tipton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172042358","address":"Sapphire Gate, Copsewood, Coventry","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91311135","address":"Priestley Way, Felpham","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90960957","address":"Priors Acre, Boxgrove","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91451220","address":"Chetwood Road, Crawley","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91410216","address":"Guildford Road, Loxwood, West Sussex","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175024937","address":"Mayridge, Selsey, PO20","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"87873720","address":"Woodlands Road, North Bersted","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"90569298","address":"Great Heathmead, Haywards Heath, RH16","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"172934576","address":"GREENACRES, HORSHAM","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91885638","address":"Grafton Road, Worthing Central","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"153037991","address":"Green Court, St. Catherines Road, Littlehampton","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92059626","address":"Gascoigne Close, Pontefract, West Yorkshire","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058525","address":"Queensway Place, Pontefract","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175048205","address":"Cinder Lane, Castleford, West Yorkshire, WF10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"175048328","address":"Cinder Lane, Castleford, West Yorkshire, WF10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92058045","address":"Springfield Road, Rowde, Devizes, SN10 2PD","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"88551636","address":"Neville Avenue, Kidderminster, Worcestershire, DY11","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"92057760","address":"Coronation Street, Evesham, WR11 3DA","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"new","rm_id":"91837164","address":"Peregrine Grove, KIDDERMINSTER, Worcestershire, DY10","acres_mid":null,"gbp_per_acre":null}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"166905434","address":"Tanfield Road, Croydon, CR0"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170740466","address":"Birchend Close , South Croydon"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172543688","address":"Campbell Road, Croydon"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172543703","address":"Campbell Road, Croydon"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172961639","address":"Bensham Lane, Thornton Heath, CR7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174376187","address":"Tennison Road, London, SE25"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87403302","address":"Peebles Court, 21 Whitestone Way, Croydon"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88375167","address":"Montague Road, London"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88463028","address":"Bartlett Street, Croydon, London, CR2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88546605","address":"Cabot Close, Croydon"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88756284","address":"Albert Road, London, SE25"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89831316","address":"Claret Gardens, South Norwood"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89920209","address":"Selhurst Road, South Norwood"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91622031","address":"Burnham Gardens, Croydon"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91960500","address":"Addiscombe Grove,\r\nCroydon,\r\nCR0 5BX"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91961199","address":"Addiscombe Grove,\r\nCroydon,\r\nCR0 5BX"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"159947927","address":"Two Bed Carnaby Helmsley (39x13) 2019, Ullswater Heights, Newbiggin, Penrith, Cumbria, CA11 0JB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"159954353","address":"Beckside Road, Dalton-in-Furness, LA15 8DZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"164905655","address":"Outcast, Ulverston, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"166479167","address":"Mill Street, Longtown, Carlisle, Cumbria, CA6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168006443","address":"Sneckyeat Road, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168031859","address":"Holborn Hill, Millom, LA18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168121154","address":"Holborn Hill, Millom, LA18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168130898","address":"Holborn Hill, Millom, LA18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170215613","address":"Ale Cottage, Ireby, Wigton, CA7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170632202","address":"Clarks Terrace, Allonby, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171186161","address":"Cox Street, Ulverston, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171741797","address":"St. Quintin Avenue, Barrow-In-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171954932","address":"19 Casson Street,Ulverston, Cumbria  LA12 "}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172704716","address":"Lowca Lane, Seaton, CA14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173210657","address":"Meadow View, Carlisle"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173351156","address":"SG03 Regal Hemsworth Lodge at Lakesway Holiday Home & Lodge Park Sampool Ln, Levens, Kendal LA8 8EQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173386937","address":"Lowther Holiday Park, Eamont Bridge, Penrith CA10 2JB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173402384","address":"Lowther Holiday Park, Eamont Bridge, Penrith CA10 2JB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173499566","address":"Fawns Wood, \r\nLongtown, \r\nCarlisle, \r\nCA6 5FA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173861930","address":"Old Brackenlands, Wigton, Cumbria, CA7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174221999","address":"Chertsey Bank, Carlisle, CA1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174314066","address":"Ghyll Bank, Little Broughton, CA13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174483275","address":"West Shore Park, Walney, Barrow-in-furness, LA14 3YS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174507527","address":"James Street, Barrow-in-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174688058","address":"Bigland Hall Caravan Park, Newby Bridge, LA12 8PJ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87557799","address":"Ashfield Road, Workington, \r\nCumbria, \r\nCA14 4FA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87628446","address":"Ruskin Avenue, Dalton In Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87630858","address":"Sun Street, Ulverston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87848127","address":"London Road, Lindal, Ulverston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87955125","address":"Paddock Way, Storth, LA7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88740108","address":"Harringdale Road, High Harrington"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88803408","address":"Glenridding Walk, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88998747","address":"Fawns Wood, \r\nLongtown, \r\nCarlisle, \r\nCA6 5FA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89017128","address":"Mill Street, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89038224","address":"Hunter Bank, Great Clifton, Workington, Cumbria, CA14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89319159","address":"Scotch Street, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89332521","address":"Jackson Road, Houghton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89542653","address":"Cobden Street, Dalton-in-Furness, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89589909","address":"Durdar Road, Carlisle, CA2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89601336","address":"Carlisle, Cumbria, CA5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89630499","address":"Land Adjacent To Wheatsheaf Cottages, Kirkland, CA26 3XY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89651478","address":"Main Street, Frizington, CA26"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89706006","address":"Sherborne Avenue, Barrow-In-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89720547","address":"Barwood Grove, Barrow-In-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89931117","address":"Moor Road, Great Broughton, CA13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89978505","address":"Culgaith, Penrith, CA10 1QW"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90112692","address":"Grosvenor Place, Carlisle"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90187353","address":"Millriggs, Corby Hill, Carlisle, CA4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90190905","address":"Priory Court, Ulverston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90191784","address":"Bleaswood Road, Oxenholme, Kendal, LA9 7EY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90264594","address":"4 Eccleston Meadow, Flookburgh, Cumbria, LA11 7NE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90469191","address":"Chapel Close, Warwick Bridge, Carlisle, CA4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90556293","address":"Sandwith, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90644859","address":"Laburnum Crescent, Barrow-in-furness, LA14 5DS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90727467","address":"Risedale Road, Barrow In Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90770724","address":"Stable Mount, Kirkby Thore, Penrith"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90827721","address":"Faustin Hill, Plains Road, Wetheral, Carlisle CA4 8JZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90867717","address":"Victoria Road, Barrow-in-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90895509","address":"Kirkby Thore, Penrith, Cumbria, CA10 1XN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90998715","address":"Wansfell Avenue, Carlisle, Cumbria, CA2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91098426","address":"Wigton Road, Carlisle, CA2 7AX"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91117851","address":"Ashton Street, Workington, CA14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91192653","address":"Maryport Road, Dearham, CA15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91192806","address":"Drigg, Holmrook, CA19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91193130","address":"Ellenborough, Maryport, CA15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91193229","address":"Waste Fold Close, Cockermouth, CA13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91193700","address":"Central Road, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91251450","address":"Ferry Road, Barrow-In-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91272573","address":"Hunday Court, Workington, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91282557","address":"31 Chase Park, Penrith, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91362615","address":"Highfield Avenue, Carlisle"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91371840","address":"St. Helens Street, Cockermouth"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91403982","address":"Doomgate, Appleby-In-Westmorland, Cumbria, CA16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91440456","address":"21 Chiswick Street, Carlisle, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91442835","address":"Caldew Street, Silloth, CA7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91461633","address":"Flat 3 Newlands House, Natland"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91507197","address":"North Street, Fletchertown, Wigton, Cumbria, CA7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91513608","address":"Lansdowne Crescent, Carlisle, CA3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91563273","address":"Milbourne Street, Carlisle, Cumbria, CA2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91672029","address":"83, North West England, Westward , Wigton, CA78NQ , United Kingdom"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91714338","address":"Ruskin Place, Cleator Moor, Cumbria, CA25"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91758603","address":"Keenan Road, Carlisle"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91764447","address":"Bowness Road, Dalton-In-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91807467","address":"Uldale View,\r\nEgremont,\r\nCA22 2LJ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91820607","address":"2 Elizabeth Terrace, Maryport, Cumbria, CA15 7BB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91840095","address":"Ashford Way, Harraby, Carlisle, CA1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91848870","address":"Cromwell Terrace, Cockermouth, CA13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91850412","address":"Christian Street , Workington, CA14 4BP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91877490","address":"Long Lane, Stainton With Adgarley, Barrow-in-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91881333","address":"Pategill Road, Penrith, CA11"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91889298","address":"Lonsdale View, Dearham, CA15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91907262","address":"92 Broadoaks Grange, Carlisle, Cumbria"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91918431","address":"Valley Park, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91920345","address":"7 Helbeck Road, Brough"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91920483","address":"Kennedy Street, Ulverston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91925304","address":"Devon Street, Barrow-In-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91932789","address":"Gote Road, Cockermouth, CA13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91939026","address":"Dixon Road, Carlisle, CA3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91940901","address":"4 Beech Road, Grange-over-Sands, Cumbria, LA11 6AL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91943856","address":"Stafford Street, Barrow-in-furness, LA14 5HU"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91947204","address":"Nelson Street, Maryport, Cumbria, CA15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91947444","address":"Blackwell Road, Carlisle, CA2 4RU"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91949847","address":"Carleton, Carlisle, CA4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91959246","address":"Beach Cassian at Flimby, Cumbria, CA15 8PB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91962699","address":"Marsh Street, Barrow-in-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91967166","address":"Lingla Gardens, Frizington, CA26 3AL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91968012","address":"Scaurbank Road, Carlisle, CA3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91968363","address":"Poolside, Haverigg, Millom"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91970463","address":"Langton Court, Penrith"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91971159","address":"Scattergate Crescent, Appleby-in-Westmorland, CA16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91973259","address":"Soutergate House, Kirkby-in-Furness, LA17 7TN "}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91976406","address":"Briscoe Close, Lamplugh, Workington, Cumbria CA14 4TZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91977534","address":"10 South Western Terrace, Carlisle, Cumbria CA2 4AY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91979784","address":"Darent Avenue, Walney, Barrow-in-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91979979","address":"Infirmary Road, Workington, CA14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91980492","address":"15 Camerton Road, Seaton, Workington, Cumbria CA14 1LP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91982841","address":"37 High Street, Cleator Moor, Cumbria CA25 5LA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91982928","address":"Bleaberry Way, Carlisle"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91983756","address":"Rawlinson Street, Barrow In Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91984410","address":"Surrey Street, Millom, Millom"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91991958","address":"Langdale Avenue, Carlisle"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91992156","address":"Buttermere Avenue, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92000370","address":"The Park, Thursby, CA5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92002248","address":"Lingla Bank, Frizington, Cumbria, CA26"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92004693","address":"Richardson Street,Carlisle,CA2 6AA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92006871","address":"Waingatebridge Cottages, 9, Haverigg, Millom, Cumbria, LA18 4NF"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92008128","address":"Dowkers Lane, Kendal, LA9 4DN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92009304","address":"Plot 378, North West England, Lowther Holiday Park , Penrith , CA10 2JB, United Kingdom"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92009919","address":"Hether Drive, Carlisle, Cumbria, CA3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92010219","address":"Church Road, Workington, CA14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92012055","address":"Langrigg Road, Carlisle, CA2 6DT"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92012796","address":"Union Close, Ulverston, LA12 7FQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92016210","address":"Combgill, 1 Chapel View, Tirril, Penrith"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92022246","address":"Moatside, Brampton CA8 1UN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92025972","address":"Pennine View Close, Carlisle, CA1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92025981","address":"Pennine View Close, Carlisle, Cumbria, CA1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92027163","address":"Argyle Street, Barrow-in-Furness"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92028531","address":"High Grove, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92031819","address":"New Road, Whitehaven, CA28"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92035356","address":"Clifton Street, Carlisle, Cumbria, CA2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92035788","address":"Shore Terrace, Salterbeck, Workington, Cumbria, CA14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92036538","address":"Bridge End Park, Egremont, CA22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92050968","address":"White Cross Bay Holiday Park & Marina, Ambleside Road, Windermere, LA23"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173056736","address":"13 East Parade, Rhyl, Denbighshire LL18 3AG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173791193","address":"The Village, Bodelwyddan, Denbighshire, LL18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90174924","address":"5 Spruce Avenue, Rhyl LL18 3SU"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90655035","address":"Larkmount Road, Rhyl, Denbighshire, LL18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90922950","address":"High Street, Dyserth, Denbighshire LL18 6AB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91006374","address":"Marlborough Grove, RHYL, Clwyd, LL18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91212435","address":"Lido Grange, Sandy Lane, Prestatyn"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91736742","address":"48, Prince Edward Avenue, Rhyl, LL18 4PY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88282326","address":"42 Young Avenue, Tranent, EH33 2DE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90721329","address":"11 Winton Close, Tranent, EH33 2PZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91330554","address":"39 Couper Avenue, North Berwick, EH39 4DX"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91525779","address":"6 Doctor Gracie Drive, East Lothian, Prestonpans, EH32 9GQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91534530","address":"16 Johnston Terrace, Port Seton, EH32 0BB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91570275","address":"20 Muirfield Apartments, Gullane, East Lothian, EH31 2HZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91668648","address":"8B Friarscroft, Dunbar, East Lothian, EH42 1BP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"131969282","address":"High Street, Llanberis, Caernarfon, Gwynedd, LL55"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"158225543","address":"Trawsfynydd"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160345067","address":"2 Meyrick Square, Dolgellau LL40 1LT"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"164195486","address":"Water Street, Penygroes, Caernarfon, Gwynedd, LL54"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168525491","address":"Ffordd Penllwyn, Talysarn, Caernarfon, Gwynedd, LL54"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169600091","address":"Ffordd Garnedd, Y Felinheli, Gwynedd, LL56"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171184451","address":"Penrhyndeudraeth"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171731591","address":"South Snowdon Wharf, Porthmadog"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172463411","address":"Pentrefelin, Criccieth, Gwynedd, LL52"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173523839","address":"Tan Y Foel, Sarn Mellteyrn"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174396836","address":"Gwyddfor, Pencaenewydd"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174448433","address":"Eifl Road, Trefor"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174455300","address":"Pennal, Machynlleth, Gwynedd, SY20"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174544769","address":"2 Tal Yr Afon Buildings, Dolgellau, LL40 1BG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174707483","address":"Pool Lane, Caernarfon, Gwynedd, LL55"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"768553299580337","address":"Miniffordd Estate, Llanrug, Caernarfon, Gwynedd, LL55 4RF"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87891360","address":"High Street, Deiniolen, Caernarfon, Gwynedd, LL55"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88155606","address":"Penrhyndeudraeth"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88587321","address":" Pwllheli, LL53"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88826562","address":"Goronwy Street Number Two, Gerlan, Bethesda, Bangor, LL57"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88962846","address":"6 Ty Ceredig, Tywyn, Gwynedd, LL36 0BG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89018988","address":" Pwllheli, LL53"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89481984","address":"Nebo, Caernarfon, Gwynedd, LL54"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89708943","address":"Penrhydlyniog, Pwllheli"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89735295","address":"Brickfield Street, Machynlleth, Powys, SY20"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90022878","address":"Llanarmon, Chwilog, Gwynedd, LL53"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90180381","address":"Cynefin, 29, Victoria Road, Penygroes, Caernarfon, Gwynedd LL54 6HD"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90340083","address":"62 Glan Y Mor, Fairbourne, Gwynedd LL38 2LQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90666714","address":"Glynllifon Street, Blaenau Ffestiniog, Gwynedd, LL41"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90676560","address":"Middle Street, Bethesda, Gwynedd, LL57"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91088844","address":"Castle Street, Bala"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91254315","address":"Garreg Wen Caravan Park, Borth-Y-Gest, Porthmadog"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91265163","address":"Groeslon, Caernarfon, Gwynedd, LL54"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91693749","address":"South Snowdon Wharf, Porthmadog, Gwynedd, LL49"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91760643","address":"Chalet 5 Bryn Y Mor Chalet Park, Sandilands Road, Tywyn, Gwynedd"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91795959","address":"Dean Street, Bangor, Gwynedd, LL57"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91867833","address":"Trawsfynydd Holiday Village, Trawsfynydd"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92041050","address":"Cabin 186, Trawsfynydd Holiday Village, Bron Aber Trawsfynydd, LL41 4YB "}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"155367392","address":"Newry Street, Holyhead, Isle of Anglesey, LL65"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173046050","address":"Amlwch Road, Benllech, Isle Of Anglesey, Sir Ynys Mon, LL74"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89023461","address":"London Road, Holyhead, Isle of Anglesey, LL65"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89863398","address":"Lon Fain, Dwyran, Isle Of Anglesey, LL61"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"147026240","address":"Two Bed Homeseeker Langdale Plus 40x10, The Compasses Park, Alfold, Cranleigh, Surrey, GU6 8HZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"148721996","address":"Gatton Park Road, Redhill, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"149791178","address":"Burrage Road, Redhill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"159542759","address":"Brand New Prestige Homeseeker Sonata (36x20) , The Compasses Park, Alfold, Cranleigh, Surrey, GU6 8HZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160600739","address":"Station Approach, Tadworth"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160875299","address":"Linkfield Lane, Redhill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"161695841","address":"Fir Tree Place, Church Road, Ashford, TW15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"162531851","address":"Addlestone, Surrey, KT15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"162968387","address":"The Firs, Claygate"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"162971702","address":"Ockford Road, Godalming, Surrey, GU7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"163382303","address":"Addlestone, Surrey, KT15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168151610","address":"Carpenters Way, Badshot Lea, Farnham, Surrey, GU9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168379352","address":"Station Road, Addlestone, Surrey, KT15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169293128","address":"Strathmore Court, Upper Gordon Road"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170069981","address":"Epsom Road, Leatherhead, KT22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170069990","address":"Epsom Road, Leatherhead, KT22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171606956","address":"Consort Way, Horley, RH6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171783701","address":"Brighton Road, Horley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171875735","address":"Godstone Road, Whyteleafe, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172370582","address":"Chancellor Drive, Frimley, Camberley, Surrey, GU16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172493327","address":"Weybridge Park Estate"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172753406","address":"Sherwood Way, Epsom, Surrey, KT19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172754894","address":"Long Lane,  Staines-upon-Thames, TW19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172756478","address":"The Elms, Ashford"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172815980","address":"Greville Park Road, Ashtead, KT21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173153288","address":"Downs Drive, Guildford"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173781191","address":"Kingston Road, Staines-upon-Thames, TW18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173943443","address":"Overton Court, Tongham, Farnham, Surrey, GU10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174071102","address":"Lindley Road, Godstone, Surrey, RH9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174224000","address":"Redvers Road, Warlingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174341714","address":"Station Road, Addlestone, KT15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174486596","address":"Heathside House, 4A Littleworth Road, Esher"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174827207","address":"Chaldon Road, CATERHAM, Surrey, CR3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"175042121","address":"Pembroke Court, Oriental Road, Woking, Surrey, GU22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"754398410763425","address":"Glovers Wood, Charlwood Lane, Charlwood, Surrey, RH60EL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87430950","address":"Station Road, Ashford"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87771663","address":"Ruxley Lane, Ewell, KT19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88025400","address":"Leslie Road, Dorking, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88119912","address":"Broad Ha'penny, Boundstone, FARNHAM, GU10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88231971","address":"Guildford Road Effingham KT24"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88234848","address":"North Street, Leatherhead, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88291998","address":"Chobham Road, Woking"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88304217","address":"Hazelbank Court, Chertsey, KT16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88484379","address":"Alexandra Road, Epsom, KT17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88543815","address":"Burdock Close, Lightwater, Surrey, GU18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88865427","address":"Mount Hermon Road, Woking, Surrey, GU22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88911741","address":"Oyster Lane, Byfleet, Surrey, KT14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88987761","address":"Hipley Street, Old Woking, Woking, Surrey, GU22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89115144","address":"Nutfield Road, Merstham, Redhill, Surrey, RH1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89158101","address":"Chaldon Road, Ragland Parade"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89312640","address":"Elleray Court, Ash Vale, Surrey, GU12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89442717","address":"Littleton Road, Ashford"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89482218","address":"Cowden Close, Farnham, Surrey, GU9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89505972","address":"Station Road North, Egham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89568078","address":"Webber Street, \r\nHorley, \r\nSurrey, \r\nRH6 8SU"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89653734","address":"BRIDGE STREET, LEATHERHEAD, KT22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89675247","address":"The Mount, Guildford, GU2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89733480","address":"Station Road, Redhill, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89748630","address":"Carlton Court, Sarel Way, Horley, Surrey. RH6 8EZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89781261","address":"GARAGES AT GLADSTONE ROAD AND THE BYWAYS, ASHTEAD, KT21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89858025","address":"York Road, Guildford, GU1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89894409","address":"Crawley Down Road, Felbridge, East Sussex\r\nRH19 2NY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89972352","address":"Blenheim Place, Camberley, Surrey, GU15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90002961","address":"Cavendish Road, Redhill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90045687","address":"Mytchett Road, Mytchett"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90089817","address":"Laleham Road, Shepperton, TW17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90126720","address":"Highwayman Grove, Chertsey, KT16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90128202","address":"Grange Road, Guildford, Surrey, GU2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90143157","address":"Frensham Road, Lower Bourne, Farnham, Surrey, GU10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90259290","address":"Queens Road, Horley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90310833","address":"Alma Road, Reigate, Surrey, RH2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90455904","address":"Heathcote Road, Camberley, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90703854","address":"Chertsey Road, Woking, Surrey, GU21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90738606","address":"Walnut Tree Close, Guildford, Surrey, GU1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90865566","address":"Dawsmere Close, Camberley, Surrey, GU15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90887415","address":"Glanville Way, Epsom, KT19 8HQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91005009","address":"Furze Close, Redhill, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91013358","address":"3 Hoadley Road, Horley, Surrey, RH6 8SW"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91165917","address":"West Road, Reigate, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91209333","address":"Frenches Road, Redhill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91243824","address":"The Heart, Walton-on-Thames"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91254135","address":"Brooklyn Road, Woking"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91317930","address":"Rydons Way, Redhill, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91372644","address":"Addlestone, Surrey, KT15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91413252","address":"New Court, Addlestone, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91432419","address":"Waterfield Green, Tadworth, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91580856","address":"1 Hunter House, Hunter Road, Guildford, Surrey, GU1 3LQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91639452","address":"Walton Road, WOKING"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91677633","address":"Kings Road, Haslemere, Surrey, GU27"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91682880","address":"Walker house, Camberley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91726536","address":"Lumley Road, Horley, RH6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91748964","address":"Gogmore Lane, Chertsey, KT16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91749477","address":"Weydon Lane, Farnham, Surrey, GU9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91753698","address":"The Crescent, Ridgeway House The Crescent, RH6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91754742","address":"BISLEY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91772007","address":"Upper High Street, Epsom"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91817139","address":"Eastbrook Close, Woking, Surrey, GU21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91818303","address":"May Crescent, Ash, Guildford, Surrey, GU12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91819839","address":"Melford Close, Chessington, Surrey. KT9 2AZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91852272","address":"Victoria Way, Woking, Surrey, GU21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91871757","address":"Alterton Close, Woking, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91873266","address":"Land on the East Side of Ongar Hill, Addlestone, Surrey, KT15 1JG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91882014","address":"Garlands Road, Redhill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91893735","address":"Broadway Road, Lightwater, Surrey, GU18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91903890","address":"Gogmore Lane, Chertsey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91904262","address":"Addlestone, Surrey, KT15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91918926","address":"Redgrave Court, Star Lane, Ash, Surrey, GU12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91919601","address":"Staines Road East, Sunbury-On-Thames"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91921362","address":"Woodlands Close, Guildford, Surrey, GU1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91925037","address":"Weston Green Road, Thames Ditton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91926495","address":"Homebeech House Phase I, Woking"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91927149","address":"VALLEY COURT, CATERHAM VALLEY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91928610","address":"Yeomanry Close, Epsom, KT17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91929504","address":"High Street Bagshot"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91930764","address":"Elmhurst Court, Heathcote Road, Camberley, Surrey, GU15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91931451","address":"Burrage Road, REDHILL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91936725","address":"Hallington Close, Woking, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91940487","address":"Maybury Road, Woking, Surrey, GU21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91940592","address":"The Oaks, Staines, Surrey, TW18"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91942197","address":"Mount Hermon Road, Woking, Surrey, GU22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91966032","address":"Newchapel Road, Lingfield"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91969404","address":"Lower Street, Haslemere"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91971819","address":"High Street, Ewell, Epsom"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91981737","address":"97 Brighton Road, Godalming, Surrey, GU7 1PW"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91999467","address":"Wellesley Close, Ash Vale, Surrey, GU12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92003832","address":"Kings Road, Guildford"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92007093","address":"Edgeley Holiday Park, Farley Green"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92007714","address":"Farningham Road, Caterham, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92008110","address":"Farningham Road, Caterham, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92017995","address":"The Crescent, Leatherhead, Surrey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92022222","address":"Cowper Close, Chertsey, KT16 9EA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92022738","address":"Cranmore Lane, Aldershot, Hampshire, GU11"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92023455","address":"Lansdowne Way, Surbiton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92036850","address":"Brook House, Fairview Gardens, Farnham, GU9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92037633","address":"Church Street, Epsom, KT17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92038326","address":"Owlsmoor House, Camberley, Surrey, GU16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88463826","address":"27 Woolfords, West Calder, South Lanarkshire, EH55 8LH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91516716","address":"Mavis Bank, Bathgate, EH48 4GZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91536036","address":"Napier Avenue, Bathgate, West Lothian, EH48 1DF"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91582296","address":"Cardross Avenue, Broxburn, EH52"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91672158","address":"Mansefield, East Calder, Livingston, EH53 0JE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91708587","address":"Muirhouses Avenue, Bo'ness, EH51"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91721832","address":"Thomson Grove, Uphall, EH52"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91889235","address":"Staunton Rise, Livingston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91896327","address":" Land at, Murieston Valley, Livingston, EH549HB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91927437","address":"24 Colinshiel Street, Bathgate, EH48 2AS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"132103181","address":"Musk Lane West, Lower Gornal, Dudley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"135214733","address":"Ryland Place, Norfolk Road, Edgbaston, Birmingham, West Midlands, B15 3AY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"140796098","address":"Blossomfield Road, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"149559329","address":"Stoney Stanton Road, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"154673708","address":"Foden Road, Great Barr, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"159385310","address":"Marholm Close, Pendeford, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160044644","address":"Cowley Drive, Milking Bank, West Midlands, DY1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160840961","address":"Pedmore Road, Stourbridge, DY9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"161155184","address":"Bennetts Rd, \r\nKeresley, \r\nCoventry, \r\nCV7 8QD"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"165609902","address":"Brereton Road, Willenhall, WV12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"166241663","address":"Westthorpe Grove, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"167527433","address":"Kent Street, Birmingham, B5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168260126","address":"Croxall Court, Leighswood Road, Aldridge, WS9 8AB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168481787","address":"Wisley Way, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168813125","address":"Bluebell Court, High Street, Tettenhall, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168953702","address":"194 Grange Road, Coventry CV6 6DA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169020461","address":"Simmons Drive, Quinton, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169183895","address":"Lincroft Crescent, Coventry, West Midlands, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169454576","address":"Newhall Hill, Birmingham, West Midlands, B1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169502303","address":"Oakwood Close, Walsall Wood"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169636763","address":"Greenhill Road, Birmingham, West Midlands, B13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169697465","address":"Forknell Avenue, Wyken CV2 3EL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171027605","address":"Corbyns Hall Road, Pensnett, Brierley Hill, DY5 4RA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171230951","address":"Dunchurch Highway, Coventry, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171311033","address":"Fowlmere Road, Great Barr, Birmingham, B42"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171311363","address":"Templeton Road, Great Barr, Birmingham, B44"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171507455","address":"Piercy Street, WEST BROMWICH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171542312","address":"Kinsey Road, Smethwick"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171596813","address":"Apartment 19, Berkeley Court, 37 Warwick Street, Earlsdon, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171744899","address":"Brierley Hill Road, Wordsley, Stourbridge"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171790067","address":"Ryknild Drive, Streetly, Sutton Coldfield"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171814328","address":"Logan Close, Oxley, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172010225","address":"Bromford Drive, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172332500","address":"Tanhouse Farm Road, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172344128","address":"Broadoaks, Streetsbrook Road, Solihull, B91 1US"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172480451","address":"Chestnut Street, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172550435","address":"Elizabeth Road, Sutton Coldfield, B73 5AS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172696328","address":"Marnhull Close, Walsgrave, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172846841","address":"Ascote Lane, Shirley, B90"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173413991","address":"Orchard Road, Erdington, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173514314","address":"Berrington Drive, Coseley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173704517","address":"RENNIE GROVE, QUINTON, BIRMINGHAM, West Midlands, B32"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173746352","address":"Bramcote Way, Rushall, Walsall, WS4 1DG - No Upward Chain"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173915870","address":"56 Tyning Close, Pendeford, Wolverhampton, WV9 5QH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173939990","address":"Peartree Lane, Dudley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173987009","address":"Chester Road, Sutton Coldfield, B73 5BS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174402866","address":"Pontypool Avenue, Binley, Coventry, CV3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174406673","address":"Sycamore Road, BIRMINGHAM, West Midlands, B23"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174464909","address":"LISMORE DRIVE, Birmingham, BIRMINGHAM, B17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174526406","address":"Wood Road, LOWER GORNAL, DY3 2LL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174749963","address":"Aldis Road, WALSALL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174801830","address":"Mostyn Street, Whitmore Reans, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174927950","address":"Shenstone Avenue, Stourbridge, DY8 3EH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"175005065","address":"Harden Road, Walsall, WS3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"175010735","address":"Suffolk Close, Oldbury, B68 8RP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"175032029","address":"Cedar Avenue, Brownhills, Walsall WS8 6BH "}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"175039910","address":"Upper Gough Street, Birmingham, B1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87656022","address":"Avocet Close, Coventry, CV2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87665070","address":"Birmingham Road, Sutton Coldfield, B72 1LY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87716421","address":"Broad Gauge Way, City Centre, Wolverhampton, West Midlands, WV10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87760794","address":"The Mill, Albion Street, City Centre, Wolverhampton, WV1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87771528","address":"Stream Road, Kingswinford"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88068321","address":"Broadway Croft, Oldbury, B68"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88253085","address":"Harold Road, Edgbaston, West Midlands, B16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88282887","address":"Gillians Walk, CV2 - No Onwards Chain - Lovely Cul De Sac Setting"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88363506","address":"Kelvin Road, Birmingham, West Midlands, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88427685","address":"Baxter Close, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88478925","address":"Manor House Drive, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88500870","address":"Pinfold Grove, Merry Hill, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88544130","address":"Newborough Road, Shirley, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88552980","address":"Walsall Road, West Bromwich, West Midlands, B71"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88555782","address":"John Mcguire Crescent, Binley, CV3 - Fully Renovated"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88614108","address":"Viceroy Close, Birmingham, B5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88639638","address":"Goscote Lodge Crescent, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88669068","address":"Stamford Road, Handsworth, Birmingham, B20"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88704129","address":"POPE STREET, BIRMINGHAM, WEST MIDLANDS, B1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88754283","address":"STONEHOUSE LANE, QUINTON, BIRMINGHAM, West Midlands, B32"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88801221","address":"Galbraith Close, Coseley, Bilston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88829400","address":"Freda Rise, Tividale, Oldbury"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88843158","address":"Swan Gardens, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88848387","address":"Dyas Avenue, Great Barr"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88852464","address":"Black Haynes Road, Bournville Village Trust, Selly Oak, Birmingham, B29"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88926087","address":"Moseley Road, Birmingham, B12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88940403","address":"20 Barn Farm Close, Bilston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88987725","address":"Evenlode Crescent, Coundon, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89041416","address":"Vicarage Lane, Ash Green, Coventry, Warwickshire"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89045232","address":"Webley Grove, Priory, Dudley, DY1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89111049","address":"New Forest Road, Walsall, West Midlands, WS3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89199723","address":"Greenholm Road, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89288010","address":"Wendover Road, Rowley Regis"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89294466","address":"Green Street, Birmingham, B12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89310261","address":"Tennyson Road, Coventry, CV2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89346633","address":"Brandwood Park Road, Kings Heath, Birmingham, West Midlands, B14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89423907","address":"City Road, Tividale, OLDBURY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89428944","address":"Middle Leaford, Birmingham, West Midlands, B34"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89430762","address":"Hopstone Road, Birmingham, West Midlands, B29"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89435757","address":"Broughton Crescent, Birmingham, West Midlands, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89482710","address":"Kings Road, Stockland Green, Birmingham, B23 7JN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89513193","address":"Grange Road, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89543613","address":"Brooklands Parade, Moseley, Wolverhampton, West Midlands, WV1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89573193","address":"Perry Hill Road, Oldbury, B68 0AZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89596932","address":"Highbridge Road, Netherton, West Midlands, DY2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89637051","address":"Wistaria Close, Bournville Village Trust, Northfield, Birmingham, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89639199","address":"Mellowship Road, Eastern Green, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89735811","address":"Bandywood Road, Birmingham, West Midlands, B44"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89740170","address":"Alexandra Road, Halesowen, B63 4DA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89780052","address":"Maynard Avenue, Norton, Stourbridge, DY8 3EE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89813193","address":"Pinewood Drive, BIRMINGHAM"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89851533","address":"I-Land Apartments, Essex Street, Birmingham, B5 4TT"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89917590","address":"Woburn Crescent, Great Barr, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89951307","address":"Northcroft Way, Birmingham, West Midlands, B23"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89995908","address":"The Minories, Dudley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89999400","address":"Broad Meadow Lane, Birmingham, West Midlands, B30"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90022023","address":"Cinder Bank, Dudley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90033453","address":"Water Reed Grove, Walsall, WS2 7AE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90097107","address":"Fletchamstead Highway, Tile Hill, Coventry, West Midlands, CV4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90138330","address":"Winsford Court, Winsford Avenue, Allesley Park, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90140775","address":"Linwood Drive, Walsgrave, Coventry, CV2 2LZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90142833","address":"Oakenhayes Crescent, Brownhills"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90171990","address":"Highland Road, Earlsdon, Coventry, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90188916","address":"Ewell Road, Erdington, B24"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90192630","address":"Shenley Lane, Selly Oak, Birmingham, B29 4HA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90232506","address":"Bearwood Road, Smethwick, West Midlands, B66"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90260667","address":"Apsley Road, Oldbury, West Midlands, B68"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90278526","address":"Green Way, Birmingham, West Midlands, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90354660","address":"Spring Road, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90359469","address":"Deyncourt Road, Fallings Park, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90364755","address":"Gauden Road, Stourbridge, DY9 9HS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90369075","address":"Factory Road, Tipton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90375150","address":"Firsvale Road, Wednesfield, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90416265","address":"Templar Avenue, Coventry, CV4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90454830","address":"Brays Road, Birmingham, West Midlands, B26"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90520905","address":"Hickory Close, Coventry, CV2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90550131","address":"Edward Street, Dudley, West Midlands, DY1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90572421","address":"Bingley Street, Wolverhampton, West Midlands, WV3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90573819","address":"Saxon Avenue, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90622044","address":"Bissell Street, Bilston"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90628923","address":"Sladefield Road, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90650022","address":"32 Pembrook Road, Coventry, CV6 4FD"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90650061","address":"Invention Avenue, Handsworth, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90673098","address":"Shelfield Road, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90676203","address":"Willow Gardens, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90680913","address":"Churchfields Way, West Bromwich"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90690384","address":"Ashington Grove, Whitley, Coventry, CV3 4DB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90724638","address":"Coburg Croft, TIPTON, DY4 7LJ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90755760","address":"Newhampton Road East, Wolverhampton, West Midlands, WV1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90807186","address":"Aston Court, Norton Walk, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90822225","address":"Chesterfield Close, Northfield B31 3TR"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90847851","address":"Wilson Drive, Sutton Coldfield"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90957333","address":"Tame Street, Walsall, WS1 4BB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90958050","address":"Harborne Road, Oldbury, B68 "}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90969849","address":"Wellington Road, Bilston, WV14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90987090","address":"St Paul's Square, Birmingham, B3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91100307","address":"Pippin Avenue, Halesowen"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91143654","address":"Dog Kennel Lane,\r\nShirley,\r\nSolihull, \r\nBirmingham,\r\nB90"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91150503","address":"Fountain Court, Steelhouse Lane, Birmingham, B4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91194228","address":"Delhurst Road, Great Barr, Birmingham, B44"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91194288","address":"Gaza Close, Tile Hill, CV4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91210500","address":"Apartment 1, 106 Gravelly Lane, Birmingham, West Midlands, B23 6LS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91214778","address":"Lime Street, Penn Fields, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91226730","address":"Bells Lane, Kings Norton, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91246791","address":"Fishley Lane, Bloxwich, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91259484","address":"Rosemary Road, Tipton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91277829","address":"Beaufort Drive, Binley, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91285020","address":"Marcot Road, Solihull, B92"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91299555","address":"Merridale Street West, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91339605","address":"13% Net Yield, £39’000 Net Rent, Aston Lane, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91342638","address":"Morris Avenue, Coventry, CV2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91345371","address":"Webster Street, Foleshill, Coventry, West Midlands"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91398081","address":"Taunton Avenue, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91406394","address":"Gullane Close, BIRMINGHAM, West Midlands, B38"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91419633","address":"Brinklow Road, Birmingham, West Midlands, B29"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91423125","address":"GREEN LANE, Halesowen, HALESOWEN, B62"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91450017","address":"Cranford Road, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91480764","address":"Fishley Lane, Bloxwich, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91499583","address":"George Marston Road, Binley, Coventry, CV3 2HH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91500201","address":"Richmond Street, Halesowen"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91516191","address":"5 Avenue Road, Wednesbury, West Midlands, WS10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91518474","address":"208 Hagley Road, Birmingham, B16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91519845","address":"26 Granville Street, Birmingham, B1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91557978","address":"Cottesbrook Close, Binley, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91574763","address":"Coleman Street, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91584804","address":"Cocksmead Croft, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91618902","address":"Kingsway, Wollaston, DY8 4TN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91634676","address":"Primrose Avenue, Bushbury, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91672914","address":"Clements Street, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91684947","address":"Holyhead Road, Coventry, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91691382","address":"Barnetts Lane, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91698177","address":"Thetford Road, Birmingham, West Midlands, B42"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91705635","address":"Hawthorn Road, Shelfield, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91720746","address":"Norman Place Road, Coventry, CV6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91737372","address":"Little Sutton Road, Sutton Coldfield, B75"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91737654","address":"Durham Road, Netherton, Dudley, DY2 9SQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91737780","address":"Bower Lane, Quarry Bank, Brierley Hill, DY5 2DG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91738326","address":"Old Birchills, Walsall, West Midlands, WS2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91739907","address":"Fitzroy Road, Birmingham, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91747278","address":"Stowheath Lane, Wolverhampton, West Midlands, WV1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91749492","address":"Ryland Street, Birmingham, B16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91753359","address":"87 Ravenhurst Road, Birmingham, West Midland, B17 9DR"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91754877","address":"Griffiths Close, Balsall Heath, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91765500","address":"Nordic Drift, Coventry, CV2"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91766142","address":"Hawkesford House, Hawkesford Close, Castle Bromwich"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91772229","address":"Ralphs Meadow, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91779618","address":"Waverley Avenue, Great Barr, Birmingham B43 7PR"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91814898","address":"Shady Lane, Great Barr, Birmingham. B44 9ED"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91819878","address":"Birches Barn Avenue, Bradmore, Wolverhamptonm, WV3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91823901","address":"Vicarage Lane, Coventry, CV7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91825956","address":"Highfield Road, Edgbaston, B15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91828761","address":"Vicarage Road, Kings Heath, Birmingham, West Midlands, B14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91832820","address":"Gurnard Close, Coppice Farm Estate, Willenhall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91832853","address":"Merritts Brook Lane, Northfield, Birmingham, West Midlands, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91840239","address":"Basil Road, Northfield, Birmingham, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91840614","address":"Walton Road, Wednesbury, Wednesbury, WS10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91842897","address":"Meriden Drive, Birmingham, West Midlands, B37"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91842993","address":"Nately Grove, Weoley Castle, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91847235","address":"Griffiths Close, Balsall Heath, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91847778","address":"Bournville Lane, Bournville, Birmingham, B30"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91853049","address":"Norman Drive, Tipton, DY4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91854564","address":"Apartment 854, 26, Ryland Street, Birmingham, B16 8FW"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91854708","address":"Lumley Road, Walsall, WS1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91855947","address":"Mill Green, Fordhouses, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91856322","address":"Buildwas Close, Mossley, Walsall, WS3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91856448","address":"Whitmore Street, Caldmore, Walsall, WS1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91856466","address":"Braemar Close, Willenhall, WV12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91856586","address":"Holyhead Road, Wednesbury, Wednesbury, WS10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91856706","address":"Jefferson Place, West Bromwich, B71"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91857720","address":"Old Winnings Road, Keresley End, Coventry, CV7"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91859355","address":"Birmingham, B4"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91868220","address":"Lincoln Green, Bushbury, Wolverhampton, WV10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91869471","address":"Stanton Road, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91871265","address":"Thornyfield Road, Shirley, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91872186","address":"Holbrook Grove, Marston Green, Birmingham, B37"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91874397","address":"Raddlebarn Farm Drive, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91875078","address":"Marlborough Gardens, Stourbridge"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91879683","address":"Raymond Gardens, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91882116","address":"Flash Road, Oldbury"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91885740","address":"Bigwood Drive, Sutton Coldfield"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91893201","address":"Valentine Road, Birmingham, B14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91893381","address":"Wyatt Road, Sutton Coldfield"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91894314","address":"Elgin Close, Sedgley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91906683","address":"Ethelred Close, Sutton Coldfield, West Midlands, B74"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91910853","address":"Lindridge Road,\r\nSutton Coldfield,\r\nB75 7HY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91913784","address":"WORDSLEY, Church Road"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91916625","address":"Cecil Drive, Tividale, OLDBURY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91916805","address":"Kennedy Crescent, LOWER GORNAL, DY3 2JG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91919136","address":"Rocester Avenue, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91926144","address":"Shinwell Crescent, Tividale, Oldbury"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91928295","address":"Hungerfield Road, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91928868","address":"Glastonbury Crescent, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91928892","address":"Lewis Street, Bilston, WV14 7LZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91930677","address":"Stanway Road, WEST BROMWICH, B71 1RW"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91932135","address":"Firs Drive, Shirley, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91938264","address":"Beake Avenue, Holbrooks, Coventry, CV6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91938759","address":"Yew Tree Lane, Yardley, Birmingham, B26"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91940277","address":"Westport Crescent, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91944339","address":"Broom Hall Grove, BIRMINGHAM"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91945089","address":"Tudor Way, Sutton Coldfield, B72 1LP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91947612","address":"Bee Lane, Fordhouses, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91956936","address":"Chapel Street, Lye, Stourbridge, West Midlands, DY9"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91959747","address":"Lye Cross Road, Tividale, Oldbury"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91963935","address":"Stot Fold Road, Birmingham, B14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91964652","address":"HALESOWEN, Ashleigh House"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91970373","address":"Wellman Croft, Birmingham, West Midlands, B29"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91970730","address":"Walhouse Road, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91971795","address":"Petford Street, Cradley Heath"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91974609","address":"Dennis Street, Amblecote, Stourbridge, West Midlands, DY8 4ED"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91977126","address":"Dimsdale Road, Northfield, Birmingham, B31"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91979010","address":"Whitley Court, COVENTRY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91979973","address":"Himley Road, Dudley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91980495","address":"Rayleigh Road, Wolverhampton, West Midlands, WV3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91980834","address":"Bridge Street, Walsall"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91985025","address":"Crakston Close, Coventry, West Midlands"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91986354","address":"Centenary Lane, Wednesbury, Wednesbury, WS10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91987326","address":"Slater Street, Great Bridge, Tipton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91987341","address":"Chetwynd Road, Blakenhall, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91987440","address":"Gallery Square, WALSALL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91991439","address":"Arkley Road, Birmingham, B28 9PE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91991997","address":"Birmingham, (B5)"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91996410","address":"Tildesley Drive, Willenhall, West Midlands, WV12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92000937","address":"Flat 1 Cardinal House 55 Bridge Road, Birmingham, B8 3ST"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92001513","address":"Daylesford Road, Solihull, West Midlands, B92"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92002884","address":"Cranes Park Road, Birmingham, West Midlands, B26"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92004927","address":"Spicer Lodge, Stourbridge, West Midlands"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92006484","address":"21 Highgrove, Tettenhall, Wolverhampton, WV6 8LQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92007648","address":"Leys Road, Brierley Hill, DY5 3UR"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92007933","address":"Bowling Green Road, Old Quarter, Stourbridge, DY8 3TY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92013402","address":"Vernon Close, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92013492","address":"Inhedge Street, Upper Gornal, Dudley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92014467","address":"Chadwick Road, Slough"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92014899","address":"Tiled House Lane, Brierley Hill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92015073","address":"Brookfield Road, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92015562","address":"Evelyn Road, Birmingham, B11"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92015625","address":"Billesley Lane, Moseley, B13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92016036","address":"Norfolk Road, Pennfields"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92016249","address":"Allerton Lane, West Bromwich"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92016870","address":"Clifton Street, Cradley Heath"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92017251","address":"Regent Close, Halesowen"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92017746","address":"War Lane, Birmingham, B17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92017923","address":"Yarningale Road, Coventry, CV3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92018169","address":"Alleyne Road, Birmingham, West Midlands, B24"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92018802","address":"Merridale Street West, Wolverhampton, West Midlands, WV3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92018832","address":"Yardley Wood Road, Yardley Wood"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92018859","address":"Oscott School Lane, Birmingham, B44"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92020089","address":"Broadway, 105 Broad Street, Birmingham, B15 1BJ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92020182","address":"Park View House, Main Street, Dickens Heath, Solihull, B90 1UA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92020242","address":"Thunderbolt Way, TIPTON, DY4 9SG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92020977","address":"Dove House Court, Solihull, B91"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92021127","address":"Hearsall Lane, Chapelfields, Coventry, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92021379","address":"265 Signals Drive, Coventry, CV3 1PA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92021820","address":"11 Loxdale Sidings, Bilston WV14 0TN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92022450","address":"Frederick Fell Walk, Wyken, CV2 3JG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92022510","address":"Arthur Place, Birmingham, West Midlands, B1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92023725","address":"Hillstone Road, Shard End, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92024772","address":"Florence Road, West Bromwich, Sandwell"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92026071","address":"Yardley Street, Stourbridge DY9 7AT"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92026329","address":"47 Walsall Road, Darlaston, West Midlands, WS10 9JS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92026716","address":"Donington Grove, Wolverhampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92027133","address":"Parkhouse Drive, BIRMINGHAM, West Midlands, B23"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92027229","address":"98 Glyn Avenue, Bilston, West Midlands, WV14 8NN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92027508","address":"Woolacombe Lodge Road, Birmingham, West Midlands, B29"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92028204","address":"163 Oxford Street, Wednesbury, WS10 0QN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92028390","address":"Church Road, Erdington, Birmingham, West Midlands, B24"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92028627","address":"Sheepcote Street, Birmingham, West Midlands, B16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92028798","address":"Aldersley Road, Wolverhampton, WV6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92028858","address":"Stafford Road, Oxley, Wolverhampton, West Midlands, WV10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92029161","address":"Overdale Road, Quinton, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92029779","address":"213 Newcombe Road, Handsworth, Birmingham, B21 8DA"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92030043","address":"52 Mildenhall Road, Great Barr, Birmingham, B42 2PQ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92030466","address":"Berkswell Road, Coventry, West Midlands, CV6"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92030703","address":"Clement Street, City Centre, Birmingham, B1"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92030898","address":"St. Benedicts Road, Birmingham, West Midlands, B10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92031162","address":"Fernhill Grove, Birmingham, West Midlands, B44"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92031570","address":"New Green Park, Wyken Croft - Over 50’s"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92031759","address":"Wynfield Gardens, Kings Heath"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032086","address":"Sherwood Avenue, TIPTON, DY4 8LG"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032143","address":"Northwood Street, Birmingham, West Midlands, B3"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032236","address":"Clover Drive, Birmingham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032344","address":"Yew Tree Lane, Wednesbury"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032542","address":"Tennyson Street, Pensnett, Brierley Hill, DY5 4HY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032848","address":"26 Field Road, Tipton, DY4 0TN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92032890","address":"Apartment 304, Devonshire House, 40 Great Charles Street Queensway, Birmingham, B3 2LX"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033082","address":"120 Moseley Road, Bilston, WV14 6JF"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033124","address":"Newlands Close, Willenhall, WV13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033226","address":"6 Cavendish Road, Wolverhampton, WV1 2QE"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033271","address":"4 Tennal Grove, Harborne, Birmingham, B32 2HP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033277","address":"64 Bagnall Street, Ocker Hill, Tipton, DY4 0EF"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033565","address":"7 Wilderness Lane, Great Barr, Birmingham, B43 7RT"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92033706","address":"9 Nuttall Grove, Birmingham, B21 0HZ"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92034180","address":"Stokesay Close, BIRMINGHAM, West Midlands, B37"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92035176","address":"Bristol Road, Birmingham, West Midlands, B5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92035206","address":"Monea Hall, Conisbrough Keep, Coventry"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92035428","address":"Newhome Way, Walsall, West Midlands, WS3 1JH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92035644","address":"Parker Street, Edgbaston, B16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92036172","address":"Wilson Road, Brockmoor, Brierley Hill"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92036853","address":"Church Drive, Stirchley, B30"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92038809","address":"Stroud Avenue, Willenhall, WV12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92041755","address":"Regal Court, 72 Bishopsgate Street, Birmingham, West Midlands, B15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92046786","address":"Honiley Drive, Sutton Coldfield, B73 6RN"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92047707","address":"Albany Road, Earlsdon, Coventry, CV5"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"98545124","address":"Ravenshaw Court, Four Ashes Road, Bentley Heath, Solihull"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"159906311","address":"Forest Lodge, Portland Road, East Grinstead, RH19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160309823","address":"Stockbridge Road, Chichester"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"160659221","address":"Grange Court, 43 Elmer Road, Middleton-on-Sea, Bognor Regis, PO22 6ER"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"161283110","address":"Garden Flat, Annandale Avenue, Bognor Regis"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"162378659","address":"Keymer Road, Hassocks"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"164679542","address":"Trafalgar Gardens, Coburn House Trafalgar Gardens, RH10"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"168748145","address":"Langdale Avenue, Chichester, PO19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169260971","address":"Windmill Court, East Wittering, PO20"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169701350","address":"Merryfield Drive, Selsey"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169731227","address":"Tower Close, East Grinstead, RH19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"169804412","address":"PARSONAGE ROAD, HORSHAM"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170740913","address":"Woodlands Road, Bognor Regis, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"170758910","address":"North Street, Horsham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171615170","address":"Arundel Road, Angmering, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"171737705","address":"Hendon Avenue, Rustington, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172053113","address":"Beach Hut, East Wittering, Chichester"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"172519235","address":"White Lion Close, East Grinstead"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173332535","address":"Hawthorn Road, Bognor Regis, West Sussex, PO21 2DD"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173434619","address":"Perrymount Road, Haywards Heath, RH16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173476073","address":"The Leas, Rustington, West Sussex, BN16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173512598","address":"Hale Lodge, Littlehampton, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173627480","address":"Rock Gardens, Bognor Regis, PO21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173859173","address":"Brighton Road, Crawley, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173901083","address":"Union Place, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"173918516","address":"Nuthatch Way, Turners Hill, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174154376","address":"Heene Road, Heene, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174464093","address":"Terminus Road, Littlehampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174566534","address":"Station Road, East Preston, Littlehampton, West Sussex, BN16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"174721850","address":"Linfield Lane, Ashington, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"175061144","address":"Hurst Court, Horsham, RH12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87347949","address":"Fitzjohn Court, Hassocks, BN6 8QP"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87589059","address":"Nightingale Avenue, Goring-by-sea, BN12"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87714975","address":"Goring Court, Bramber Road, Steyning, West Sussex, BN44"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"87920238","address":"High Street, Storrington, RH20"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88099734","address":"King Edward VII Apartments, Midhurst, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88192206","address":"Lyminster Road, Wick, Littlehampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88481235","address":"Nutbourne Park, Nutbourne, Chichester, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88496034","address":"Bignor Close, Rustington, West Sussex, BN16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88504257","address":"Aldwick Felds, Malmayne Court Aldwick Felds, PO21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88633977","address":"Lyon Street, Bognor Regis"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"88777968","address":"Penrith Court, Broadwater Street East, BN14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89042244","address":"Fishbourne Road East, Paveley House Fishbourne Road East, PO19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89042958","address":"Meadway Court, The Boulevard, Worthing, BN13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89179440","address":"Wickhurst Gardens, Broadbridge Heath"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89275806","address":"Beech Grove, Old Salts Farm Road, Lancing, West Sussex, BN15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89338464","address":"Church Road, Chichester, PO19 7HL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89492616","address":"Tingdene Luxury lodge , South West England, Riverside Holiday Park, Amberley, Arundel BN18 9LP, UK"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89497050","address":"Commonwealth Drive, Three Bridges, Crawley, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89532372","address":"Beverley Mews, Crawley"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89784981","address":"Abbie Court, Lake Lane, Barnham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"89824311","address":"Nyewood Place, Bognor Regis, PO21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90005379","address":"Barnham Road, Barnham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90034857","address":"Albert Road, Bognor Regis, West Sussex, PO21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90099843","address":"Victoria Road, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90322131","address":"Woodside Road, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90368169","address":"Bognor Regis, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90644523","address":"The Boulevard, Tangmere, CHICHESTER"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90655152","address":"Bridge Road, Ace House, BN14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90955425","address":"West Parade, Worthing, West Sussex, BN11"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"90999951","address":"Anscombe Road, Worthing, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91053591","address":"Orchard Place, Arundel, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91061292","address":"Cantelupe Road, East Grinstead, West Sussex, RH19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91207074","address":"Woodcourt, Crawley, RH11"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91216731","address":"St James Road, East Grinstead, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91238022","address":"Shaftesbury Court, Shaftesbury Road, Rustington, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91317468","address":"Stammer Road, Wick, BN17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91424730","address":"Bulkington Avenue, Worthing, BN14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91432374","address":"Cuckmere Crescent, Crawley, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91507338","address":"Warwick Close, Nyetimber, Bognor Regis"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91525899","address":"Millennium Close, The Broadway, Lancing, West Sussex, BN15 8QY"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91583850","address":"30 Ancton Way, Bognor Regis, West Sussex, PO22 6JW"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91594698","address":"Western Lodge, Cokeham Road, Sompting, West Sussex, BN15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91600779","address":"Grove Crescent, Littlehampton, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91723230","address":"Onslow Walk, Broadbridge Heath, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91727304","address":"Neville Road, Bognor Regis"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91748499","address":"West Parade, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91750035","address":"The Steyne, Bognor Regis, PO21"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91755783","address":"Fairlands, Bognor Regis, PO22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91758390","address":"Lansdowne Road, Worthing, West Sussex, BN11"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91762680","address":"Hedge End, Barnham, PO22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91766277","address":"Queen Street, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91835520","address":"Westlake Gardens, Worthing, BN13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91866189","address":"Dairy Mews, Selsey, Chichester, West Sussex, PO20"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91868859","address":"Emma Brook Court, Sea Road, Rustington"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91873476","address":"Top Road, Sharpthorne, East Grinstead"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91876632","address":"Holmans, Ardingly, RH17"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91881732","address":"Bramble Close, Worthing, BN13"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91884342","address":"Pebble Lodge, Beach Green, Shoreham by Sea"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91902174","address":"Climping Park, Bognor Road, Climping"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91917687","address":"Manor Way, Elmer, Bognor Regis"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91921161","address":"Christopher Road, East Grinstead, RH19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91923471","address":"Bramber Close, Bognor Regis, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91925007","address":"33 The Steyne, Bognor Regis, West Sussex, PO21 1TX"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91936176","address":"Garage 91 Greenacres Ring, Angmering, Littlehampton, West Sussex, BN16 4BS"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91938507","address":"Lansdowne Road, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91939935","address":"75 Kyoto Court, Bognor Regis, West Sussex, PO21 2UL"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91943022","address":"Southfield Road, Worthing, BN14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91943157","address":"Darlington Walk, Rustington, BN16 3GD"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91945602","address":"Parkway House, Park Place, Horsham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91945911","address":"Ravens Way, Bognor Regis, West Sussex, PO22"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91946559","address":"West Beach Brighton Road"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91951644","address":"Felpham, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91962624","address":"West Street, Bognor Regis, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91967094","address":"Donnington Place, Woodlands Avenue, Rustington"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91967457","address":"Broadwater Street East, Worthing"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91967673","address":"Broadway Park, The Broadway, Lancing, West Sussex, BN15"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91967865","address":"Homehaven Court, Shoreham By Sea, West Sussex, BN43"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91968177","address":"64 Middle Village, Haywards Heath, RH16 4GH"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91970892","address":"Thornlea Park, Wick, Littlehampton"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91974123","address":"Land and Building to the Rear of 14 Trafalgar Road, West Sussex, RH12 2QB"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91986681","address":"Chesterton Court, Horsham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91991265","address":"Garage at Seddon Court, Hepplewhite Close, Crawley, West Sussex, RH11 9LF"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91996689","address":"Naldrett Close, Horsham, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"91999797","address":"Naldrett Close, Horsham"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92000823","address":"Covert Close, Crawley, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92005587","address":"Arun Road, Billingshurst, RH14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92006043","address":"Johnson Walk, Tilgate"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92009676","address":"Mill Road, Burgess Hill, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92013930","address":"Council Cottages, Warningcamp, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92016939","address":"Arun Road, Billingshurst, RH14"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92017200","address":"Thompson Grove, Littlehampton, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92026068","address":"The Hornet, CHICHESTER, West Sussex, PO19"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92037063","address":"Ash Lane, Rustington, BN16"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92041638","address":"18 Goshawk Road,\r\nOff Old Shoreham Road,\r\nLancing,\r\nBN15 9GT"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"removed","rm_id":"92041857","address":"Chichester Road, Bognor Regis, West Sussex"}
+{"ts":"2026-08-16T17:38:44+00:00","event":"acre_update","rm_id":"90337047","address":" Plot 18, Blue Sea View, Shapinsay, Balfour, Orkney, KW172DZ","acres_mid":2342.555}
+{"ts":"2026-08-16T17:38:44+00:00","event":"acre_update","rm_id":"90337692","address":" Plot 10, Sea View, Shapinsay, Balfour, Orkney, KW172DZ","acres_mid":2342.555}
+{"ts":"2026-08-16T17:38:44+00:00","event":"acre_update","rm_id":"90338004","address":" Plot 20, Sea View, Shapinsay, Balfour, Orkney, KW172DZ","acres_mid":2342.555}
+{"ts":"2026-08-16T17:38:44+00:00","event":"acre_update","rm_id":"91046598","address":"Wall Hill Road, Ashurst Wood, East Grinstead, RH19","acres_mid":3.2}
+{"ts":"2026-08-16T17:38:44+00:00","event":"acre_update","rm_id":"91808514","address":"Yanwath Hall Farm, Yanwath, Penrith, CA10","acres_mid":1.6}
