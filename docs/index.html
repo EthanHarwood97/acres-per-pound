@@ -111,8 +111,13 @@
 
   <section class="mapwrap" id="mapwrap" hidden>
     <div class="mapcontrols" id="mapcontrols">
-      <label class="check"><input type="checkbox" id="layerAirports"> ✈ Airports (15km noise rings)</label>
-      <label class="check"><input type="checkbox" id="layerCrime"> 🔥 Crime heatmap</label>
+      <label class="check"><input type="checkbox" id="layerListings" checked> 📍 Listings</label>
+      <label class="check"><input type="checkbox" id="layerAirports"> ✈ Airports</label>
+      <label class="check"><input type="checkbox" id="layerCrime"> 🔥 Crime</label>
+      <label class="check"><input type="checkbox" id="layerFlood"> 🌊 Flood zone 3</label>
+      <label class="check"><input type="checkbox" id="layerGps"> 🏥 GPs</label>
+      <label class="check"><input type="checkbox" id="layerParks"> 🌳 Parks</label>
+      <label class="check" id="schoolsToggle" hidden><input type="checkbox" id="layerSchools"> 🏫 Schools</label>
       <span class="mini" id="layerNote"></span>
     </div>
     <div id="map"></div>

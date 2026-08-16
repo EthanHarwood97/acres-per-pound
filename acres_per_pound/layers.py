@@ -333,29 +333,22 @@ def fetch_parks(verbose=False):
     """Geofabrik GB extract -> largest parks (top 3000 by area)."""
     try:
         import osmium
+        from osmium import geom
     except ImportError:
         if verbose:
             print("  osmium not installed - pip install osmium (see requirements-enrich.txt)")
         return []
 
     from shapely.geometry import Polygon
-
-    class ParkHandler(osmium.SimpleHandler):
-        def __init__(self):
-            super().__init__()
-            self.parks = []
-
-        def way(self, w):
-            tags = w.tags
-            if tags.get("leisure") in PARK_TAGS["leisure"] or \
-                    tags.get("landuse") in PARK_TAGS["landuse"]:
-                if not w.is_closed():
-                    return
-                coords = [(n.lon, n.lat) for n in w.nodes]
-                if len(coords) >= 4:
-                    self.parks.append((tags.get("name") or "", coords))
+    from shapely.wkb import loads as wkb_loads
 
     LAYERS_DIR.mkdir(parents=True, exist_ok=True)
+    cache_out = LAYERS_DIR / "parks.json"
+    if cache_out.exists():
+        try:
+            return json.loads(cache_out.read_text(encoding="utf-8"))
+        except Exception:
+            pass
     pbf = LAYERS_DIR / "great-britain-latest.osm.pbf"
     if not pbf.exists():
         if verbose:
@@ -367,24 +360,41 @@ def fetch_parks(verbose=False):
                     f.write(chunk)
         pbf.with_suffix(".part").replace(pbf)
     if verbose:
-        print("  extracting parks from OSM ...")
-    cache_out = LAYERS_DIR / "parks.json"
-    if cache_out.exists():
-        try:
-            return json.loads(cache_out.read_text(encoding="utf-8"))
-        except Exception:
-            pass
+        print("  extracting parks from OSM (disk-backed, memory-safe) ...")
+
+    loc_path = LAYERS_DIR / "nodes.idx"
+
+    class ParkHandler(osmium.SimpleHandler):
+        def __init__(self):
+            super().__init__()
+            self.fac = geom.WKBFactory()
+            self.parks = []
+
+        def way(self, w):
+            tags = w.tags
+            if tags.get("leisure") in PARK_TAGS["leisure"] or \
+                    tags.get("landuse") in PARK_TAGS["landuse"]:
+                if not w.is_closed():
+                    return
+                try:
+                    wkb = self.fac.create_linestring(w)
+                except Exception:
+                    return
+                self.parks.append((tags.get("name") or "", wkb))
+
     handler = ParkHandler()
-    handler.apply_file(str(pbf))
+    handler.apply_file(str(pbf), locations=True)
     if verbose:
         print(f"  {len(handler.parks)} candidate ways, computing areas ...")
     out = []
-    for name, coords in handler.parks:
+    for name, wkb in handler.parks:
         try:
-            poly = Polygon(coords)
+            line = wkb_loads(wkb)
+            if line is None or len(line.coords) < 4:
+                continue
+            poly = Polygon(line.coords)
             if not poly.is_valid or poly.is_empty:
                 continue
-            # area in m2 via local equirectangular approx at UK latitudes
             centroid = poly.centroid
             lat = centroid.y
             lon_per_m = 1.0 / (111320 * math.cos(math.radians(lat)))
@@ -398,7 +408,6 @@ def fetch_parks(verbose=False):
             continue
     out.sort(key=lambda p: p["area_ha"], reverse=True)
     out = out[:3000]
-    cache_out = LAYERS_DIR / "parks.json"
     cache_out.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")),
                          encoding="utf-8")
     return out
