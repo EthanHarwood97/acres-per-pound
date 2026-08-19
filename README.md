@@ -96,8 +96,31 @@ free dataset - those listings are skipped.
 - `search.max_price` — price ceiling (default £300k)
 - `search.price_bands` — how oversized regions are split
 - `search.delay_sec` — politeness delay between requests
-- `regions.enabled` — restrict to a subset (empty = all UK)
+- `regions.enabled` — restrict to a subset of regions (empty = all UK)
+- `regions.excluded` — list of regions to exclude (e.g. `["Highland, Scotland", "Aberdeenshire"]`)
+- `regions.countries` — list of countries to include (e.g. `["England", "Wales"]`)
+- `regions.exclude_countries` — list of countries to exclude (e.g. `["Scotland"]`)
+- `regions.exclude_highlands` — boolean (`true`/`false`) to skip Scottish Highlands & Far North
 - `alerts.webhook_url` / `alerts.min_acres` / `alerts.top_n`
+
+## Area and Region Filtering
+
+You can filter out areas in multiple ways:
+
+1. **In the Web Dashboard (`/` or GitHub Pages):**
+   - **Quick Area & Country Toggles:** Use the Area selector (e.g. `England & Wales`, `England only`, `Wales only`) or check `🏔 No Far North` or `🏴󠁧󠁢󠁳󠁣󠁴󠁿 No Scotland` in the main toolbar.
+   - **Exclude Specific Regions:** Under *More filters ▾*, add any county or region to your exclude list with the dropdown or by clicking *Exclude* on any row in the "Where land is cheapest" table.
+   - **Latitude Cutoff:** Use the *Max North Lat* slider or quick presets (e.g. `< 57°N` to cut off the Highlands, `< 56°N` for Central Scotland, `< 55°N` for South of the Scottish Border).
+   - **Radius & Location:** Filter within X miles of any UK postcode or town (e.g. `50 mi of Bristol`, `OX1`, `Manchester`).
+   - **Map View Sync:** Check `🗺 Filter table to map view` to show only listings in the area currently visible on the map.
+
+2. **Via CLI flags:**
+   ```powershell
+   python -m acres_per_pound.cli run-once --exclude-highlands
+   python -m acres_per_pound.cli run-once --exclude-country Scotland
+   python -m acres_per_pound.cli run-once --country England,Wales
+   python -m acres_per_pound.cli run-once --exclude-regions "Highland,Aberdeenshire"
+   ```
 
 ## Caveats
 

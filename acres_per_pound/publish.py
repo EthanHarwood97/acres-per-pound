@@ -6,6 +6,7 @@ import shutil
 
 from . import alerts
 from .http import load_config
+from .regions import classify_region, load_regions
 
 STATIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "static"
 REPO_DIR = pathlib.Path(__file__).resolve().parent.parent
@@ -14,7 +15,7 @@ _PUB_FIELDS = (
     "rm_id", "url", "address", "postcode", "lat", "lng", "price", "beds", "subtype",
     "land_only", "acres_min", "acres_max", "acres_mid", "confidence",
     "matched", "listing_status", "first_published", "first_seen",
-    "gbp_per_acre", "acres_per_100k", "region_id", "region_name",
+    "gbp_per_acre", "acres_per_100k", "region_id", "region_name", "country", "is_highlands",
     "region_median", "value_ratio", "communal", "verified", "flag",
     "sold_price", "sold_date", "sold_gbp_per_acre", "sold_confidence",
 )
@@ -90,6 +91,11 @@ def ranking(listings, cfg=None):
             row["gbp_per_acre"] = round(row["price"] / row["acres_mid"], 2)
         if row.get("acres_per_100k") is None and (row.get("price") or 0) >= 1000 and row.get("acres_mid"):
             row["acres_per_100k"] = round(row["acres_mid"] / (row["price"] / 100000), 3)
+
+        cls = classify_region(row.get("region_name") or "")
+        row["country"] = cls["country"]
+        row["is_highlands"] = cls["is_highlands"]
+
         if (row.get("active") is not False
                 and row.get("gbp_per_acre") is not None
                 and not row.get("est_shared")):
@@ -127,8 +133,11 @@ def _region_stats(rows):
         med = _median([r["gbp_per_acre"] for r in rs])
         med_a = _median([r["acres_mid"] for r in rs])
         best = min(rs, key=lambda r: r["gbp_per_acre"])
+        cls = classify_region(name)
         out.append({
             "region": name,
+            "country": cls["country"],
+            "is_highlands": cls["is_highlands"],
             "n": len(rs),
             "land": sum(1 for r in rs if r.get("land_only")),
             "median_gbp": round(med, 0) if med else None,
@@ -155,6 +164,9 @@ def _sold_view(listings, cfg):
             acres = r["est_acres"]
         if not acres:
             continue
+        cls = classify_region(r.get("region_name") or "")
+        r["country"] = cls["country"]
+        r["is_highlands"] = cls["is_highlands"]
         entry = _pub(r)
         entry["acres_mid"] = acres
         entry["acres_min"] = entry["acres_max"] = acres
@@ -172,6 +184,8 @@ def views(state, cfg=None):
     land = _annotate([r for r in rows if r.get("land_only")])
     houses = _annotate([r for r in rows if not r.get("land_only")])
     subtypes = sorted({(r.get("subtype") or "") for r in rows if r.get("subtype")})
+    all_regs = load_regions()
+    highlands_list = sorted({r["name"] for r in all_regs if classify_region(r)["is_highlands"]})
     return {
         "ts": state["ts"],
         "stats": state["stats"],
@@ -179,6 +193,8 @@ def views(state, cfg=None):
             "excluded_subtypes": sorted(excluded_subtypes(cfg or load_config())),
             "subtypes": subtypes,
             "max_price": (cfg or {}).get("search", {}).get("max_price", 300000),
+            "countries": ["England", "Wales", "Scotland"],
+            "highlands_regions": highlands_list,
         },
         "land": [_pub(r) for r in land],
         "houses": [_pub(r) for r in houses],

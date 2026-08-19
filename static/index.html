@@ -25,16 +25,73 @@
     <label>Search
       <input type="text" id="search" placeholder="address, town, postcode...">
     </label>
+    <label>Area / Country
+      <select id="country">
+        <option value="">All UK</option>
+        <option value="England &amp; Wales">England &amp; Wales</option>
+        <option value="England">England only</option>
+        <option value="Wales">Wales only</option>
+        <option value="Scotland">Scotland only</option>
+      </select>
+    </label>
     <label>Region
       <select id="region"><option value="">All regions</option></select>
     </label>
-    <label class="check"><input type="checkbox" id="onlyNew"> New / reduced only</label>
-    <label class="check"><input type="checkbox" id="onlyFavs"> ★ Favourites only</label>
+    <label class="check" title="Exclude Scottish Highlands, Orkney, Shetland, Moray, Aberdeenshire, Argyll &amp; Bute (far north)"><input type="checkbox" id="excludeHighlands"> 🏔 No Far North</label>
+    <label class="check" title="Exclude all listings in Scotland"><input type="checkbox" id="excludeScotland"> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 No Scotland</label>
+    <label class="check"><input type="checkbox" id="onlyNew"> New / reduced</label>
+    <label class="check"><input type="checkbox" id="onlyFavs"> ★ Favs</label>
     <label class="check"><input type="checkbox" id="hideSeen"> Hide seen</label>
     <button id="filterToggle" class="filter-btn">More filters ▾</button>
   </section>
 
   <section class="filters" id="filters" hidden>
+    <div class="fgroup wide">
+      <h3>Area &amp; Country Presets
+        <span class="mini"><a href="#" id="resetAreaFilters">reset location filters</a></span>
+      </h3>
+      <div class="area-presets">
+        <button type="button" class="preset-btn" data-preset="all">All UK</button>
+        <button type="button" class="preset-btn" data-preset="ew">England &amp; Wales</button>
+        <button type="button" class="preset-btn" data-preset="eng">England only</button>
+        <button type="button" class="preset-btn" data-preset="wales">Wales only</button>
+        <button type="button" class="preset-btn" data-preset="scotland">Scotland only</button>
+        <button type="button" class="preset-btn" data-preset="nohighlands">No Far North / Highlands</button>
+        <button type="button" class="preset-btn" data-preset="noscotland">Exclude Scotland</button>
+      </div>
+    </div>
+
+    <div class="fgroup wide">
+      <h3>Exclude Specific Regions
+        <span class="mini"><a href="#" id="clearExcludedRegions">clear all</a></span>
+      </h3>
+      <div class="exclude-controls">
+        <select id="addExcludeRegion">
+          <option value="">+ Choose region to exclude...</option>
+        </select>
+        <div id="excludedRegionChips" class="chips"></div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <h3>Latitude Boundary</h3>
+      <label>Max North Lat <input type="number" id="maxLat" step="0.5" min="49" max="61" placeholder="e.g. 56.0"></label>
+      <div class="lat-presets">
+        <button type="button" class="lat-btn" data-lat="">Any</button>
+        <button type="button" class="lat-btn" data-lat="57.0" title="Excludes Inverness, Highlands, Aberdeenshire">&lt; 57°N</button>
+        <button type="button" class="lat-btn" data-lat="56.0" title="Excludes Central &amp; Northern Scotland">&lt; 56°N</button>
+        <button type="button" class="lat-btn" data-lat="55.0" title="Excludes all of Scotland (Anglo-Scottish border)">&lt; 55°N (Border)</button>
+        <button type="button" class="lat-btn" data-lat="53.5" title="Midlands, Wales &amp; South England">&lt; 53.5°N</button>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <h3>Distance / Radius</h3>
+      <label>Within <input type="number" id="radiusMiles" step="10" min="5" max="500" placeholder="miles"> mi of</label>
+      <input type="text" id="nearLocation" placeholder="postcode or town (e.g. Bristol, OX1, M1)">
+      <span id="geoStatus" class="mini dim"></span>
+    </div>
+
     <div class="fgroup">
       <h3>Price</h3>
       <label>Min <input type="number" id="minPrice" step="5000" min="0" placeholder="0"></label>
@@ -58,6 +115,10 @@
     <div class="fgroup">
       <h3>Confidence</h3>
       <label class="check"><input type="checkbox" id="hideEst"> Hide estimated plots</label>
+    </div>
+    <div class="fgroup">
+      <h3>Map Sync</h3>
+      <label class="check"><input type="checkbox" id="filterByMap"> 🗺 Filter table to map view</label>
     </div>
     <div class="fgroup wide">
       <h3>Property types

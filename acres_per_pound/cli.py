@@ -16,13 +16,22 @@ def _enabled_regions(cfg, args):
     if not regs:
         print("no regions discovered - run 'python -m acres_per_pound.cli regions' first")
         sys.exit(1)
-    enabled = cfg.get("regions", {}).get("enabled") or []
-    if enabled:
-        regs = [r for r in regs if r["slug"] in enabled or r["name"] in enabled]
-    if getattr(args, "regions", None):
-        wanted = [w.strip() for w in args.regions.split(",") if w.strip()]
-        regs = [r for r in regs if r["slug"] in wanted or r["name"] in wanted
-                or str(r["id"]) in wanted]
+
+    cli_enabled = [w.strip() for w in args.regions.split(",") if w.strip()] if getattr(args, "regions", None) else None
+    cli_excluded = [w.strip() for w in args.exclude_regions.split(",") if w.strip()] if getattr(args, "exclude_regions", None) else None
+    cli_countries = [w.strip() for w in args.country.split(",") if w.strip()] if getattr(args, "country", None) else None
+    cli_excl_countries = [w.strip() for w in args.exclude_country.split(",") if w.strip()] if getattr(args, "exclude_country", None) else None
+    cli_excl_highlands = getattr(args, "exclude_highlands", False)
+
+    regs = regions_mod.filter_regions(
+        regs,
+        cfg=cfg,
+        enabled=cli_enabled,
+        excluded=cli_excluded,
+        countries=cli_countries,
+        exclude_countries=cli_excl_countries,
+        exclude_highlands=cli_excl_highlands,
+    )
     if getattr(args, "limit", None):
         regs = regs[: args.limit]
     return regs
@@ -297,18 +306,24 @@ def main():
     p = argparse.ArgumentParser(prog="acres")
     sub = p.add_subparsers(dest="cmd", required=True)
 
+    def add_region_filter_args(parser):
+        parser.add_argument("--regions", default="", help="comma-separated region slugs/names/ids to include")
+        parser.add_argument("--exclude-regions", default="", help="comma-separated region slugs/names to exclude")
+        parser.add_argument("--country", default="", help="comma-separated countries to include (England, Wales, Scotland)")
+        parser.add_argument("--exclude-country", default="", help="comma-separated countries to exclude (e.g. Scotland)")
+        parser.add_argument("--exclude-highlands", action="store_true", help="exclude Scottish Highlands, Islands, and Far North")
+        parser.add_argument("--limit", type=int, default=0)
+
     sp = sub.add_parser("regions", help="discover UK Rightmove region ids from sitemaps")
     sp.add_argument("--limit", type=int, default=0)
     sp.set_defaults(func=cmd_regions)
 
     sp = sub.add_parser("run-once", help="scan all regions once and print the ranking")
-    sp.add_argument("--regions", default="")
-    sp.add_argument("--limit", type=int, default=0)
+    add_region_filter_args(sp)
     sp.set_defaults(func=cmd_run_once)
 
     sp = sub.add_parser("publish", help="scan + write snapshots + build static site (GitHub Actions)")
-    sp.add_argument("--regions", default="")
-    sp.add_argument("--limit", type=int, default=0)
+    add_region_filter_args(sp)
     sp.add_argument("--verbose", action="store_true")
     sp.set_defaults(func=cmd_publish)
 
@@ -329,8 +344,7 @@ def main():
     sp.set_defaults(func=cmd_layers)
 
     sp = sub.add_parser("serve", help="scan once then serve the dashboard locally")
-    sp.add_argument("--regions", default="")
-    sp.add_argument("--limit", type=int, default=0)
+    add_region_filter_args(sp)
     sp.set_defaults(func=cmd_serve)
 
     args = p.parse_args()

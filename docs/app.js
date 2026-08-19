@@ -32,15 +32,150 @@ function saveVisited() {
   try { localStorage.setItem(VIS_KEY, JSON.stringify([...visited])); } catch (e) {}
 }
 
+// UK Regional & Geographic Constants
+const SCOTLAND_REGIONS = new Set([
+  "Aberdeenshire", "Angus", "Argyll and Bute", "Clackmannanshire",
+  "Dumfries and Galloway", "East Ayrshire", "East Dunbartonshire",
+  "East Lothian", "East Renfrewshire", "Falkirk (County)", "Fife",
+  "Glasgow", "Highland, Scotland", "Inverclyde", "Midlothian", "Moray",
+  "North Ayrshire", "North Lanarkshire", "Orkney, Orkney Islands", "Perth and Kinross",
+  "Renfrewshire", "Scottish Borders", "South Ayrshire", "South Lanarkshire",
+  "Stirling (County)", "West Dunbartonshire", "West Lothian", "Shetland", "Western Isles"
+]);
+
+const HIGHLANDS_REGIONS = new Set([
+  "Highland, Scotland", "Orkney, Orkney Islands", "Moray", "Aberdeenshire",
+  "Argyll and Bute", "Western Isles", "Shetland", "Angus", "Perth and Kinross"
+]);
+
+const WALES_REGIONS = new Set([
+  "Bangor, Gwynedd", "Blaenau Gwent", "Bridgend (County of)", "Caerphilly (County of)",
+  "Cardiff (County of)", "Carmarthenshire, Mid Wales", "Ceredigion, Mid Wales",
+  "Conwy (County of)", "Denbighshire", "Flintshire", "Gwynedd", "Isle Of Anglesey",
+  "Merthyr Tydfil (County of)", "Monmouthshire", "Neath Port Talbot",
+  "Newport (County of)", "Pembrokeshire, South West Wales", "Powys",
+  "Rhondda Cynon Taff", "Swansea (County of)", "Torfaen", "Vale Of Glamorgan",
+  "Wrexham (County of)"
+]);
+
+function getRegionCountry(regName) {
+  if (!regName) return "England";
+  if (SCOTLAND_REGIONS.has(regName) || regName.toLowerCase().includes("scotland") || regName.toLowerCase().includes("scottish")) return "Scotland";
+  if (WALES_REGIONS.has(regName) || regName.toLowerCase().includes("wales") || regName.toLowerCase().includes("gwynedd")) return "Wales";
+  return "England";
+}
+
+function isHighlandsRegion(regName, lat) {
+  if (HIGHLANDS_REGIONS.has(regName)) return true;
+  if (regName && (regName.toLowerCase().includes("highland") || regName.toLowerCase().includes("orkney") ||
+                  regName.toLowerCase().includes("shetland") || regName.toLowerCase().includes("moray") ||
+                  regName.toLowerCase().includes("aberdeen") || regName.toLowerCase().includes("argyll"))) return true;
+  if (lat != null && lat >= 56.7) return true;
+  return false;
+}
+
+function isScotlandRegion(regName, lat) {
+  if (getRegionCountry(regName) === "Scotland") return true;
+  if (lat != null && lat >= 55.8) return true;
+  return false;
+}
+
+function haversineMiles(lat1, lon1, lat2, lon2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+const UK_CITY_COORDS = {
+  "london": [51.5074, -0.1278],
+  "birmingham": [52.4862, -1.8904],
+  "manchester": [53.4808, -2.2426],
+  "bristol": [51.4545, -2.5879],
+  "leeds": [53.8008, -1.5491],
+  "sheffield": [53.3811, -1.4701],
+  "liverpool": [53.4084, -2.9916],
+  "newcastle": [54.9783, -1.6178],
+  "nottingham": [52.9548, -1.1581],
+  "cardiff": [51.4816, -3.1791],
+  "swansea": [51.6214, -3.9436],
+  "edinburgh": [55.9533, -3.1883],
+  "glasgow": [55.8642, -4.2518],
+  "oxford": [51.7520, -1.2577],
+  "cambridge": [52.2053, 0.1218],
+  "exeter": [50.7184, -3.5339],
+  "plymouth": [50.3755, -4.1427],
+  "norwich": [52.6309, 1.2974],
+  "southampton": [50.9097, -1.4044],
+  "brighton": [50.8225, -0.1372],
+  "york": [53.9599, -1.0873],
+  "inverness": [57.4778, -4.2247],
+  "aberdeen": [57.1497, -2.0943],
+};
+
+let geoDebounce = null;
+function resolveNearLocation(query) {
+  if (!query || !query.trim()) {
+    F.nearCoords = null;
+    const stat = document.getElementById("geoStatus");
+    if (stat) stat.textContent = "";
+    refresh();
+    return;
+  }
+  const q = query.trim().toLowerCase();
+  if (UK_CITY_COORDS[q]) {
+    F.nearCoords = { lat: UK_CITY_COORDS[q][0], lng: UK_CITY_COORDS[q][1], name: query.trim() };
+    const stat = document.getElementById("geoStatus");
+    if (stat) stat.textContent = `✓ Center: ${query.trim()}`;
+    refresh();
+    return;
+  }
+  const cleanPc = encodeURIComponent(query.trim().replace(/\s+/g, ""));
+  fetch(`https://api.postcodes.io/postcodes/${cleanPc}`)
+    .then((r) => (r.ok ? r.json() : fetch(`https://api.postcodes.io/outcodes/${cleanPc}`).then((r2) => r2.json())))
+    .then((data) => {
+      if (data && data.result) {
+        const res = data.result;
+        F.nearCoords = {
+          lat: res.latitude,
+          lng: res.longitude,
+          name: res.postcode || res.outcode || query.trim(),
+        };
+        const stat = document.getElementById("geoStatus");
+        if (stat) stat.textContent = `✓ Center: ${F.nearCoords.name}`;
+        refresh();
+      } else {
+        F.nearCoords = null;
+        const stat = document.getElementById("geoStatus");
+        if (stat) stat.textContent = "(location not found)";
+        refresh();
+      }
+    })
+    .catch(() => {
+      F.nearCoords = null;
+      const stat = document.getElementById("geoStatus");
+      if (stat) stat.textContent = "";
+    });
+}
+
 const F = {
-  search: "", region: "", onlyNew: false, onlyFavs: false, hideSeen: false,
+  search: "", region: "", country: "", excludeHighlands: false, excludeScotland: false,
+  excludedRegions: new Set(),
+  maxLat: null, minLat: null,
+  radiusMiles: null, nearLocation: "", nearCoords: null,
+  filterByMap: false,
+  onlyNew: false, onlyFavs: false, hideSeen: false,
   minPrice: null, maxPrice: null, minAcres: null, maxAcres: null,
   minBeds: null, maxBeds: null, minGbp: null, maxGbp: null,
   hideEst: false, types: null,
 };
 
 const NUM_FIELDS = ["minPrice", "maxPrice", "minAcres", "maxAcres",
-                    "minBeds", "maxBeds", "minGbp", "maxGbp"];
+                    "minBeds", "maxBeds", "minGbp", "maxGbp", "maxLat", "radiusMiles"];
 
 function loadFavs() {
   try { favs = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); }
@@ -58,11 +193,17 @@ function saveHash() {
       if (F.types) out.types = [...F.types];
       continue;
     }
+    if (k === "excludedRegions") {
+      if (F.excludedRegions && F.excludedRegions.size > 0) out.excludedRegions = [...F.excludedRegions];
+      continue;
+    }
+    if (k === "nearCoords") continue;
     if (F[k] !== null && F[k] !== "" && F[k] !== false) out[k] = F[k];
   }
   const h = Object.keys(out).length ? "f=" + encodeURIComponent(JSON.stringify(out)) : "";
   try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
 }
+
 function loadHash() {
   const m = location.hash.match(/f=([^&]+)/);
   if (!m) return;
@@ -70,7 +211,11 @@ function loadHash() {
     const o = JSON.parse(decodeURIComponent(m[1]));
     for (const k of Object.keys(o)) {
       if (k === "types") F.types = new Set(o[k]);
+      else if (k === "excludedRegions") F.excludedRegions = new Set(o[k]);
       else F[k] = o[k];
+    }
+    if (F.nearLocation) {
+      resolveNearLocation(F.nearLocation);
     }
   } catch (e) {}
 }
@@ -111,6 +256,42 @@ function rowsFor() {
   rows = rows.filter((r) => {
     if (s && !(r.address || "").toLowerCase().includes(s) && !(r.region_name || "").toLowerCase().includes(s)) return false;
     if (F.region && r.region_name !== F.region) return false;
+
+    // Excluded regions list
+    if (F.excludedRegions && F.excludedRegions.size > 0 && F.excludedRegions.has(r.region_name)) return false;
+
+    // Quick exclusion toggles
+    if (F.excludeHighlands && (r.is_highlands || isHighlandsRegion(r.region_name, r.lat))) return false;
+    if (F.excludeScotland && (r.country === "Scotland" || isScotlandRegion(r.region_name, r.lat))) return false;
+
+    // Country selection
+    if (F.country) {
+      const c = r.country || getRegionCountry(r.region_name);
+      if (F.country === "England & Wales") {
+        if (c === "Scotland" || isScotlandRegion(r.region_name, r.lat)) return false;
+      } else if (F.country === "England") {
+        if (c !== "England" || isScotlandRegion(r.region_name, r.lat)) return false;
+      } else if (F.country === "Wales") {
+        if (c !== "Wales") return false;
+      } else if (F.country === "Scotland") {
+        if (c !== "Scotland" && !isScotlandRegion(r.region_name, r.lat)) return false;
+      }
+    }
+
+    // Latitude cutoff
+    if (F.maxLat != null && r.lat != null && r.lat > F.maxLat) return false;
+
+    // Radius / Distance filter
+    if (F.radiusMiles != null && F.nearCoords && r.lat != null && r.lng != null) {
+      const dist = haversineMiles(F.nearCoords.lat, F.nearCoords.lng, r.lat, r.lng);
+      if (dist > F.radiusMiles) return false;
+    }
+
+    // Map view sync
+    if (F.filterByMap && mapView && mapObj && r.lat != null && r.lng != null) {
+      if (!mapObj.getBounds().contains([r.lat, r.lng])) return false;
+    }
+
     if (F.onlyFavs && !favs.has(String(r.rm_id))) return false;
     if (F.hideSeen && visited.has(String(r.rm_id))) return false;
     if (F.types && !F.types.has(r.subtype)) return false;
@@ -131,6 +312,16 @@ function rowsFor() {
         !(r.first_seen && (Date.now() - new Date(r.first_seen)) / 86400000 < 2)) return false;
     return true;
   });
+  rows.sort((a, b) => {
+    const av = a[sortKey], bv = b[sortKey];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    if (typeof av === "string") return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortAsc ? av - bv : bv - av;
+  });
+  return rows;
+}
   rows.sort((a, b) => {
     const av = a[sortKey], bv = b[sortKey];
     if (av == null && bv == null) return 0;
@@ -340,7 +531,12 @@ function renderMap() {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(mapObj);
-    mapObj.on("moveend zoomend", renderBoundedPoints);
+    mapObj.on("moveend zoomend", () => {
+      renderBoundedPoints();
+      if (F.filterByMap) {
+        render();
+      }
+    });
   }
   if (mapLayer) mapLayer.remove();
   mapLayer = L.layerGroup().addTo(mapObj);
@@ -423,7 +619,100 @@ function renderRegions() {
   const sel = document.getElementById("region");
   const names = [...new Set((DATA.all || []).map((r) => r.region_name).filter(Boolean))].sort();
   sel.innerHTML = '<option value="">All regions</option>' +
-    names.map((n) => `<option>${escapeHtml(n)}</option>`).join("");
+    names.map((n) => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join("");
+  populateExcludeRegionDropdown(names);
+}
+
+function populateExcludeRegionDropdown(names) {
+  const sel = document.getElementById("addExcludeRegion");
+  if (!sel) return;
+  sel.innerHTML = '<option value="">+ Choose region to exclude...</option>' +
+    names.map((n) => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join("");
+}
+
+function renderExcludedRegionChips() {
+  const box = document.getElementById("excludedRegionChips");
+  if (!box) return;
+  if (!F.excludedRegions || F.excludedRegions.size === 0) {
+    box.innerHTML = `<span class="dim mini" style="padding: 4px 0;">No specific regions excluded</span>`;
+    return;
+  }
+  const items = [...F.excludedRegions].sort();
+  box.innerHTML = items.map((reg) =>
+    `<button class="chip excl" type="button">${escapeHtml(reg)} <span class="chip-remove" data-reg="${escapeHtml(reg)}" title="Remove exclusion">×</span></button>`
+  ).join("");
+}
+
+function updatePresetButtons() {
+  document.querySelectorAll(".preset-btn").forEach((b) => {
+    const p = b.dataset.preset;
+    let active = false;
+    if (p === "all") active = !F.country && !F.excludeHighlands && !F.excludeScotland;
+    else if (p === "ew") active = F.country === "England & Wales";
+    else if (p === "eng") active = F.country === "England";
+    else if (p === "wales") active = F.country === "Wales";
+    else if (p === "scotland") active = F.country === "Scotland";
+    else if (p === "nohighlands") active = !!F.excludeHighlands;
+    else if (p === "noscotland") active = !!F.excludeScotland;
+    b.classList.toggle("active", active);
+  });
+  document.querySelectorAll(".lat-btn").forEach((b) => {
+    const latStr = b.dataset.lat;
+    const latVal = latStr ? parseFloat(latStr) : null;
+    const active = (latVal === null && F.maxLat === null) || (latVal !== null && F.maxLat === latVal);
+    b.classList.toggle("active", active);
+  });
+}
+
+function applyPreset(preset) {
+  if (preset === "all") {
+    F.country = "";
+    F.excludeHighlands = false;
+    F.excludeScotland = false;
+  } else if (preset === "ew") {
+    F.country = "England & Wales";
+    F.excludeScotland = false;
+    F.excludeHighlands = false;
+  } else if (preset === "eng") {
+    F.country = "England";
+    F.excludeScotland = false;
+    F.excludeHighlands = false;
+  } else if (preset === "wales") {
+    F.country = "Wales";
+    F.excludeScotland = false;
+    F.excludeHighlands = false;
+  } else if (preset === "scotland") {
+    F.country = "Scotland";
+    F.excludeScotland = false;
+    F.excludeHighlands = false;
+  } else if (preset === "nohighlands") {
+    F.excludeHighlands = true;
+    if (F.country === "Scotland") F.country = "";
+  } else if (preset === "noscotland") {
+    F.excludeScotland = true;
+    F.excludeHighlands = false;
+    if (F.country === "Scotland") F.country = "";
+  }
+  applyFToInputs();
+  refresh();
+}
+
+function resetAreaFilters() {
+  F.country = "";
+  F.region = "";
+  F.excludeHighlands = false;
+  F.excludeScotland = false;
+  F.excludedRegions = new Set();
+  F.maxLat = null;
+  F.minLat = null;
+  F.radiusMiles = null;
+  F.nearLocation = "";
+  F.nearCoords = null;
+  F.filterByMap = false;
+  const stat = document.getElementById("geoStatus");
+  if (stat) stat.textContent = "";
+  applyFToInputs();
+  refresh();
 }
 
 function renderSold() {
@@ -454,12 +743,18 @@ function renderSold() {
 function renderRegionSummary() {
   if (!DATA || !DATA.regions || !DATA.regions.length) return;
   const tb = document.getElementById("regsumBody");
-  tb.innerHTML = DATA.regions.slice(0, 80).map((r) => {
+  tb.innerHTML = DATA.regions.slice(0, 100).map((r) => {
     const cheapest = r.cheapest_url
       ? `<a href="${r.cheapest_url}" target="_blank" rel="noopener" title="${escapeHtml(r.cheapest_address || "")}">${fmt.gbpAcre(r.cheapest_gbp)}/ac · ${fmt.ac100k(r.cheapest_acres)}ac</a>`
       : "—";
-    return `<tr class="clickable" data-reg="${escapeHtml(r.region)}">
-      <td>${escapeHtml(r.region)}</td>
+    const isExcl = F.excludedRegions && F.excludedRegions.has(r.region);
+    const country = r.country || getRegionCountry(r.region);
+    return `<tr class="clickable ${isExcl ? "dim" : ""}" data-reg="${escapeHtml(r.region)}">
+      <td>
+        <b>${escapeHtml(r.region)}</b>
+        <span class="dim mini" style="margin-left: 4px;">(${country})</span>
+        <button type="button" class="btn-exclude-reg" data-excl="${escapeHtml(r.region)}" title="${isExcl ? 'Unexclude this region' : 'Exclude this region'}">${isExcl ? 'Excluded ✓' : 'Exclude'}</button>
+      </td>
       <td class="num">${r.n} <span class="dim">(${r.land} land)</span></td>
       <td class="num strong">${fmt.gbpAcre(r.median_gbp)}</td>
       <td class="num">${fmt.ac100k(r.median_acres)}</td>
@@ -468,6 +763,19 @@ function renderRegionSummary() {
   }).join("");
   tb.onclick = (e) => {
     if (e.target.closest("a")) return;
+    const exclBtn = e.target.closest(".btn-exclude-reg");
+    if (exclBtn) {
+      const reg = exclBtn.dataset.excl;
+      if (F.excludedRegions.has(reg)) {
+        F.excludedRegions.delete(reg);
+      } else {
+        F.excludedRegions.add(reg);
+      }
+      renderExcludedRegionChips();
+      refresh();
+      renderRegionSummary();
+      return;
+    }
     const tr = e.target.closest("tr[data-reg]");
     if (!tr) return;
     F.region = tr.dataset.reg;
@@ -492,41 +800,75 @@ function renderTypes() {
 
 function applyInputsToF() {
   F.search = document.getElementById("search").value;
+  F.country = document.getElementById("country") ? document.getElementById("country").value : "";
   F.region = document.getElementById("region").value;
+  F.excludeHighlands = document.getElementById("excludeHighlands") ? document.getElementById("excludeHighlands").checked : false;
+  F.excludeScotland = document.getElementById("excludeScotland") ? document.getElementById("excludeScotland").checked : false;
+  F.filterByMap = document.getElementById("filterByMap") ? document.getElementById("filterByMap").checked : false;
   F.onlyNew = document.getElementById("onlyNew").checked;
   F.onlyFavs = document.getElementById("onlyFavs").checked;
   F.hideEst = document.getElementById("hideEst").checked;
   F.hideSeen = document.getElementById("hideSeen").checked;
   for (const k of NUM_FIELDS) {
-    const v = parseFloat(document.getElementById(k).value);
-    F[k] = Number.isFinite(v) ? v : null;
+    const el = document.getElementById(k);
+    if (el) {
+      const v = parseFloat(el.value);
+      F[k] = Number.isFinite(v) ? v : null;
+    }
   }
+  const locEl = document.getElementById("nearLocation");
+  if (locEl) {
+    const locVal = locEl.value;
+    if (locVal !== F.nearLocation) {
+      F.nearLocation = locVal;
+      resolveNearLocation(locVal);
+    }
+  }
+  updatePresetButtons();
 }
 
 function applyFToInputs() {
-  document.getElementById("search").value = F.search || "";
-  document.getElementById("region").value = F.region || "";
-  document.getElementById("onlyNew").checked = !!F.onlyNew;
-  document.getElementById("onlyFavs").checked = !!F.onlyFavs;
-  document.getElementById("hideEst").checked = !!F.hideEst;
-  document.getElementById("hideSeen").checked = !!F.hideSeen;
+  if (document.getElementById("search")) document.getElementById("search").value = F.search || "";
+  if (document.getElementById("country")) document.getElementById("country").value = F.country || "";
+  if (document.getElementById("region")) document.getElementById("region").value = F.region || "";
+  if (document.getElementById("excludeHighlands")) document.getElementById("excludeHighlands").checked = !!F.excludeHighlands;
+  if (document.getElementById("excludeScotland")) document.getElementById("excludeScotland").checked = !!F.excludeScotland;
+  if (document.getElementById("filterByMap")) document.getElementById("filterByMap").checked = !!F.filterByMap;
+  if (document.getElementById("onlyNew")) document.getElementById("onlyNew").checked = !!F.onlyNew;
+  if (document.getElementById("onlyFavs")) document.getElementById("onlyFavs").checked = !!F.onlyFavs;
+  if (document.getElementById("hideEst")) document.getElementById("hideEst").checked = !!F.hideEst;
+  if (document.getElementById("hideSeen")) document.getElementById("hideSeen").checked = !!F.hideSeen;
   for (const k of NUM_FIELDS) {
-    document.getElementById(k).value = F[k] != null ? F[k] : "";
+    const el = document.getElementById(k);
+    if (el) el.value = F[k] != null ? F[k] : "";
   }
+  const locEl = document.getElementById("nearLocation");
+  if (locEl) locEl.value = F.nearLocation || "";
+  renderExcludedRegionChips();
+  updatePresetButtons();
 }
 
 function refresh() {
   saveHash();
   render();
   if (mapView) renderMap();
+  renderRegionSummary();
 }
 
 function resetFilters() {
   for (const k of Object.keys(F)) {
     if (k === "types") F.types = null;
+    else if (k === "excludedRegions") F.excludedRegions = new Set();
+    else if (k === "nearCoords") F.nearCoords = null;
     else F[k] = null;
   }
-  F.search = ""; F.region = ""; F.onlyNew = false; F.onlyFavs = false; F.hideEst = false; F.hideSeen = false;
+  F.search = ""; F.country = ""; F.region = "";
+  F.excludeHighlands = false; F.excludeScotland = false;
+  F.filterByMap = false;
+  F.onlyNew = false; F.onlyFavs = false; F.hideEst = false; F.hideSeen = false;
+  F.nearLocation = "";
+  const stat = document.getElementById("geoStatus");
+  if (stat) stat.textContent = "";
   applyFToInputs();
   renderTypes();
   refresh();
@@ -553,15 +895,98 @@ function bindEvents() {
   document.getElementById("layerParks").addEventListener("change", renderParkLayer);
   document.getElementById("layerSchools").addEventListener("change", renderBoundedPoints);
   document.getElementById("resetFilters").addEventListener("click", resetFilters);
+
   document.getElementById("search").addEventListener("input", () => { applyInputsToF(); refresh(); });
+  const countryEl = document.getElementById("country");
+  if (countryEl) countryEl.addEventListener("change", () => { applyInputsToF(); refresh(); });
   document.getElementById("region").addEventListener("input", () => { applyInputsToF(); refresh(); });
+
+  const exclHighEl = document.getElementById("excludeHighlands");
+  if (exclHighEl) exclHighEl.addEventListener("change", () => { applyInputsToF(); refresh(); });
+  const exclScotEl = document.getElementById("excludeScotland");
+  if (exclScotEl) exclScotEl.addEventListener("change", () => { applyInputsToF(); refresh(); });
+  const mapFilterEl = document.getElementById("filterByMap");
+  if (mapFilterEl) mapFilterEl.addEventListener("change", () => { applyInputsToF(); refresh(); });
+
+  const addExclReg = document.getElementById("addExcludeRegion");
+  if (addExclReg) {
+    addExclReg.addEventListener("change", (e) => {
+      if (e.target.value) {
+        F.excludedRegions.add(e.target.value);
+        e.target.value = "";
+        renderExcludedRegionChips();
+        refresh();
+      }
+    });
+  }
+
+  const clearExcl = document.getElementById("clearExcludedRegions");
+  if (clearExcl) {
+    clearExcl.addEventListener("click", (e) => {
+      e.preventDefault();
+      F.excludedRegions.clear();
+      renderExcludedRegionChips();
+      refresh();
+    });
+  }
+
+  const resetArea = document.getElementById("resetAreaFilters");
+  if (resetArea) {
+    resetArea.addEventListener("click", (e) => {
+      e.preventDefault();
+      resetAreaFilters();
+    });
+  }
+
+  const exclBox = document.getElementById("excludedRegionChips");
+  if (exclBox) {
+    exclBox.addEventListener("click", (e) => {
+      const rm = e.target.closest(".chip-remove");
+      if (rm) {
+        const reg = rm.dataset.reg;
+        F.excludedRegions.delete(reg);
+        renderExcludedRegionChips();
+        refresh();
+      }
+    });
+  }
+
+  document.querySelectorAll(".preset-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      applyPreset(btn.dataset.preset);
+    });
+  });
+
+  document.querySelectorAll(".lat-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lat = btn.dataset.lat;
+      F.maxLat = lat ? parseFloat(lat) : null;
+      const input = document.getElementById("maxLat");
+      if (input) input.value = F.maxLat != null ? F.maxLat : "";
+      updatePresetButtons();
+      refresh();
+    });
+  });
+
+  const nearLoc = document.getElementById("nearLocation");
+  if (nearLoc) {
+    nearLoc.addEventListener("input", (e) => {
+      if (geoDebounce) clearTimeout(geoDebounce);
+      geoDebounce = setTimeout(() => {
+        applyInputsToF();
+      }, 400);
+    });
+  }
+
   document.getElementById("onlyNew").addEventListener("change", () => { applyInputsToF(); refresh(); });
   document.getElementById("onlyFavs").addEventListener("change", () => { applyInputsToF(); refresh(); });
   document.getElementById("hideEst").addEventListener("change", () => { applyInputsToF(); refresh(); });
   document.getElementById("hideSeen").addEventListener("change", () => { applyInputsToF(); refresh(); });
   for (const k of NUM_FIELDS) {
-    document.getElementById(k).addEventListener("input", () => { applyInputsToF(); refresh(); });
+    const el = document.getElementById(k);
+    if (el) el.addEventListener("input", () => { applyInputsToF(); refresh(); });
   }
+
   document.getElementById("typeChips").addEventListener("click", (e) => {
     const c = e.target.closest(".chip");
     if (!c) return;

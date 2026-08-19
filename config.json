@@ -27,7 +27,11 @@
   },
   "regions": {
     "file": "data/regions.json",
-    "enabled": []
+    "enabled": [],
+    "excluded": [],
+    "countries": [],
+    "exclude_countries": [],
+    "exclude_highlands": false
   },
   "sources": {
     "rightmove": { "enabled": true, "interval_min": 720 }
