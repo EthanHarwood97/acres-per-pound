@@ -322,16 +322,6 @@ function rowsFor() {
   });
   return rows;
 }
-  rows.sort((a, b) => {
-    const av = a[sortKey], bv = b[sortKey];
-    if (av == null && bv == null) return 0;
-    if (av == null) return 1;
-    if (bv == null) return -1;
-    if (typeof av === "string") return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
-    return sortAsc ? av - bv : bv - av;
-  });
-  return rows;
-}
 
 function vsRegion(r) {
   if (r.value_ratio == null) return `<td class="num dim">—</td>`;
