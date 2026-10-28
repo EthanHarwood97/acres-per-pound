@@ -18,3 +18,5 @@ worker/node_modules/
 worker/.wrangler/
 .playwright-mcp/
 *.log
+
+*.tsbuildinfo
