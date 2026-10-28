@@ -3,3 +3,10 @@ shapely>=2.0
 pyproj>=3.6
 # parks layer (OpenStreetMap parsing)
 osmium>=4.0
+# EPC: Scottish quarterly extract is distributed as .7z
+py7zr>=0.21
+# Zoopla source: real browser (Cloudflare blocks datacenter IPs)
+playwright>=1.49
+# then: python -m playwright install chromium
+# RoS Scotland cadastral parcels (shapefile parsing)
+pyshp>=2.3

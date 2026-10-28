@@ -18,6 +18,7 @@
     <button data-view="all" class="active">All with land</button>
     <button data-view="houses">Houses with land</button>
     <button data-view="land">Bare land</button>
+    <button data-view="allhouses">All houses (UK)</button>
     <button id="mapToggle" class="maptab">🗺 Map</button>
   </nav>
 
@@ -88,7 +89,7 @@
     <div class="fgroup">
       <h3>Distance / Radius</h3>
       <label>Within <input type="number" id="radiusMiles" step="10" min="5" max="500" placeholder="miles"> mi of</label>
-      <input type="text" id="nearLocation" placeholder="postcode or town (e.g. Bristol, OX1, M1)">
+      <input type="text" id="nearLocation" placeholder="postcode, town or county (e.g. Bristol, OX1, Lancashire)">
       <span id="geoStatus" class="mini dim"></span>
     </div>
 
@@ -106,6 +107,11 @@
       <h3>Beds</h3>
       <label>Min <input type="number" id="minBeds" step="1" min="0" placeholder="0"></label>
       <label>Max <input type="number" id="maxBeds" step="1" min="0" placeholder="any"></label>
+    </div>
+    <div class="fgroup">
+      <h3>Baths / Floor</h3>
+      <label>Min baths <input type="number" id="minBaths" step="1" min="0" placeholder="any"></label>
+      <label>Min floor m² <input type="number" id="minFloor" step="5" min="0" placeholder="any"></label>
     </div>
     <div class="fgroup">
       <h3>£ / acre</h3>
@@ -198,6 +204,9 @@
           <th data-sort="price">Price</th>
           <th data-sort="address">Address</th>
           <th data-sort="subtype">Type</th>
+          <th data-sort="beds">Beds</th>
+          <th data-sort="baths">Baths</th>
+          <th data-sort="floor_sqm">Floor m²</th>
           <th data-sort="region_name">Region</th>
           <th data-sort="value_ratio">vs region</th>
           <th data-sort="first_published">Days</th>

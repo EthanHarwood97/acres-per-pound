@@ -1,0 +1,906 @@
+[
+ {
+  "slug": "aberdeenshire",
+  "name": "Aberdeenshire",
+  "id": "aberdeenshire",
+  "location_type": "region",
+  "parent": null,
+  "count_all": 1009
+ },
+ {
+  "slug": "angus",
+  "name": "Angus",
+  "id": "angus",
+  "location_type": "county",
+  "parent": "Central Scotland",
+  "count_all": 353
+ },
+ {
+  "slug": "argyll-and-bute",
+  "name": "Argyll & Bute",
+  "id": "argyll-and-bute",
+  "location_type": "county",
+  "parent": "Central Scotland",
+  "count_all": 595
+ },
+ {
+  "slug": "barking-and-dagenham",
+  "name": "Barking and Dagenham, Borough of London",
+  "id": "barking-and-dagenham",
+  "location_type": "local-authority",
+  "parent": "East London",
+  "count_all": 851
+ },
+ {
+  "slug": "barnet",
+  "name": "Barnet",
+  "id": "barnet",
+  "location_type": "local-authority",
+  "parent": "Borough of London",
+  "count_all": 4324
+ },
+ {
+  "slug": "bedfordshire",
+  "name": "Bedfordshire",
+  "id": "bedfordshire",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 5089
+ },
+ {
+  "slug": "berkshire",
+  "name": "Berkshire",
+  "id": "berkshire",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 6623
+ },
+ {
+  "slug": "bexley",
+  "name": "Bexley",
+  "id": "bexley",
+  "location_type": "neighbourhood",
+  "parent": "London",
+  "count_all": 139
+ },
+ {
+  "slug": "blaenau-gwent",
+  "name": "Blaenau Gwent",
+  "id": "blaenau-gwent",
+  "location_type": "local-authority",
+  "parent": "Gwent",
+  "count_all": 408
+ },
+ {
+  "slug": "brent",
+  "name": "Brent",
+  "id": "brent",
+  "location_type": "local-authority",
+  "parent": "North West London",
+  "count_all": 2628
+ },
+ {
+  "slug": "bromley",
+  "name": "Bromley",
+  "id": "bromley",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 886
+ },
+ {
+  "slug": "buckinghamshire",
+  "name": "Buckinghamshire",
+  "id": "buckinghamshire",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 8866
+ },
+ {
+  "slug": "cambridgeshire",
+  "name": "Cambridgeshire",
+  "id": "cambridgeshire",
+  "location_type": "county",
+  "parent": "East Anglia",
+  "count_all": 8291
+ },
+ {
+  "slug": "camden",
+  "name": "Camden, Borough of London",
+  "id": "camden",
+  "location_type": "local-authority",
+  "parent": "North West London",
+  "count_all": 2465
+ },
+ {
+  "slug": "carmarthenshire",
+  "name": "Carmarthenshire",
+  "id": "carmarthenshire",
+  "location_type": "local-authority",
+  "parent": "Carmarthenshire",
+  "count_all": 2666
+ },
+ {
+  "slug": "ceredigion",
+  "name": "Ceredigion",
+  "id": "ceredigion",
+  "location_type": "local-authority",
+  "parent": "Ceredigion",
+  "count_all": 1471
+ },
+ {
+  "slug": "cheshire",
+  "name": "Cheshire",
+  "id": "cheshire",
+  "location_type": "county",
+  "parent": "North West",
+  "count_all": 7276
+ },
+ {
+  "slug": "city-of-london",
+  "name": "City of London",
+  "id": "city-of-london",
+  "location_type": "local-authority",
+  "parent": "Central London",
+  "count_all": 315
+ },
+ {
+  "slug": "clackmannanshire",
+  "name": "Clackmannanshire",
+  "id": "clackmannanshire",
+  "location_type": "county",
+  "parent": "Central Scotland",
+  "count_all": 104
+ },
+ {
+  "slug": "cornwall",
+  "name": "Cornwall",
+  "id": "cornwall",
+  "location_type": "county",
+  "parent": "South West",
+  "count_all": 8630
+ },
+ {
+  "slug": "county-durham",
+  "name": "County Durham",
+  "id": "county-durham",
+  "location_type": "county",
+  "parent": "North",
+  "count_all": 5999
+ },
+ {
+  "slug": "croydon",
+  "name": "Croydon",
+  "id": "croydon",
+  "location_type": "locality",
+  "parent": "South London",
+  "count_all": 1646
+ },
+ {
+  "slug": "cumbria",
+  "name": "Cumbria",
+  "id": "cumbria",
+  "location_type": "county",
+  "parent": "North",
+  "count_all": 3082
+ },
+ {
+  "slug": "denbighshire",
+  "name": "Denbighshire",
+  "id": "denbighshire",
+  "location_type": "local-authority",
+  "parent": "Clwyd",
+  "count_all": 347
+ },
+ {
+  "slug": "derbyshire",
+  "name": "Derbyshire",
+  "id": "derbyshire",
+  "location_type": "county",
+  "parent": "East Midlands",
+  "count_all": 6824
+ },
+ {
+  "slug": "devon",
+  "name": "Devon",
+  "id": "devon",
+  "location_type": "county",
+  "parent": "South West",
+  "count_all": 14897
+ },
+ {
+  "slug": "dorset",
+  "name": "Dorset",
+  "id": "dorset",
+  "location_type": "county",
+  "parent": "South West",
+  "count_all": 9572
+ },
+ {
+  "slug": "dumfries-and-galloway",
+  "name": "Dumfries & Galloway",
+  "id": "dumfries-and-galloway",
+  "location_type": "county",
+  "parent": "Lowlands",
+  "count_all": 593
+ },
+ {
+  "slug": "ealing",
+  "name": "Ealing",
+  "id": "ealing",
+  "location_type": "locality",
+  "parent": "West London",
+  "count_all": 1099
+ },
+ {
+  "slug": "east-ayrshire",
+  "name": "East Ayrshire",
+  "id": "east-ayrshire",
+  "location_type": "local-authority",
+  "parent": "Ayrshire",
+  "count_all": 272
+ },
+ {
+  "slug": "east-dunbartonshire",
+  "name": "East Dunbartonshire",
+  "id": "east-dunbartonshire",
+  "location_type": "local-authority",
+  "parent": "Dunbartonshire",
+  "count_all": 140
+ },
+ {
+  "slug": "east-lothian",
+  "name": "East Lothian",
+  "id": "east-lothian",
+  "location_type": "county",
+  "parent": "Edinburgh and Lothian",
+  "count_all": 463
+ },
+ {
+  "slug": "east-renfrewshire",
+  "name": "East Renfrewshire",
+  "id": "east-renfrewshire",
+  "location_type": "local-authority",
+  "parent": "Renfrewshire",
+  "count_all": 108
+ },
+ {
+  "slug": "east-riding-of-yorkshire",
+  "name": "East Riding of Yorkshire",
+  "id": "east-riding-of-yorkshire",
+  "location_type": "county",
+  "parent": "Yorkshire",
+  "count_all": 4690
+ },
+ {
+  "slug": "east-sussex",
+  "name": "East Sussex",
+  "id": "east-sussex",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 9921
+ },
+ {
+  "slug": "enfield",
+  "name": "Enfield",
+  "id": "enfield",
+  "location_type": "local-authority",
+  "parent": "North London",
+  "count_all": 1733
+ },
+ {
+  "slug": "england",
+  "name": "England",
+  "id": "england",
+  "location_type": "country",
+  "parent": null,
+  "count_all": 50000
+ },
+ {
+  "slug": "essex",
+  "name": "Essex",
+  "id": "essex",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 20389
+ },
+ {
+  "slug": "fife",
+  "name": "Fife",
+  "id": "fife",
+  "location_type": "county",
+  "parent": "Central Scotland",
+  "count_all": 745
+ },
+ {
+  "slug": "flintshire",
+  "name": "Flintshire",
+  "id": "flintshire",
+  "location_type": "local-authority",
+  "parent": "Clwyd",
+  "count_all": 449
+ },
+ {
+  "slug": "glasgow",
+  "name": "Glasgow",
+  "id": "glasgow",
+  "location_type": "town",
+  "parent": "Scotland",
+  "count_all": 1473
+ },
+ {
+  "slug": "gloucestershire",
+  "name": "Gloucestershire",
+  "id": "gloucestershire",
+  "location_type": "county",
+  "parent": "South West",
+  "count_all": 6959
+ },
+ {
+  "slug": "greater-manchester",
+  "name": "Greater Manchester",
+  "id": "greater-manchester",
+  "location_type": "county",
+  "parent": null,
+  "count_all": 13172
+ },
+ {
+  "slug": "greenwich",
+  "name": "Greenwich",
+  "id": "greenwich",
+  "location_type": "locality",
+  "parent": "South East London",
+  "count_all": 985
+ },
+ {
+  "slug": "gwynedd",
+  "name": "Gwynedd",
+  "id": "gwynedd",
+  "location_type": "county",
+  "parent": "North Wales",
+  "count_all": 1775
+ },
+ {
+  "slug": "hackney",
+  "name": "Hackney",
+  "id": "hackney",
+  "location_type": "locality",
+  "parent": "East London",
+  "count_all": 781
+ },
+ {
+  "slug": "hammersmith-and-fulham",
+  "name": "Hammersmith and Fulham",
+  "id": "hammersmith-and-fulham",
+  "location_type": "local-authority",
+  "parent": "London Borough",
+  "count_all": 2782
+ },
+ {
+  "slug": "hampshire",
+  "name": "Hampshire",
+  "id": "hampshire",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 14762
+ },
+ {
+  "slug": "haringey",
+  "name": "Haringey",
+  "id": "haringey",
+  "location_type": "local-authority",
+  "parent": "North London",
+  "count_all": 1646
+ },
+ {
+  "slug": "harrow",
+  "name": "Harrow",
+  "id": "harrow",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 885
+ },
+ {
+  "slug": "havering",
+  "name": "Havering",
+  "id": "havering",
+  "location_type": "local-authority",
+  "parent": "East London",
+  "count_all": 1697
+ },
+ {
+  "slug": "herefordshire",
+  "name": "Herefordshire",
+  "id": "herefordshire",
+  "location_type": "county",
+  "parent": "West Midlands",
+  "count_all": 2467
+ },
+ {
+  "slug": "hertfordshire",
+  "name": "Hertfordshire",
+  "id": "hertfordshire",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 10415
+ },
+ {
+  "slug": "highland",
+  "name": "Highland",
+  "id": "highland",
+  "location_type": "county",
+  "parent": "Highlands and Islands",
+  "count_all": 1145
+ },
+ {
+  "slug": "hillingdon",
+  "name": "Hillingdon",
+  "id": "hillingdon",
+  "location_type": "local-authority",
+  "parent": "West London",
+  "count_all": 1669
+ },
+ {
+  "slug": "hounslow",
+  "name": "Hounslow",
+  "id": "hounslow",
+  "location_type": "locality",
+  "parent": "West London",
+  "count_all": 595
+ },
+ {
+  "slug": "inverclyde",
+  "name": "Inverclyde",
+  "id": "inverclyde",
+  "location_type": "local-authority",
+  "parent": "Renfrewshire",
+  "count_all": 143
+ },
+ {
+  "slug": "isle-of-anglesey",
+  "name": "Isle of Anglesey",
+  "id": "isle-of-anglesey",
+  "location_type": "local-authority",
+  "parent": "Gwynedd",
+  "count_all": 958
+ },
+ {
+  "slug": "isle-of-wight",
+  "name": "Isle of Wight",
+  "id": "isle-of-wight",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 2540
+ },
+ {
+  "slug": "islington",
+  "name": "Islington",
+  "id": "islington",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 1510
+ },
+ {
+  "slug": "kensington-and-chelsea",
+  "name": "Kensington and Chelsea",
+  "id": "kensington-and-chelsea",
+  "location_type": "local-authority",
+  "parent": "Borough of London",
+  "count_all": 3189
+ },
+ {
+  "slug": "kent",
+  "name": "Kent",
+  "id": "kent",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 25656
+ },
+ {
+  "slug": "kingston-upon-thames",
+  "name": "Kingston Upon Thames",
+  "id": "kingston-upon-thames",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 1461
+ },
+ {
+  "slug": "lambeth",
+  "name": "Lambeth",
+  "id": "lambeth",
+  "location_type": "locality",
+  "parent": "South East London",
+  "count_all": 126
+ },
+ {
+  "slug": "lancashire",
+  "name": "Lancashire",
+  "id": "lancashire",
+  "location_type": "county",
+  "parent": "North West",
+  "count_all": 8128
+ },
+ {
+  "slug": "leicestershire",
+  "name": "Leicestershire",
+  "id": "leicestershire",
+  "location_type": "county",
+  "parent": "East Midlands",
+  "count_all": 6438
+ },
+ {
+  "slug": "lewisham",
+  "name": "Lewisham",
+  "id": "lewisham",
+  "location_type": "locality",
+  "parent": "South East London",
+  "count_all": 623
+ },
+ {
+  "slug": "lincolnshire",
+  "name": "Lincolnshire",
+  "id": "lincolnshire",
+  "location_type": "county",
+  "parent": "East Midlands",
+  "count_all": 9873
+ },
+ {
+  "slug": "london",
+  "name": "London",
+  "id": "london",
+  "location_type": "country",
+  "parent": null,
+  "count_all": 50000
+ },
+ {
+  "slug": "merseyside",
+  "name": "Merseyside",
+  "id": "merseyside",
+  "location_type": "county",
+  "parent": "North West",
+  "count_all": 5867
+ },
+ {
+  "slug": "merton",
+  "name": "Merton",
+  "id": "merton",
+  "location_type": "neighbourhood",
+  "parent": "South West London",
+  "count_all": 158
+ },
+ {
+  "slug": "midlothian",
+  "name": "Midlothian",
+  "id": "midlothian",
+  "location_type": "county",
+  "parent": "Edinburgh and Lothian",
+  "count_all": 355
+ },
+ {
+  "slug": "monmouthshire",
+  "name": "Monmouthshire",
+  "id": "monmouthshire",
+  "location_type": "local-authority",
+  "parent": "Gwent",
+  "count_all": 889
+ },
+ {
+  "slug": "moray",
+  "name": "Moray",
+  "id": "moray",
+  "location_type": "county",
+  "parent": "Highlands and Islands",
+  "count_all": 240
+ },
+ {
+  "slug": "neath-port-talbot",
+  "name": "Neath Port Talbot",
+  "id": "neath-port-talbot",
+  "location_type": "local-authority",
+  "parent": "West Glamorgan",
+  "count_all": 820
+ },
+ {
+  "slug": "newham",
+  "name": "Newham",
+  "id": "newham",
+  "location_type": "local-authority",
+  "parent": "Borough of London",
+  "count_all": 2152
+ },
+ {
+  "slug": "norfolk",
+  "name": "Norfolk",
+  "id": "norfolk",
+  "location_type": "county",
+  "parent": "East Anglia",
+  "count_all": 10245
+ },
+ {
+  "slug": "north-ayrshire",
+  "name": "North Ayrshire",
+  "id": "north-ayrshire",
+  "location_type": "local-authority",
+  "parent": "Ayrshire",
+  "count_all": 393
+ },
+ {
+  "slug": "north-lanarkshire",
+  "name": "North Lanarkshire",
+  "id": "north-lanarkshire",
+  "location_type": "local-authority",
+  "parent": "Lanarkshire",
+  "count_all": 354
+ },
+ {
+  "slug": "north-yorkshire",
+  "name": "North Yorkshire",
+  "id": "north-yorkshire",
+  "location_type": "county",
+  "parent": "Yorkshire",
+  "count_all": 9987
+ },
+ {
+  "slug": "northamptonshire",
+  "name": "Northamptonshire",
+  "id": "northamptonshire",
+  "location_type": "county",
+  "parent": "East Midlands",
+  "count_all": 4734
+ },
+ {
+  "slug": "northumberland",
+  "name": "Northumberland",
+  "id": "northumberland",
+  "location_type": "county",
+  "parent": "North",
+  "count_all": 2241
+ },
+ {
+  "slug": "nottinghamshire",
+  "name": "Nottinghamshire",
+  "id": "nottinghamshire",
+  "location_type": "county",
+  "parent": "East Midlands",
+  "count_all": 8568
+ },
+ {
+  "slug": "oxfordshire",
+  "name": "Oxfordshire",
+  "id": "oxfordshire",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 5735
+ },
+ {
+  "slug": "pembrokeshire",
+  "name": "Pembrokeshire",
+  "id": "pembrokeshire",
+  "location_type": "local-authority",
+  "parent": "Pembrokeshire",
+  "count_all": 2088
+ },
+ {
+  "slug": "perth-and-kinross",
+  "name": "Perth and Kinross",
+  "id": "perth-and-kinross",
+  "location_type": "local-authority",
+  "parent": "Perth & Kinross",
+  "count_all": 813
+ },
+ {
+  "slug": "powys",
+  "name": "Powys",
+  "id": "powys",
+  "location_type": "county",
+  "parent": "Mid Wales",
+  "count_all": 1363
+ },
+ {
+  "slug": "renfrewshire",
+  "name": "Renfrewshire",
+  "id": "renfrewshire",
+  "location_type": "county",
+  "parent": "Glasgow and surrounding villages",
+  "count_all": 250
+ },
+ {
+  "slug": "richmond-upon-thames",
+  "name": "Richmond upon Thames",
+  "id": "richmond-upon-thames",
+  "location_type": "local-authority",
+  "parent": "Borough of London",
+  "count_all": 2027
+ },
+ {
+  "slug": "rutland",
+  "name": "Rutland",
+  "id": "rutland",
+  "location_type": "county",
+  "parent": "East Midlands",
+  "count_all": 351
+ },
+ {
+  "slug": "scottish-borders",
+  "name": "Scottish Borders",
+  "id": "scottish-borders",
+  "location_type": "local-authority",
+  "parent": "Scottish Borders",
+  "count_all": 653
+ },
+ {
+  "slug": "shropshire",
+  "name": "Shropshire",
+  "id": "shropshire",
+  "location_type": "county",
+  "parent": "West Midlands",
+  "count_all": 5073
+ },
+ {
+  "slug": "somerset",
+  "name": "Somerset",
+  "id": "somerset",
+  "location_type": "county",
+  "parent": "South West",
+  "count_all": 7656
+ },
+ {
+  "slug": "south-ayrshire",
+  "name": "South Ayrshire",
+  "id": "south-ayrshire",
+  "location_type": "local-authority",
+  "parent": "Ayrshire",
+  "count_all": 142
+ },
+ {
+  "slug": "south-lanarkshire",
+  "name": "South Lanarkshire",
+  "id": "south-lanarkshire",
+  "location_type": "local-authority",
+  "parent": "Lanarkshire",
+  "count_all": 537
+ },
+ {
+  "slug": "south-yorkshire",
+  "name": "South Yorkshire",
+  "id": "south-yorkshire",
+  "location_type": "county",
+  "parent": "Yorkshire",
+  "count_all": 5878
+ },
+ {
+  "slug": "southwark",
+  "name": "Southwark",
+  "id": "southwark",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 572
+ },
+ {
+  "slug": "staffordshire",
+  "name": "Staffordshire",
+  "id": "staffordshire",
+  "location_type": "county",
+  "parent": "West Midlands",
+  "count_all": 7387
+ },
+ {
+  "slug": "suffolk",
+  "name": "Suffolk",
+  "id": "suffolk",
+  "location_type": "county",
+  "parent": "East Anglia",
+  "count_all": 8430
+ },
+ {
+  "slug": "surrey",
+  "name": "Surrey",
+  "id": "surrey",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 12245
+ },
+ {
+  "slug": "sutton",
+  "name": "Sutton",
+  "id": "sutton",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 677
+ },
+ {
+  "slug": "torfaen",
+  "name": "Torfaen",
+  "id": "torfaen",
+  "location_type": "local-authority",
+  "parent": "Gwent",
+  "count_all": 345
+ },
+ {
+  "slug": "tyne-and-wear",
+  "name": "Tyne and Wear",
+  "id": "tyne-and-wear",
+  "location_type": "county",
+  "parent": "North",
+  "count_all": 5154
+ },
+ {
+  "slug": "vale-of-glamorgan",
+  "name": "Vale of Glamorgan",
+  "id": "vale-of-glamorgan",
+  "location_type": "locality",
+  "parent": "Wales",
+  "count_all": 1072
+ },
+ {
+  "slug": "waltham-forest",
+  "name": "Waltham Forest",
+  "id": "waltham-forest",
+  "location_type": "local-authority",
+  "parent": "Borough of London",
+  "count_all": 901
+ },
+ {
+  "slug": "wandsworth",
+  "name": "Wandsworth",
+  "id": "wandsworth",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 1521
+ },
+ {
+  "slug": "warwickshire",
+  "name": "Warwickshire",
+  "id": "warwickshire",
+  "location_type": "county",
+  "parent": "West Midlands",
+  "count_all": 4419
+ },
+ {
+  "slug": "west-lothian",
+  "name": "West Lothian",
+  "id": "west-lothian",
+  "location_type": "county",
+  "parent": "Edinburgh and Lothian",
+  "count_all": 646
+ },
+ {
+  "slug": "west-sussex",
+  "name": "West Sussex",
+  "id": "west-sussex",
+  "location_type": "county",
+  "parent": "South East",
+  "count_all": 8741
+ },
+ {
+  "slug": "west-yorkshire",
+  "name": "West Yorkshire",
+  "id": "west-yorkshire",
+  "location_type": "county",
+  "parent": "Yorkshire",
+  "count_all": 11605
+ },
+ {
+  "slug": "westminster",
+  "name": "Westminster",
+  "id": "westminster",
+  "location_type": "locality",
+  "parent": "London",
+  "count_all": 5234
+ },
+ {
+  "slug": "wiltshire",
+  "name": "Wiltshire",
+  "id": "wiltshire",
+  "location_type": "county",
+  "parent": "South West",
+  "count_all": 5227
+ },
+ {
+  "slug": "worcestershire",
+  "name": "Worcestershire",
+  "id": "worcestershire",
+  "location_type": "county",
+  "parent": "West Midlands",
+  "count_all": 5466
+ }
+]

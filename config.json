@@ -1,5 +1,6 @@
 {
   "db_path": "data/tracker.db",
+  "store_path": "data/apf.db",
   "cache_dir": "data/cache",
   "http": {
     "timeout": 30,
@@ -8,25 +9,28 @@
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
   },
   "search": {
-    "max_price": 300000,
+    "max_price": 0,
     "results_per_page": 24,
     "max_pages_per_query": 42,
     "cap": 1000,
-    "price_bands": [0, 75000, 150000, 225000, 300000],
+    "price_bands": [0, 100000, 200000, 300000, 400000, 500000, 650000, 800000, 1000000, 1250000, 1500000, 2000000, 3000000, 5000000, 10000000],
+    "property_types": ["detached", "semi-detached", "terraced", "bungalow", "land"],
     "delay_sec": 2.0,
     "detail_ttl_days": 30,
-    "full_cycle_days": 7,
+    "full_cycle_days": 14,
     "new_pages_per_region": 6,
     "new_stop_pages": 2,
     "cache_ttl_days": 7,
     "exclude_subtypes": [
       "flat", "apartment", "maisonette", "ground flat", "duplex", "studio",
       "park home", "mobile home", "lodge", "caravan", "retirement property",
-      "sheltered housing"
+      "sheltered housing", "penthouse", "block of apartments", "ground maisonette",
+      "flat of maisonette", "studio apartment", "serviced apartment"
     ]
   },
   "regions": {
     "file": "data/regions.json",
+    "otm_file": "data/regions_otm.json",
     "enabled": [],
     "excluded": [],
     "countries": [],
@@ -34,7 +38,15 @@
     "exclude_highlands": false
   },
   "sources": {
-    "rightmove": { "enabled": true, "interval_min": 720 }
+    "rightmove": { "enabled": true, "interval_min": 720 },
+    "onthemarket": { "enabled": false, "interval_min": 720 },
+    "zoopla": { "enabled": false, "interval_min": 1440, "mode": "local" }
+  },
+  "epc": {
+    "dir": "data/epc",
+    "years": 12,
+    "min_match_score": 0.55,
+    "uprn_max_distance_m": 60
   },
   "alerts": {
     "desktop_toast": true,
@@ -45,7 +57,8 @@
   },
   "enrich": {
     "house_max_est_acres": 2.0,
-    "est_min_acres": 0.15
+    "est_min_acres": 0.15,
+    "house_min_est_acres": 0.01
   },
   "server": {
     "host": "127.0.0.1",

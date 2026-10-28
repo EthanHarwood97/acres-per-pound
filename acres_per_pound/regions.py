@@ -228,3 +228,33 @@ def load_regions(path=None):
     if not p.exists():
         return []
     return json.loads(p.read_text(encoding="utf-8"))
+
+
+def discover_otm(fetcher=None, out_path=None, limit=0, verbose=False):
+    """Discover OnTheMarket location slugs by probing the Rightmove slugs.
+
+    OTM's own sitemaps are flaky and mix SEO variants; the Rightmove
+    region list is already curated to real inventory, so we validate
+    each slug against OTM and keep the ones that resolve.
+    """
+    from . import otm
+
+    cfg = load_config()
+    fetcher = fetcher or __import__("acres_per_pound.http", fromlist=["Fetcher"]).Fetcher(cfg)
+    p = pathlib.Path(out_path or cfg.get("regions", {}).get("otm_file", "data/regions_otm.json"))
+    if not p.is_absolute():
+        p = DATA_DIR.parent / p
+    slugs = [r.get("slug", "").lower() for r in load_regions() if r.get("slug")]
+    if limit:
+        slugs = slugs[:limit]
+    return otm.discover(fetcher, out_path=p, slugs=slugs, verbose=verbose)
+
+
+def load_otm_regions(path=None):
+    cfg = load_config()
+    p = pathlib.Path(path or cfg.get("regions", {}).get("otm_file", "data/regions_otm.json"))
+    if not p.is_absolute():
+        p = DATA_DIR.parent / p
+    if not p.exists():
+        return []
+    return json.loads(p.read_text(encoding="utf-8"))

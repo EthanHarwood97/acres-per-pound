@@ -1,6 +1,8 @@
 "use strict";
 
 let DATA = null;
+let HOUSES = null; // lazy-loaded slim UK-wide dataset (houses.json)
+let HOUSES_LOADING = null;
 let view = "all";
 let sortKey = "gbp_per_acre";
 let sortAsc = true;
@@ -115,6 +117,15 @@ const UK_CITY_COORDS = {
   "york": [53.9599, -1.0873],
   "inverness": [57.4778, -4.2247],
   "aberdeen": [57.1497, -2.0943],
+  "blackburn": [53.7486, -2.4875],
+  "preston": [53.7632, -2.7031],
+  "blackpool": [53.8142, -3.0552],
+  "burnley": [53.7890, -2.2400],
+  "chorley": [53.6531, -2.6325],
+  "chester": [53.1930, -2.8931],
+  "lancaster": [54.0466, -2.8007],
+  "wigan": [53.5450, -2.6325],
+  "bolton": [53.5768, -2.4282],
 };
 
 let geoDebounce = null;
@@ -127,6 +138,22 @@ function resolveNearLocation(query) {
     return;
   }
   const q = query.trim().toLowerCase();
+  // 1. Region / county name? Set the Region filter directly — that is what
+  // users mean by "lancashire" (postcodes.io can't geocode counties reliably).
+  const regionSel = document.getElementById("region");
+  if (regionSel) {
+    const opts = [...regionSel.options].map((o) => o.value).filter(Boolean);
+    const hit = opts.find((n) => n.toLowerCase() === q);
+    if (hit) {
+      F.region = hit;
+      regionSel.value = hit;
+      F.nearCoords = null;
+      const stat = document.getElementById("geoStatus");
+      if (stat) stat.textContent = `✓ Region: ${hit} (radius ignored — clear Region to use miles)`;
+      refresh();
+      return;
+    }
+  }
   if (UK_CITY_COORDS[q]) {
     F.nearCoords = { lat: UK_CITY_COORDS[q][0], lng: UK_CITY_COORDS[q][1], name: query.trim() };
     const stat = document.getElementById("geoStatus");
@@ -151,7 +178,7 @@ function resolveNearLocation(query) {
       } else {
         F.nearCoords = null;
         const stat = document.getElementById("geoStatus");
-        if (stat) stat.textContent = "(location not found)";
+        if (stat) stat.textContent = "(not a postcode/town — try the Region dropdown or Search box for counties)";
         refresh();
       }
     })
@@ -170,12 +197,14 @@ const F = {
   filterByMap: false,
   onlyNew: false, onlyFavs: false, hideSeen: false,
   minPrice: null, maxPrice: null, minAcres: null, maxAcres: null,
-  minBeds: null, maxBeds: null, minGbp: null, maxGbp: null,
+  minBeds: null, maxBeds: null, minBaths: null, minFloor: null,
+  minGbp: null, maxGbp: null,
   hideEst: false, types: null,
 };
 
 const NUM_FIELDS = ["minPrice", "maxPrice", "minAcres", "maxAcres",
-                    "minBeds", "maxBeds", "minGbp", "maxGbp", "maxLat", "radiusMiles"];
+                    "minBeds", "maxBeds", "minBaths", "minFloor",
+                    "minGbp", "maxGbp", "maxLat", "radiusMiles"];
 
 function loadFavs() {
   try { favs = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); }
@@ -224,11 +253,19 @@ const fmt = {
   gbp: (n) => n == null ? "—" : "£" + n.toLocaleString("en-GB"),
   gbpAcre: (n) => n == null ? "—" : "£" + Math.round(n).toLocaleString("en-GB"),
   acres: (r) => {
-    if (r.acres_min == null) return "—";
-    const f = (v) => (v >= 100 ? Math.round(v) : v >= 1 ? +v.toFixed(1) : +v.toFixed(2));
-    if (r.acres_max != null && r.acres_max !== r.acres_min) return f(r.acres_min) + " – " + f(r.acres_max);
-    return String(f(r.acres_min));
+    if (r.acres_min != null) {
+      const f = (v) => (v >= 100 ? Math.round(v) : v >= 1 ? +v.toFixed(1) : +v.toFixed(2));
+      if (r.acres_max != null && r.acres_max !== r.acres_min) return f(r.acres_min) + " – " + f(r.acres_max);
+      return String(f(r.acres_min));
+    }
+    if (r.est_acres != null) {
+      const v = r.est_acres >= 1 ? +r.est_acres.toFixed(1) : +r.est_acres.toFixed(2);
+      return "~" + v;
+    }
+    return "—";
   },
+  baths: (n) => n == null ? "—" : String(n),
+  floor: (n) => n == null ? "—" : (n >= 100 ? Math.round(n) : n),
   ac100k: (n) => n == null ? "—" : (n >= 100 ? Math.round(n) : n >= 1 ? +n.toFixed(1) : +n.toFixed(2)),
   days: (ts) => {
     if (!ts) return "";
@@ -239,9 +276,43 @@ const fmt = {
   },
 };
 
+function slimToRow(h) {
+  // houses.json slim -> common row shape (URL rebuilt from id)
+  return {
+    rm_id: h.i,
+    url: "https://www.rightmove.co.uk/properties/" + h.i + "#/?channel=RES_BUY",
+    address: h.a || "",
+    postcode: "",
+    lat: h.la, lng: h.ln,
+    price: h.p, beds: h.b || 0, baths: h.bt, floor_sqm: h.f,
+    subtype: h.t || "", land_only: !!h.l,
+    acres_min: h.am, acres_max: h.am, acres_mid: h.am,
+    est_acres: h.ea, confidence: h.am != null ? "stated" : (h.ea != null ? "est" : ""),
+    listing_status: h.s || "", first_published: h.fp, first_seen: h.fp,
+    gbp_per_acre: (h.p >= 1000 && h.am) ? Math.round((h.p / h.am) * 100) / 100 : null,
+    acres_per_100k: (h.p >= 1000 && h.am) ? Math.round((h.am / (h.p / 100000)) * 1000) / 1000 : null,
+    region_name: h.r || "", country: h.c || "",
+    is_highlands: isHighlandsRegion(h.r, h.la),
+  };
+}
+
+function landAcres(r) {
+  // stated acres win; otherwise estimated plot (unless shared/hidden)
+  if (r.acres_mid != null) return r.acres_mid;
+  if (r.est_acres != null && !r.est_shared) return r.est_acres;
+  return 0;
+}
+
 function rowsFor() {
   if (!DATA) return [];
-  let rows = DATA[view] || [];
+  const isAllHouses = (view === "allhouses");
+  let rows;
+  if (isAllHouses) {
+    if (!HOUSES) return [];
+    rows = HOUSES.map(slimToRow);
+  } else {
+    rows = DATA[view] || [];
+  }
   const s = (F.search || "").toLowerCase();
   rows = rows.map((r) => {
     const corr = corrections[String(r.rm_id)];
@@ -298,11 +369,13 @@ function rowsFor() {
     if (F.hideEst && r.confidence === "est") return false;
     if (F.minPrice != null && (r.price || 0) < F.minPrice) return false;
     if (F.maxPrice != null && (r.price || 0) > F.maxPrice) return false;
-    const a = r.acres_mid || 0;
+    const a = (view === "allhouses") ? landAcres(r) : (r.acres_mid || 0);
     if (F.minAcres != null && a < F.minAcres) return false;
     if (F.maxAcres != null && a > F.maxAcres) return false;
     if (F.minBeds != null && (r.beds || 0) < F.minBeds) return false;
     if (F.maxBeds != null && (r.beds || 0) > F.maxBeds) return false;
+    if (F.minBaths != null && (r.baths || 0) < F.minBaths) return false;
+    if (F.minFloor != null && (r.floor_sqm || 0) < F.minFloor) return false;
     const g = r.gbp_per_acre;
     if (F.minGbp != null && g < F.minGbp) return false;
     if (F.maxGbp != null && g > F.maxGbp) return false;
@@ -341,6 +414,7 @@ function badgeCell(r) {
   if (r.verified) badge = `<span class="badge okb" title="stated acreage agrees with the registered plot boundary">✓</span>`;
   if (r.flag === "stated-vs-plot") badge += `<span class="badge warnb" title="stated acreage disagrees with registered plot boundary - verify with agent">⚠</span>`;
   if (r.flag === "low-confidence") badge += `<span class="badge warnb" title="low-confidence parse">⚠</span>`;
+  if (r.flag === "small_plot") badge += `<span class="badge dimb" title="overall registered plot incl. house, garden and driveway (under 0.15 acres)">▦</span>`;
   if (corrections[String(r.rm_id)] != null) badge += `<span class="badge okb" title="manually corrected">✎</span>`;
   return `<td class="badge-td">${badge}</td>`;
 }
@@ -364,6 +438,9 @@ function render() {
         <button class="edit-acres" data-id="${r.rm_id}" data-acres="${r.acres_mid ?? ""}" title="correct the acreage">✎</button>
       </td>
       <td class="dim">${escapeHtml(r.subtype || "")}</td>
+      <td class="num">${r.beds || "—"}</td>
+      <td class="num dim">${fmt.baths(r.baths)}</td>
+      <td class="num dim">${fmt.floor(r.floor_sqm)}</td>
       <td>${escapeHtml(r.region_name || "")}</td>
       ${vsRegion(r)}
       <td class="num dim">${fmt.days(r.first_published || r.first_seen)}</td>
@@ -371,7 +448,9 @@ function render() {
     </tr>`;
   }).join("");
   document.getElementById("count").textContent =
-    `${rows.length} listings · newest ${fmt.days(DATA.ts)} · showing top 500`;
+    view === "allhouses"
+      ? `${rows.length} houses (UK-wide${HOUSES ? ", " + HOUSES.length + " tracked" : ""}) · showing top 500`
+      : `${rows.length} listings · newest ${fmt.days(DATA.ts)} · showing top 500`;
 }
 
 function escapeHtml(s) {
@@ -505,11 +584,16 @@ function renderAllLayers() {
 
 function mapColor(r) {
   const v = r.value_ratio;
-  if (v == null) return "#8b96a5";
-  if (v >= 3) return "#4ade80";
-  if (v >= 1.5) return "#a3e635";
-  if (v >= 1) return "#e2e8f0";
-  return "#64748b";
+  if (v != null) {
+    if (v >= 3) return "#4ade80";
+    if (v >= 1.5) return "#a3e635";
+    if (v >= 1) return "#e2e8f0";
+    return "#64748b";
+  }
+  // all-houses view has no value_ratio: green when land known, grey otherwise
+  if (r.acres_mid != null) return "#4ade80";
+  if (r.est_acres != null) return "#a3e635";
+  return "#8b96a5";
 }
 
 function renderMap() {
@@ -532,8 +616,13 @@ function renderMap() {
   mapLayer = L.layerGroup().addTo(mapObj);
   if (listingPinsVisible()) {
     for (const r of rows) {
+      const landTxt = (r.acres_mid != null || r.est_acres != null)
+        ? `${fmt.gbpAcre(r.gbp_per_acre)}/acre · ${fmt.acres(r)} ac · `
+        : `no land stated · `;
+      const sizeTxt = `${r.beds || "—"}bd${r.baths != null ? "/" + r.baths + "ba" : ""}` +
+        `${r.floor_sqm != null ? " · " + r.floor_sqm + "m²" : ""}`;
       const pop = `<b>${escapeHtml(r.address || "")}</b><br>` +
-        `${fmt.gbpAcre(r.gbp_per_acre)}/acre · ${fmt.acres(r)} ac · ${fmt.gbp(r.price)}` +
+        landTxt + `${fmt.gbp(r.price)} · ${sizeTxt}` +
         (r.verified ? " ✓" : "") +
         `<br><a href="${r.url}" target="_blank" rel="noopener">view on Rightmove</a>`;
       L.circleMarker([r.lat, r.lng], {
@@ -606,11 +695,25 @@ function renderEvents() {
 
 function renderRegions() {
   if (!DATA) return;
-  const sel = document.getElementById("region");
   const names = [...new Set((DATA.all || []).map((r) => r.region_name).filter(Boolean))].sort();
+  const sel = document.getElementById("region");
   sel.innerHTML = '<option value="">All regions</option>' +
     names.map((n) => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join("");
   populateExcludeRegionDropdown(names);
+}
+
+function refreshRegionOptions() {
+  // after houses.json loads, include any regions missing from the with-land set
+  if (!DATA || !HOUSES) return;
+  const names = new Set((DATA.all || []).map((r) => r.region_name).filter(Boolean));
+  for (const h of HOUSES) { if (h.r) names.add(h.r); }
+  const sorted = [...names].sort();
+  const sel = document.getElementById("region");
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">All regions</option>' +
+    sorted.map((n) => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join("");
+  sel.value = cur;
+  populateExcludeRegionDropdown(sorted);
 }
 
 function populateExcludeRegionDropdown(names) {
@@ -777,9 +880,14 @@ function renderRegionSummary() {
 function renderTypes() {
   if (!DATA) return;
   const meta = DATA.meta || {};
-  const subs = (meta.subtypes && meta.subtypes.length)
-    ? meta.subtypes
+  let subs = (meta.subtypes && meta.subtypes.length)
+    ? [...meta.subtypes]
     : [...new Set((DATA.all || []).map((r) => r.subtype).filter(Boolean))].sort();
+  if (HOUSES) {
+    const extra = new Set(subs);
+    for (const h of HOUSES) { if (h.t) extra.add(h.t); }
+    subs = [...extra].sort();
+  }
   const excluded = new Set(meta.excluded_subtypes || []);
   if (F.types === null) F.types = new Set(subs.filter((s) => !excluded.has(s)));
   const box = document.getElementById("typeChips");
@@ -864,13 +972,44 @@ function resetFilters() {
   refresh();
 }
 
+function ensureHousesLoaded() {
+  if (HOUSES || HOUSES_LOADING) return HOUSES_LOADING || Promise.resolve();
+  const tb = document.getElementById("rows");
+  HOUSES_LOADING = fetch("houses.json")
+    .then((r) => { if (!r.ok) throw new Error("houses.json " + r.status); return r.json(); })
+    .then((d) => {
+      HOUSES = d.houses || [];
+      // extend type chips with any new subtypes from the full dataset
+      if (F.types) {
+        let changed = false;
+        for (const h of HOUSES) { if (h.t && !F.types.has(h.t)) { F.types.add(h.t); changed = true; } }
+        if (changed) renderTypes();
+      }
+      refreshRegionOptions();
+      HOUSES_LOADING = null;
+    })
+    .catch((e) => {
+      HOUSES_LOADING = null;
+      if (tb) tb.innerHTML = `<tr><td colspan="16">failed to load houses.json: ${e}</td></tr>`;
+    });
+  return HOUSES_LOADING;
+}
+
 function bindEvents() {
   document.getElementById("tabs").addEventListener("click", (e) => {
     const b = e.target.closest("button");
-    if (!b) return;
+    if (!b || !b.dataset.view) return;
     view = b.dataset.view;
     document.querySelectorAll("#tabs button").forEach((x) => x.classList.toggle("active", x === b));
+    if (view === "allhouses") {
+      if (sortKey === "gbp_per_acre") { sortKey = "price"; sortAsc = true; }
+      const tb = document.getElementById("rows");
+      if (tb) tb.innerHTML = `<tr><td colspan="16">loading all houses…</td></tr>`;
+      ensureHousesLoaded().then(() => { render(); if (mapView) renderMap(); });
+      return;
+    }
     render();
+    if (mapView) renderMap();
   });
   document.getElementById("filterToggle").addEventListener("click", () => {
     const f = document.getElementById("filters");
@@ -1068,7 +1207,7 @@ fetch("data.json")
     render();
   })
   .catch((e) => {
-    document.getElementById("rows").innerHTML = `<tr><td colspan="13">failed to load data.json: ${e}</td></tr>`;
+    document.getElementById("rows").innerHTML = `<tr><td colspan="16">failed to load data.json: ${e}</td></tr>`;
   });
 
 bindEvents();

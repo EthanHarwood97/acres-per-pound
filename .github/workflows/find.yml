@@ -1,9 +1,14 @@
-name: Find Land Value
+name: Scan & publish
 
 on:
   schedule:
     - cron: "23 5,17 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Force a full reconcile scan of every region"
+        type: boolean
+        default: false
 
 concurrency:
   group: land
@@ -13,20 +18,31 @@ permissions:
   contents: write
 
 jobs:
-  find:
+  scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 300
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: pip
+
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Scrape, parse, rank, publish
-        run: python -m acres_per_pound.cli publish
-      - name: Commit updates
+
+      - name: Scan Rightmove + OnTheMarket, rank, build legacy site
+        run: python -m acres_per_pound.cli publish --verbose
+
+      - name: Publish to Cloudflare (D1 search index + R2 snapshot)
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
+        run: python -m acres_per_pound.cli sync --d1 --r2
+
+      - name: Commit state + site
         run: |
           git config user.name "acres-bot"
           git config user.email "actions@users.noreply.github.com"

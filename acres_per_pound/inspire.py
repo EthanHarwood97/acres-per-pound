@@ -101,13 +101,48 @@ try:
     from pyproj import Transformer
 
     _TRANSFORMER = Transformer.from_crs("EPSG:4326", "EPSG:27700", always_xy=True)
+    _INVERSE = Transformer.from_crs("EPSG:27700", "EPSG:4326", always_xy=True)
 
     def wgs84_to_bng(lat, lon):
         e, n = _TRANSFORMER.transform(lon, lat)
         return e, n
 except Exception:  # pragma: no cover
+    _INVERSE = None
+
     def wgs84_to_bng(lat, lon):
         return _wgs84_to_bng_manual(lat, lon)
+
+
+def bng_to_wgs84(e, n):
+    """OSGB36 easting/northing -> WGS84 (lng, lat), or None without pyproj."""
+    if _INVERSE is None:
+        return None, None
+    return _INVERSE.transform(e, n)
+
+
+def polygon_geojson(poly, tol=1.0):
+    """Title polygon -> GeoJSON string in WGS84, simplified for the map.
+
+    Returns None when pyproj is unavailable (never store untransformed
+    coordinates). Holes are dropped: they are vanishingly rare in title
+    plans and not worth the payload.
+    """
+    if _INVERSE is None:
+        return None
+    try:
+        simple = poly.simplify(tol, preserve_topology=True)
+        ring = []
+        for e, n in simple.exterior.coords:
+            lng, lat = bng_to_wgs84(e, n)
+            if lng is None or lat is None:
+                return None
+            ring.append([round(lng, 6), round(lat, 6)])
+        if len(ring) < 4:
+            return None
+        return json.dumps({"type": "Polygon", "coordinates": [ring]},
+                          separators=(",", ":"))
+    except Exception:
+        return None
 
 
 # --- LA list + download -------------------------------------------------
@@ -125,6 +160,11 @@ def list_las(fetcher=None):
         raise RuntimeError(f"download page status {r.status_code}")
     names = re.findall(r"/datasets/inspire/download/([^/\"]+\.zip)", r.text)
     return sorted(set(names))
+
+
+def cached_names():
+    """LA zip names that already have a parsed polygon index on disk."""
+    return sorted(p.stem + ".zip" for p in INSPIRE_DIR.glob("*.pkl"))
 
 
 def download_la(name, force=False, verbose=False):
@@ -219,16 +259,18 @@ def parse_zip(zip_path, verbose=False):
     return ids, polys
 
 
-def build_index(name, verbose=False):
+def build_index(name, verbose=False, force=False):
     """Download + parse an LA, cache polygons (WKB) to <name>.pkl.
 
     Deletes the zip after parsing (pkl is what subsequent runs use).
+    `force` re-downloads and re-parses a cached LA (new titles are
+    registered every month).
     """
     import pickle
 
-    zip_path = download_la(name, verbose=verbose)
+    zip_path = download_la(name, force=force, verbose=verbose)
     pkl = INSPIRE_DIR / (name[:-4] + ".pkl")
-    if pkl.exists():
+    if pkl.exists() and not force:
         try:
             with open(pkl, "rb") as f:
                 head = pickle.load(f)
@@ -304,7 +346,8 @@ def bboxes_map(names):
 
 
 def match_points(points, bbox, pkl_path):
-    """For (rm_id, easting, northing) points inside bbox, return {rm_id: (area_m2, gml_id)}."""
+    """For (uid, easting, northing) points inside bbox, return
+    {uid: (area_m2, gml_id, polygon)}."""
     import pickle
 
     import numpy as np
@@ -325,9 +368,10 @@ def match_points(points, bbox, pkl_path):
     if hits is not None and len(hits):
         for pi, gi in zip(hits[0], hits[1]):
             rid = points[int(pi)][0]
-            area = polys[int(gi)].area
+            poly = polys[int(gi)]
+            area = poly.area
             cur = result.get(rid)
             if cur is None or area < cur[0]:  # smallest containing plot wins
-                result[rid] = (area, data["ids"][int(gi)])
+                result[rid] = (area, data["ids"][int(gi)], poly)
     del polys, tree
     return result

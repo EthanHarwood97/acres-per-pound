@@ -24,9 +24,19 @@ _WORD_NUM = {
     "one": 1.0, "a": 1.0, "an": 1.0, "two": 2.0, "three": 3.0,
     "four": 4.0, "five": 5.0, "six": 6.0, "seven": 7.0, "eight": 8.0,
     "nine": 9.0, "ten": 10.0, "eleven": 11.0, "twelve": 12.0,
+    "thirteen": 13.0, "fourteen": 14.0, "fifteen": 15.0, "sixteen": 16.0,
+    "seventeen": 17.0, "eighteen": 18.0, "nineteen": 19.0, "twenty": 20.0,
     "quarter": 0.25, "half": 0.5, "three quarters": 0.75, "three-quarters": 0.75,
     "an eighth": 0.125,
 }
+
+# Word-number alternative for regex (longest first to avoid partial hits).
+# NOTE: a/an excluded here — handled separately below to avoid stealing
+# "half an acre" / "0.4 of an acre".
+_WORD_NUM_PATTERN = (
+    r"(?:twenty|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|"
+    r"eleven|twelve|three|seven|eight|ten|one|two|four|five|six|nine)"
+)
 
 # Road-type words right after a measurement usually mean a street name,
 # e.g. "1 Acre Lane" or "on 5 Acres Road" - reject those candidates.
@@ -35,7 +45,8 @@ _ROAD_WORDS = re.compile(
     r"hill|park|walk|fields|rise|mews|terrace|boulevard)$"
 )
 
-_NUM = r"(\d+(?:\.\d+)?)"
+_NUM = r"(\d+(?:[.,]\d+)?)"
+_NUM_THOU = r"(\d[\d,]*(?:\.\d+)?)"
 _RANGE_SEP = r"\s*(?:to|-|–|—)\s*"
 
 LAND_CONTEXT = (
@@ -45,12 +56,33 @@ LAND_CONTEXT = (
 )
 
 # Phrases where the measured land is NOT owned by the buyer: communal
-# grounds, estate parkland, access rights.
+# grounds, estate parkland, access rights, and estate-agent copy about
+# the wider development ("set within 500 acres of clay country", "a
+# private 550 acre estate"). Left unflagged, those make a terraced house
+# on a housing estate claim hundreds of acres.
+_ESTATE_NOUN = (r"(?:estate|village|resort|development|country\s+park|park|"
+                r"nature\s+reserve|parkland|landscape|countryside|country|"
+                r"common|moor|heath|golf|leisure|amenity)")
+
 _COMMUNAL = re.compile(
     r"\b(?:communal|shared)\s+(?:grounds|gardens|land|amenity|parkland)\b|"
     r"\bin\s+the\s+grounds\s+of\b|"
     r"\b(?:access|use|rights?)\s+(?:to|of|over)\s+(?:the\s+)?\d+(?:\.\d+)?\s*acres?\b|"
-    r"\boverlooking\s+\d+(?:\.\d+)?\s*acres?\b",
+    r"\boverlooking\s+\d+(?:\.\d+)?\s*acres?\b|"
+    # "550 acre estate", "150-acre country park", "200 acres of rolling
+    # countryside" - the acreage describes the surroundings, not the plot
+    r"\b\d[\d,]*(?:\.\d+)?\s*(?:-|\s)?(?:acres?|hectares?)\s+(?:of\s+)?"
+    r"(?:\w+\s+){0,2}?" + _ESTATE_NOUN + r"\b|"
+    # "set within 500 acres", "situated within a 300 hectare estate"
+    r"\b(?:set|situated|nestled|located|positioned)\s+within\b[^.]{0,60}?"
+    r"\b\d[\d,]*(?:\.\d+)?\s*(?:-|\s)?(?:acres?|hectares?)\b|"
+    # "part of a 40 acre development"
+    r"\b(?:part\s+of|on)\s+(?:a|the|this)\s+\d[\d,]*(?:\.\d+)?\s*(?:-|\s)?acre\b|"
+    # "the estate extends to 500 acres" - deliberately excludes
+    # site/development, which in land listings is the property itself
+    # ("the site extends to 0.27 hectares" is the plot for sale)
+    r"\b(?:estate|village|resort)\b[^.]{0,40}?"
+    r"\b\d[\d,]*(?:\.\d+)?\s*(?:-|\s)?(?:acres?|hectares?)\b",
     re.I)
 
 
@@ -59,7 +91,8 @@ def has_land_keyword(text):
     t = (text or "").lower()
     return bool(re.search(
         r"\b(?:acres?|hectares?|\bha\b|paddock|smallholding|equestrian|"
-        r"pasture|meadow|orchard|woodland)\b", t))
+        r"pasture|meadow|orchard|woodland|plots?|grounds|acreage|"
+        r"perch(?:es)?|roods?|poles?)\b", t))
 
 
 class _Cand:
@@ -84,10 +117,18 @@ def _normalize(text):
 
 
 def _num(s):
-    s = s.strip()
+    s = s.strip().lower()
     if s in _WORD_NUM:
         return _WORD_NUM[s]
-    s = s.replace(",", "")
+    # European decimal "0,5" -> 0.5, but "5,000" -> 5000.
+    # Single comma with 1-2 trailing digits and no dot = decimal.
+    if "," in s and "." not in s:
+        if re.match(r"^\d+,\d{1,2}$", s):
+            s = s.replace(",", ".")
+        else:
+            s = s.replace(",", "")
+    else:
+        s = s.replace(",", "")
     try:
         return float(s)
     except ValueError:
@@ -130,9 +171,45 @@ def _candidates(text):
         if base is not None:
             out.append(_annotate(t, _Cand(base + 0.5, "acre", m.start(), m.end(), stms=_stms_after(t, m.end()))))
 
-    # number + acres / hectares
+    # numeric fractions: "1/2 acre", "3/4 acres" (must run before plain number)
+    for m in re.finditer(r"(?<![\w])(\d+)\s*/\s*(\d+)\s*acres?\b", t):
+        try:
+            num, den = int(m.group(1)), int(m.group(2))
+        except ValueError:
+            continue
+        if den == 0 or num > den * 20:
+            continue  # likely a date or reference, not a fraction
+        v = num / den
+        out.append(_annotate(t, _Cand(v, "acre", m.start(), m.end(), stms=_stms_after(t, m.end()))))
+
+    # word-number + acres: "five acres", "one acre", "twenty acres"
+    for m in re.finditer(
+            rf"(?<![\w])({_WORD_NUM_PATTERN})\s*(?:\+?\s*)acres?\b", t):
+        v = _num(m.group(1))
+        if v is None:
+            continue
+        tail = t[m.end():m.end() + 25].strip()
+        tail_word = re.split(r"[\s,.;:!()]+", tail)[0] if tail else ""
+        if _ROAD_WORDS.match(tail_word):
+            continue
+        out.append(_annotate(t, _Cand(v, "acre", m.start(), m.end(), stms=_stms_after(t, m.end()))))
+
+    # singular "an acre" / "a acre" = 1.0 — but not when part of
+    # "half an acre" / "quarter of an acre" / "0.4 of an acre".
+    for m in re.finditer(r"(?<![\w])an?\s+acres?\b", t):
+        pre = t[max(0, m.start() - 20):m.start()]
+        if re.search(r"(?:half|quarter|quarters|eighth|of|\d)\s*$", pre):
+            continue
+        out.append(_annotate(t, _Cand(1.0, "acre", m.start(), m.end(), stms=_stms_after(t, m.end()))))
+
+    # "a couple of acres" ~= 2
+    for m in re.finditer(r"(?<![\w])a\s+couple\s+of\s+acres?\b", t):
+        out.append(_annotate(t, _Cand(2.0, "acre", m.start(), m.end(), qualifier="approx",
+                                        stms=_stms_after(t, m.end()))))
+
+    # number + acres / hectares (allows trailing "+" = minimum, e.g. "2+ acres")
     for unit, factor in (("acre", 1.0), ("hectare", ACRES_PER_HECTARE)):
-        for m in re.finditer(rf"(?<![\w]){_NUM}\s*(?:[-–]\s*)?{unit}s?\b", t):
+        for m in re.finditer(rf"(?<![\w\d/]){_NUM}\s*\+?\s*(?:[-–]\s*)?{unit}s?\b", t):
             v = _num(m.group(1))
             if v is None:
                 continue
@@ -140,7 +217,16 @@ def _candidates(text):
             tail_word = re.split(r"[\s,.;:!()]+", tail)[0] if tail else ""
             if _ROAD_WORDS.match(tail_word):
                 continue
-            out.append(_annotate(t, _Cand(v * factor, unit, m.start(), m.end(), stms=_stms_after(t, m.end()))))
+            # guard against the denominator of a fraction leaking through
+            # (fraction branch already handled "1/2 acre")
+            pre = t[max(0, m.start() - 4):m.start()]
+            if re.search(r"/\s*$", pre):
+                continue
+            cand = _Cand(v * factor, unit, m.start(), m.end(), stms=_stms_after(t, m.end()))
+            cand = _annotate(t, cand)
+            if "+" in m.group(0) and cand.qualifier == "":
+                cand.qualifier = "min"
+            out.append(cand)
 
     # "1.2 ha" standalone
     for m in re.finditer(rf"(?<![\w]){_NUM}\s*ha\b", t):
@@ -172,21 +258,70 @@ def _candidates(text):
         out.append(_annotate(t, _Cand((lo + hi) / 2.0, "acre", m.start(), m.end(),
                                       qualifier="range", stms=_stms_after(t, m.end()))))
 
-    # sq ft / sq m of land (converted)
-    for m in re.finditer(r"(?<![\w])([\d,]+)\s*(?:sq\.?\s*ft|square\s*feet)\b", t):
+    # traditional units: perches/poles/rods (1/160 ac), roods (1/4 ac), sq yards (1/4840 ac)
+    for m in re.finditer(rf"(?<![\w]){_NUM_THOU}\s*(perch(?:es)?|poles?|rods?|roods?)\b", t):
+        raw = _num(m.group(1))
+        if raw is None:
+            continue
+        unit_word = m.group(2).lower()
+        div = 4.0 if unit_word.startswith("rood") else 160.0
+        v = raw / div
+        window = t[max(0, m.start() - 80):m.end() + 80]
+        # perches need land context (else "fishing rods" etc); roods almost always land
+        if unit_word.startswith("rood") or re.search(LAND_CONTEXT, window):
+            out.append(_annotate(t, _Cand(v, "acre", m.start(), m.end(), stms=_stms_after(t, m.end()))))
+    for m in re.finditer(rf"(?<![\w]){_NUM_THOU}\s*(?:sq\.?\s*(?:yds?|yards?)|square\s*yards?)\b", t):
+        raw = _num(m.group(1))
+        if raw is None or raw < 500:
+            continue
+        window = t[max(0, m.start() - 120):m.end() + 120]
+        if re.search(LAND_CONTEXT, window):
+            out.append(_Cand(raw / 4840.0, "sqyd", m.start(), m.end(), qualifier="converted"))
+
+    # sq ft / sq m of land (converted) — incl. "sq metres", "sqm", decimals
+    for m in re.finditer(
+            rf"(?<![\w]){_NUM_THOU}\s*(?:sq\.?\s*ft|sq\.?\s*feet|sqft|square\s*feet|square\s*foot)\b", t):
         raw = _num(m.group(1))
         if raw is None or raw < 3000:
             continue
         window = t[max(0, m.start() - 120):m.end() + 120]
         if re.search(LAND_CONTEXT, window):
             out.append(_Cand(raw / SQFT_PER_ACRE, "sqft", m.start(), m.end(), qualifier="converted"))
-    for m in re.finditer(r"(?<![\w])([\d,]+)\s*(?:sq\.?\s*m|square\s*metres|square\s*meters)\b", t):
+    for m in re.finditer(
+            rf"(?<![\w]){_NUM_THOU}\s*(?:sq\.?\s*m(?:etres?|eters?)?|sqm|square\s*metres?|square\s*meters?)\b", t):
         raw = _num(m.group(1))
         if raw is None or raw < 300:
             continue
         window = t[max(0, m.start() - 120):m.end() + 120]
         if re.search(LAND_CONTEXT, window):
             out.append(_Cand(raw / SQM_PER_ACRE, "sqm", m.start(), m.end(), qualifier="converted"))
+
+    # plot dimensions L x W (e.g. "plot 100ft x 50ft", "garden 30m x 20m").
+    # Requires land context to avoid room sizes ("kitchen 20 x 15 ft").
+    for m in re.finditer(
+            r"(?<![\w])(\d+(?:\.\d+)?)\s*(ft|feet|m|metres?|meters?|yds?|yards?)\s*"
+            r"[x×]\s*(\d+(?:\.\d+)?)\s*(ft|feet|m|metres?|meters?|yds?|yards?)\b", t):
+        try:
+            a, b = float(m.group(1)), float(m.group(3))
+        except ValueError:
+            continue
+        u1, u2 = m.group(2).lower(), m.group(4).lower()
+        # mixed units (rare) — normalise both to feet
+        def _to_ft(v, u):
+            if u.startswith("m"):
+                return v * 3.28084
+            if u.startswith("yd") or u.startswith("yd"):
+                return v * 3.0
+            if u.startswith("y"):
+                return v * 3.0
+            return v
+        a_ft, b_ft = _to_ft(a, u1), _to_ft(b, u2)
+        sqft = a_ft * b_ft
+        if sqft < 3000 or sqft > 435600:  # <0.07ac or >10ac unlikely a dimension plot
+            continue
+        window = t[max(0, m.start() - 120):m.end() + 120]
+        if re.search(LAND_CONTEXT + r"|plot|site", window):
+            out.append(_Cand(sqft / SQFT_PER_ACRE, "sqft", m.start(), m.end(), qualifier="converted"))
 
     # drop plain candidates swallowed by a range candidate
     ranges = [c for c in out if c.qualifier == "range"]

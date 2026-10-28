@@ -151,6 +151,7 @@ a:hover { text-decoration: underline; }
 .badge { font-size: 12px; padding: 0 2px; }
 .okb { color: var(--accent); }
 .warnb { color: var(--accent2); }
+.dimb { color: var(--dim); }
 .edit-acres {
   background: none; border: none; cursor: pointer; color: var(--dim);
   font-size: 11px; padding: 0 3px; opacity: 0.6;

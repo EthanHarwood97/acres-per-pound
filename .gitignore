@@ -1,7 +1,20 @@
 data/*
 !data/regions.json
+!data/regions_otm.json
+!data/regions_zoopla.json
+# state is committed gzipped (plain JSON is over GitHub's 100 MB limit)
+snapshots/state.json
+!snapshots/state.json.gz
 __pycache__/
 *.pyc
 .venv/
 venv/
 .pytest_cache/
+.env
+.env.*
+node_modules/
+web/dist/
+worker/node_modules/
+worker/.wrangler/
+.playwright-mcp/
+*.log
