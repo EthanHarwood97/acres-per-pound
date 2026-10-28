@@ -113,7 +113,7 @@ def cycle(fetcher, cfg, regions_by_source, prev_state=None, verbose=False,
     day = datetime.datetime.now(datetime.timezone.utc).timetuple().tm_yday
     stats = {"regions": 0, "listings": len(cur), "truncated_regions": [],
              "full_scans": 0, "new_sweeps": 0, "scanned": 0,
-             "regions_skipped": 0, "by_source": {}}
+             "regions_skipped": 0, "enrich_skipped": 0, "by_source": {}}
     removed = []
     budget_hit = False
 
@@ -199,6 +199,9 @@ def cycle(fetcher, cfg, regions_by_source, prev_state=None, verbose=False,
     excl = set(cfg.get("search", {}).get("exclude_subtypes") or [])
     for uid, row in cur.items():
         if not row.get("last_seen") or row["last_seen"] != ts:
+            continue
+        if deadline is not None and time.time() > deadline:
+            stats["enrich_skipped"] += 1
             continue
         if (row.get("subtype") or "") in excl:
             continue
