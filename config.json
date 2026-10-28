@@ -17,7 +17,7 @@
     "property_types": ["detached", "semi-detached", "terraced", "bungalow", "land"],
     "delay_sec": 2.0,
     "detail_ttl_days": 30,
-    "full_cycle_days": 14,
+    "full_cycle_days": 28,
     "new_pages_per_region": 6,
     "new_stop_pages": 2,
     "cache_ttl_days": 7,
