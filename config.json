@@ -18,6 +18,7 @@
     "delay_sec": 2.0,
     "detail_ttl_days": 30,
     "full_cycle_days": 28,
+    "scan_budget_min": 120,
     "new_pages_per_region": 6,
     "new_stop_pages": 2,
     "cache_ttl_days": 7,

@@ -1,4 +1,5 @@
 import argparse
+import datetime
 import logging
 import pathlib
 import sys
@@ -110,10 +111,24 @@ def cmd_publish(args):
     by_source = _enabled_regions_by_source(cfg, args)
     print(f"scanning {sum(len(v) for v in by_source.values())} regions "
           f"(max price {cfg['search'].get('max_price') or 'unlimited'})")
+    # Rotate the region order daily: with a time budget the tail of the
+    # list would otherwise never be reached.
+    today = datetime.datetime.now(datetime.timezone.utc).timetuple().tm_yday
+    for src, regs in list(by_source.items()):
+        if regs:
+            k = today % len(regs)
+            by_source[src] = regs[k:] + regs[:k]
+    budget_min = float(cfg.get("search", {}).get("scan_budget_min", 120))
+    deadline = (datetime.datetime.now(datetime.timezone.utc)
+                + datetime.timedelta(minutes=budget_min)).timestamp()
     snaps = _snapshots_dir(cfg)
     prev = load_state(snaps / "state.json")
     prev_n = len((prev or {}).get("listings") or {})
-    state = cycle(fetcher, cfg, by_source, prev_state=prev, verbose=args.verbose)
+    state = cycle(fetcher, cfg, by_source, prev_state=prev,
+                  verbose=args.verbose, deadline=deadline)
+    if state["stats"].get("regions_skipped"):
+        print(f"scan budget {budget_min:.0f} min reached: "
+              f"{state['stats']['regions_skipped']} regions deferred to the next run")
     conn = _store(cfg)
     persist(conn, state, cfg=cfg, verbose=args.verbose)
     # 200k+ rows are in memory twice at this point (scan state + store

@@ -11,6 +11,7 @@ import json
 import logging
 import pathlib
 import re
+import time
 
 from . import otm, rightmove
 from . import store as store_mod
@@ -94,10 +95,13 @@ def _uid_of(rm_id, row):
 
 
 def cycle(fetcher, cfg, regions_by_source, prev_state=None, verbose=False,
-          force_full=False):
+          force_full=False, deadline=None):
     """One scan cycle across all enabled sources.
 
     `regions_by_source` maps source name -> list of region dicts.
+    `deadline` (epoch seconds) stops the scan once exceeded and leaves
+    the untouched regions for the next run: a full reconcile day can
+    otherwise run for hours and hit the CI job timeout.
     Returns {"ts", "listings": {uid: row}, "events": [...], "stats": {...}}
     """
     ts = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
@@ -108,8 +112,10 @@ def cycle(fetcher, cfg, regions_by_source, prev_state=None, verbose=False,
     cur = dict(prev)
     day = datetime.datetime.now(datetime.timezone.utc).timetuple().tm_yday
     stats = {"regions": 0, "listings": len(cur), "truncated_regions": [],
-             "full_scans": 0, "new_sweeps": 0, "scanned": 0, "by_source": {}}
+             "full_scans": 0, "new_sweeps": 0, "scanned": 0,
+             "regions_skipped": 0, "by_source": {}}
     removed = []
+    budget_hit = False
 
     for source_name, regions in (regions_by_source or {}).items():
         module = SOURCES.get(source_name)
@@ -117,7 +123,14 @@ def cycle(fetcher, cfg, regions_by_source, prev_state=None, verbose=False,
             log.warning("unknown source %s", source_name)
             continue
         stats["by_source"].setdefault(source_name, 0)
-        for region in regions:
+        if budget_hit:
+            stats["regions_skipped"] += len(regions)
+            continue
+        for i, region in enumerate(regions):
+            if deadline is not None and time.time() > deadline:
+                stats["regions_skipped"] += len(regions) - i
+                budget_hit = True
+                break
             mode = "full" if force_full else _mode_for(region, cfg, day)
             rid = region.get("id")
             prev_ids = {uid for uid, r in prev.items()
